@@ -1,0 +1,38 @@
+<div class="bg d-flex flex-column justify-content-center align-items-center" style="background-image: url('https://blog.1password.com/posts/2023/passage-by-1password/header.png'); background-repeat: no-repeat; background-size: cover; height: 100vh;">
+  <div class="container mt-5">
+    <div>
+      <h1 class="text-center text-danger" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 700;">Espritia</h1>
+    </div>
+    <div class="card shadow mt-5" style="max-width: 400px;">
+      <div class="card-header bg-danger text-white">
+        <h3 class="mb-0 text-center">Signup</h3>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="register()" #loginForm="ngForm">
+          <div class="form-group">
+            <label for="nom">nom</label>
+            <input type="text" id="nom" name="nom" placeholder="nom" class="form-control" [(ngModel)]="nom" required>
+          </div>
+          <div class="form-group">
+            <label for="email">email</label>
+            <input type="text" id="email" name="email" placeholder="email" class="form-control" [(ngModel)]="email" required>
+          </div>
+          <div class="form-group">
+            <label for="motDePasse">Mot de passe</label>
+            <input type="password" id="motDePasse" placeholder="*****" name="motDePasse" class="form-control" [(ngModel)]="motDePasse" required>
+          </div>
+          <div class="form-group">
+            <label for="role">Role</label>
+            <select id="role" name="role" class="form-control" [(ngModel)]="role" required>
+                <option value="" disabled selected>Choisir un role</option>
+                <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+            </select>
+          </div>
+          <div class="d-flex justify-content-end py-2">
+            <button type="submit" class="btn btn-outline-danger ms-2">Signup</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
