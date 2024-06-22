@@ -1,0 +1,24 @@
+<h2>{{ covoiturage.id ? 'Modifier' : 'Créer' }} un Covoiturage</h2>
+
+<form (ngSubmit)="saveCovoiturage()">
+  <label for="heureDepart">Heure de départ:</label>
+  <input id="heureDepart" type="date" [(ngModel)]="covoiturage.heureDepart" name="heureDepart" required>
+  
+  <!-- Affichage du message d'erreur si la date de départ est inférieure à aujourd'hui -->
+  <div *ngIf="!isHeureDepartValid()" class="error-message">
+    La date de départ doit être supérieure ou égale à aujourd'hui.
+  </div>
+
+  <label for="lieuDepart">Lieu de départ:</label>
+  <input id="lieuDepart" [(ngModel)]="covoiturage.lieuDepart" name="lieuDepart" required>
+  <label for="destination">Destination:</label>
+  <input id="destination" [(ngModel)]="covoiturage.destination" name="destination" required>
+  <label for="nbPlace">Nombre de places:</label>
+  <input id="nbPlace" type="number" [(ngModel)]="covoiturage.nbPlace" name="nbPlace" required>
+  <label for="status">Statut:</label>
+  <select id="status" [(ngModel)]="covoiturage.status" name="status" required>
+    <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+  </select>
+
+  <button type="submit" class="blue-button">{{ covoiturage.id ? 'Mettre à jour' : 'Créer' }}</button>
+</form>
