@@ -1,0 +1,33 @@
+<div class="container mt-4">
+    <h5 class="mb-4">Users List</h5>
+    <table id="usersTable" class="table table-striped table-bordered" style="width:100%">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Banned</th>
+                <th scope="col">Role</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <ng-container *ngIf="user.role !== 'Admin'">
+                    <td>{{user.id}}</td>
+                    <td>{{user.nom}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.banned ? 'Yes' : 'No'}}</td>
+                    <td>{{user.role}}</td>
+                    <td>
+                        <button class="btn btn-dark btn-sm text-white mr-1">Edit</button>
+                        <button class="btn btn-warning btn-sm text-white mr-1" (click)="banUnban(user.id)">
+                            {{user.banned ? 'Unban' : 'Ban'}}
+                        </button>
+                        <button class="btn btn-danger btn-sm" (click)="remove(user.id)">Delete</button>
+                    </td>
+                </ng-container>
+            </tr>            
+        </tbody>
+    </table>
+</div>

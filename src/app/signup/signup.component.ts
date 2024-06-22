@@ -11,10 +11,20 @@ export class SignupComponent {
   nom!: string;
   email!: string;
   motDePasse!: string;
-  role!: string;
+  role: string = "";
   roles: string[] = ['Admin', 'President', 'Membre', 'Conducteur', 'Passager', 'Organisateur'];
   constructor(private authService: AuthService, private router: Router) {}
-
+  ngOnInit() {
+    if (localStorage.getItem('role') === 'Admin') {
+      this.router.navigate(['/back-office']);
+    }
+    else if (localStorage.getItem('role') === 'President' || localStorage.getItem('role') === 'Membre' || localStorage.getItem('role') === 'Conducteur' || localStorage.getItem('role') === 'Passager' || localStorage.getItem('role') === 'Organisateur') {
+      this.router.navigate(['/front-office']);
+    }
+  }
+  login(){
+    this.router.navigate(['/login']);
+  }
   register() {
     const signupRequest = {
       nom: this.nom,
@@ -22,7 +32,7 @@ export class SignupComponent {
       motDePasse: this.motDePasse,
       role: this.role
     };
-
+    
     this.authService.signup(signupRequest).subscribe(response => {
       // Handle successful registration
       console.log('Registration successful:', response);

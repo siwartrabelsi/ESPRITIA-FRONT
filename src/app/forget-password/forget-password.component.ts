@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-forget-password',
+  templateUrl: './forget-password.component.html',
+  styleUrls: ['./forget-password.component.css']
 })
-export class LoginComponent {
+export class ForgetPasswordComponent {
   email!: string;
   error!: string;
   motDePasse!: string;
@@ -21,15 +21,13 @@ export class LoginComponent {
     }
   }
   login() {
-    const signinRequest = {
+    const resetRequest = {
       email: this.email,
-      motDePasse: this.motDePasse
     };
 
-    this.authService.signin(signinRequest).subscribe((response: any) => {
+    this.authService.signin(resetRequest).subscribe((response: any) => {
       // Handle successful registration
       console.log('Signin successful:', response.user.role);
-      localStorage.setItem('role', response.user.role);
       localStorage.setItem('accessToken', response.token);
       if (response.user.role === 'Admin') {
         this.router.navigate(['/back-office']);
