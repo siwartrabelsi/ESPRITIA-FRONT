@@ -1,0 +1,66 @@
+<!--
+<div>
+  <h2>Evenements</h2>
+  <div>
+    <input [(ngModel)]="searchTerm" placeholder="Rechercher un événement" class="form-control" style="margin-bottom: 30px;">
+  </div>
+  <ul>
+    <li *ngFor="let evenement of filteEvenements">
+      <div>
+        <h3>{{ evenement.nom }}</h3>
+        <p>{{ evenement.date }}</p>
+        <p>{{ evenement.statut }}</p>
+        <img *ngIf="evenement.affiche" [src]="'assets/' + evenement.affiche" alt="Affiche de l'événement" style="max-width: 200px;">
+        <img *ngIf="qrCodeUrls[evenement.id]" [src]="qrCodeUrls[evenement.id]" alt="QR Code">
+        <button (click)="updateEvenement(evenement.id)">Modifier</button>
+        <button (click)="deleteEvenement(evenement.id)">Supprimer</button>
+      </div>
+    </li>
+  </ul>
+  <a routerLink="/create">Créer un nouvel événement</a>
+</div> -->
+<!-- src/app/evenement-list/evenement-list.component.html -->
+<div class="container mt-4">
+  <h2 class="mb-4">Evenements</h2>
+  <div class="row mb-4">
+    <div class="col">
+      <input [(ngModel)]="searchTerm" placeholder="Rechercher un événement" class="form-control">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <ul class="list-group">
+        <li *ngFor="let evenement of filteEvenements" class="list-group-item mb-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <img *ngIf="evenement.affiche" [src]="'assets/' + evenement.affiche" alt="Affiche de l'événement" class="img-thumbnail me-3" style="max-width: 100px;">
+              <div>
+                <h5 class="mb-1">{{ evenement.nom }}</h5>
+                <p class="mb-1">{{ evenement.date }}</p>
+                <p class="mb-1">{{ evenement.statut }}</p>
+                <p class="mb-1">{{ evenement.rating }}</p>
+                <div class="rating">
+                  <span class="fa fa-star" [class.checked]="evenement.rating >= 1"></span>
+                  <span class="fa fa-star" [class.checked]="evenement.rating >= 2"></span>
+                  <span class="fa fa-star" [class.checked]="evenement.rating >= 3"></span>
+                  <span class="fa fa-star" [class.checked]="evenement.rating >= 4"></span>
+                  <span class="fa fa-star" [class.checked]="evenement.rating >= 5"></span>
+                </div>
+
+              </div>
+            </div>
+            <div>
+              <img *ngIf="qrCodeUrls[evenement.id]" [src]="qrCodeUrls[evenement.id]" alt="QR Code" class="me-3" style="max-width: 100px;">
+              <button (click)="updateEvenement(evenement.id)" class="btn btn-primary btn-sm me-2">Modifier</button>
+              <button (click)="deleteEvenement(evenement.id)" class="btn btn-danger btn-sm">Supprimer</button>
+              <button (click)="DetailEvenement(evenement.id)" class="btn btn-secondary btn-sm me-2">Detail</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="mt-4">
+    <a routerLink="/create" class="btn btn-success">Créer un nouvel événement</a>
+  </div>
+</div>

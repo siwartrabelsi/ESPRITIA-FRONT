@@ -1,0 +1,15 @@
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+}
+
+.rating span {
+  font-size: 25px;
+  padding: 0 5px;
+  cursor: default; /* Pour désactiver le curseur pointer */
+}
+
+.rating span.checked {
+  color: gold;
+}

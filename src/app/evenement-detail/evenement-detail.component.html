@@ -1,0 +1,11 @@
+<div *ngIf="evenement" class="container">
+  <h2>{{ evenement.nom }}</h2>
+  <p>Date: {{ evenement.date }}</p>
+  <!-- <p>Organisateur: {{ evenement.organisateur }}</p> -->
+  <p>Statut: {{ evenement.statut }}</p>
+  <img *ngIf="evenement.affiche" [src]="'assets/' + evenement.affiche"
+    alt="Affiche de l'événement" style="max-width: 100px;">
+
+
+
+</div>
