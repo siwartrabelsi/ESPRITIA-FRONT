@@ -1,0 +1,56 @@
+<!-- <div class="container">
+    <h2>Mettre à Jour l'Événement</h2>
+    <form [formGroup]="evenementForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nom">Nom de l'Événement</label>
+        <input id="nom" type="text" class="form-control" formControlName="nom" required>
+        <div *ngIf="evenementForm.get('nom')?.invalid && (evenementForm.get('nom')?.dirty || evenementForm.get('nom')?.touched)" class="text-danger">
+          <div *ngIf="evenementForm.get('nom')?.errors?.['required']">Le nom est requis.</div>
+          <div *ngIf="evenementForm.get('nom')?.errors?.['minlength']">Le nom doit comporter au moins 3 caractères.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Date de l'Événement</label>
+        <input id="date" type="date" class="form-control" formControlName="date" required>
+        <div *ngIf="evenementForm.get('date')?.invalid && (evenementForm.get('date')?.dirty || evenementForm.get('date')?.touched)" class="text-danger">
+          <div *ngIf="evenementForm.get('date')?.errors?.['required']">La date est requise.</div>
+          <div *ngIf="evenementForm.get('date')?.errors?.['dateFuture']">La date doit être supérieure à aujourd'hui.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="statut">Statut</label>
+        <input id="statut" type="text" class="form-control" formControlName="statut" required>
+        <div *ngIf="evenementForm.get('statut')?.invalid && (evenementForm.get('statut')?.dirty || evenementForm.get('statut')?.touched)" class="text-danger">
+          <div *ngIf="evenementForm.get('statut')?.errors?.['required']">Le statut est requis.</div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="evenementForm.invalid">Mettre à Jour</button>
+    </form>
+  </div>
+   -->
+
+   <div class="container">
+    <h2>Modifier l'événement</h2>
+    <form [formGroup]="updateForm" (ngSubmit)="onUpdateEvenement()">
+      <div class="form-group">
+        <label for="nom">Nom de l'événement:</label>
+        <input type="text" class="form-control" id="nom" formControlName="nom">
+      </div>
+      <div class="form-group">
+        <label for="date">Date de l'événement:</label>
+        <input type="date" class="form-control" id="date" formControlName="date">
+      </div>
+      <div class="form-group">
+        <label for="statut">Statut:</label>
+        <input type="text" class="form-control" id="statut" formControlName="statut">
+      </div>
+      <div class="form-group">
+        <label for="affiche">Affiche:</label>
+        <input type="file" class="form-control" id="affiche" (change)="onFileChangeAffiche($event)">
+      </div>
+      <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </form>
+  </div>
