@@ -1,0 +1,46 @@
+/* src/app/components/edit-covoiturage/edit-covoiturage.component.css */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  input, button {
+    margin-top: 5px;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+
+  .blue-button {
+    background-color: #007bff; /* Couleur bleue */
+    color: white; /* Couleur du texte en blanc */
+    border: none; /* Pas de bordure */
+    padding: 8px 16px; /* Espacement intérieur */
+    cursor: pointer; /* Curseur de souris */
+    border-radius: 4px; /* Coins arrondis */
+  }
+  
+  .error-message {
+    color: red;
+    font-size: small;
+    font-style: italic;
+  }
+  
