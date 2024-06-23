@@ -1,0 +1,28 @@
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .logo h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333; /* Adjust color as needed */
+  }
+  
+  .card {
+    max-width: 400px;
+    margin: 0 auto;
+    border: none;
+  }
+  
+  .card-header {
+    border-bottom: none;
+  }
+  
+  .card-footer {
+    border-top: none;
+  }
+  .bg{
+    height: 100;
+  }
+  
