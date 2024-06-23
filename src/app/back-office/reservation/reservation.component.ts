@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Reservation } from '../reservation';
-import { Espace } from '../espace';
-import { TypeEquipement } from '../typeEquipement';
-import { ReservationService } from '../Reservations services/reservation.service';
-import { EspaceService } from '../Espaces services/espace.service';
+import { Reservation } from '../../reservation';
+import { Espace } from '../../espace';
+import { TypeEquipement } from '../../typeEquipement';
+import { ReservationService } from '../../Reservations services/reservation.service';
+import { EspaceService } from '../../Espaces services/espace.service';
 
 
 @Component({
@@ -50,6 +50,7 @@ export class ReservationComponent {
   getEspaces(): void {
     this.espaceService.getAllEspaces().subscribe((data: Espace[]) => {
       this.espaces = data;
+      console.log(data)
     });
   }
 

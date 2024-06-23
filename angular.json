@@ -87,12 +87,22 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css"
+              
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js"
+
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "9cf8bb63-0e21-4e13-b1d0-646a15fea325"
   }
 }

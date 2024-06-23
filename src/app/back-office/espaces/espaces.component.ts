@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 
 
 import { Router } from '@angular/router'; // Importer le Router pour la navigation
-import { EspaceService } from '../Espaces services/espace.service';
-import { Espace } from '../espace';
-import { TypeEquipement } from '../typeEquipement';
+import { EspaceService } from '../../Espaces services/espace.service';
+import { Espace } from '../../espace';
+import { TypeEquipement } from '../../typeEquipement';
 
 @Component({
   selector: 'app-espaces',
