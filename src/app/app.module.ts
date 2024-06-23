@@ -7,6 +7,8 @@ import { UpdateClubComponent } from './back-office/update-club/update-club.compo
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EspacesComponent } from './back-office/espaces/espaces.component';
+import { ReservationComponent } from './back-office/reservation/reservation.component';
 import { LoginComponent } from './login/login.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -23,6 +25,8 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 @NgModule({
   declarations: [
     AppComponent,
+    EspacesComponent,
+    ReservationComponent,
     ClubListComponent,
     ClubDetailComponent,
     ClubFormComponent,
