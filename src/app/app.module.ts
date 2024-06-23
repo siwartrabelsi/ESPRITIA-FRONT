@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ClubListComponent } from './back-office/club-list/club-list.component';
+import { ClubDetailComponent } from './back-office/club-detail/club-detail.component';
+import { ClubFormComponent } from './back-office/club-form/club-form.component';
+import { UpdateClubComponent } from './back-office/update-club/update-club.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -19,6 +23,10 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 @NgModule({
   declarations: [
     AppComponent,
+    ClubListComponent,
+    ClubDetailComponent,
+    ClubFormComponent,
+    UpdateClubComponent,
     LoginComponent,
     SignupComponent,
     HomeComponent,
@@ -33,6 +41,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    FontAwesomeModule,
     HttpClientModule
   ],
   providers: [
