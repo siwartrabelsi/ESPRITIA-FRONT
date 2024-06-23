@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ClubService } from '../club.service';
-import { Club } from '../club';
+import { ClubService } from '../../club.service';
+import { Club } from '../../club';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({

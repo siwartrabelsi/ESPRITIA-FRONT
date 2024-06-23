@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClubService } from '../club.service';
-import { Club } from '../club';
+import { ClubService } from '../../club.service';
+import { Club } from '../../club';
 
 @Component({
   selector: 'app-update-club',

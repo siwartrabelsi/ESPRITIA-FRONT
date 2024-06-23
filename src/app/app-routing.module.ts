@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ClubListComponent } from './club-list/club-list.component';
-import { ClubDetailComponent } from './club-detail/club-detail.component';
-import { ClubFormComponent } from './club-form/club-form.component';
-import { UpdateClubComponent } from './update-club/update-club.component';
+import { ClubListComponent } from './back-office/club-list/club-list.component';
+import { ClubDetailComponent } from './back-office/club-detail/club-detail.component';
+import { ClubFormComponent } from './back-office/club-form/club-form.component';
+import { UpdateClubComponent } from './back-office/update-club/update-club.component';
 
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -24,18 +24,17 @@ const routes: Routes = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'users', component: UsersComponent },
-    { path: 'settings', component: SettingsComponent }
+    { path: 'settings', component: SettingsComponent },
+    { path: 'clubs', component: ClubListComponent },
+    { path: 'clubs/:id', component: ClubDetailComponent },
+    { path: 'add-club', component: ClubFormComponent },
+    { path: 'update-club/:id', component: UpdateClubComponent }
   ]},
   { path: 'front-office', component: FrontOfficeComponent, children: [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
   ]},
   { path: '**', redirectTo: '/login' },
-  { path: '', redirectTo: 'clubs', pathMatch: 'full' },
-  { path: 'clubs', component: ClubListComponent },
-  { path: 'clubs/:id', component: ClubDetailComponent },
-  { path: 'add-club', component: ClubFormComponent },
-  { path: 'update-club/:id', component: UpdateClubComponent }
 ];
 
 @NgModule({

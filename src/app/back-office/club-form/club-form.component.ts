@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ClubService } from '../club.service';
-import { Club } from '../club';
+import { ClubService } from '../../club.service';
+import { Club } from '../../club';
 
 @Component({
   selector: 'app-club-form',
@@ -22,6 +22,6 @@ export class ClubFormComponent {
   constructor(private clubService: ClubService, private router: Router) {}
 
   save(): void {
-    this.clubService.createClub(this.club).subscribe(() => this.router.navigate(['/clubs']));
+    this.clubService.createClub(this.club).subscribe(() => this.router.navigate(['/back-office/clubs']));
   }
 }

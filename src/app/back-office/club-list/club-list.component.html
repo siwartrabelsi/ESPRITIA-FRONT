@@ -8,8 +8,8 @@
       <input id="nom" [(ngModel)]="club.nom" name="nom">
       <input id="description" [(ngModel)]="club.description" name="description">
       <button class="delete-button" (click)="deleteClub(club.id)">Delete</button> 
-      <a [routerLink]="['/update-club', club.id]" class="update-button">Update</a>
-      <a [routerLink]="['/clubs', club.id]">Show detail</a>
+      <a [routerLink]="['/back-office/update-club', club.id]" class="update-button">Update</a>
+      <a [routerLink]="['/back-office/clubs', club.id]">Show detail</a>
       <button (click)="likeClub(club.id)">
         <fa-icon [icon]="faThumbsUp"></fa-icon>
       </button>
@@ -20,7 +20,7 @@
       <img [src]="generateQRCodeUrl(club.id)" alt="QR Code" /> <!-- Affiche l'image du code QR -->
     </div>
   </div>
-  <a routerLink="/add-club">Add New Club</a>
+  <a routerLink="/back-office/add-club">Add New Club</a>
 
   <!-- Statistiques -->
   <h2>Statistiques</h2>
