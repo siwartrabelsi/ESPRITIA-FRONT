@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 sidebar bg-danger">
+            <div class="sidebar-sticky py-2">
+                <h5 class="text-light text-center">Espritia</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" routerLink="/back-office/dashboard" routerLinkActive="active">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" routerLink="/back-office/users" routerLinkActive="active">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" routerLink="/back-office/clubs" routerLinkActive="active">Clubs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" routerLink="/back-office/espaces" routerLinkActive="active">Espace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" routerLink="/back-office/reservation" routerLinkActive="active">Reservation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" routerLink="/back-office/covoiturages" routerLinkActive="active">Covoiturages</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-light" routerLink="/back-office/settings" routerLinkActive="active">Settings</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <a class="nav-link text-light disconnect" href="#" (click)="disconnect()">Disconnect</a>
+            </div>
+        </div>
+
+        <div class="col-md-10 p-2 content">
+            <div class="container">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

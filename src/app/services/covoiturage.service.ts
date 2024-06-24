@@ -8,7 +8,7 @@ import { Covoiturage } from '../models/covoiturage.model';
 })
 export class CovoiturageService {
 
-  private apiUrl = 'http://localhost:9090/users/1/covoiturages'; // Modifier l'URL en fonction de votre API
+  private apiUrl = 'http://localhost:9090/api/covoiturages'; // Modifier l'URL en fonction de votre API
 
   constructor(private http: HttpClient) { }
 

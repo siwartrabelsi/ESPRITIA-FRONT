@@ -1,0 +1,89 @@
+<p>espaces works!</p>
+
+<header>
+    
+  
+    <div class="nav-items">
+      <div class="nav-item">
+        <span>LISTE DES ESPACES</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Entrez le nom de l'espace">
+    <button (click)="searchEspaces()">Rechercher</button>
+  </div>
+  
+
+  <div *ngIf="espaces" class="listespaces-container">
+    <h2 class="listespaces-title">Liste des espaces</h2>
+    <table class="listespaces-table">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Description</th>
+          <th>Capacité</th>
+          <th>Adresse</th>
+          <th>Équipement</th>
+          <th>Photo</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let espace of espaces">
+          <td>{{ espace.nom }}</td>
+          <td>{{ espace.description }}</td>
+          <td>{{ espace.capacite }}</td>
+          <td>{{ espace.adresse }}</td>
+          <td>{{ espace.equipement }}</td>
+          <td><img [src]="'assets/' + espace.photo" alt="Espace photo" *ngIf="espace.photo" style="width: 100px; height: 100px;">
+          
+          </td>
+          <td>
+            <button (click)="editEspace(espace)">Modifier</button>
+            <button (click)="deleteEspace(espace.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
+  <div class="bttn">    
+    <button (click)="showAddEspaceModal()">Ajouter un espace</button>
+  </div>
+  
+  <div *ngIf="showModal" class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2>{{ editMode ? 'Modifier Espace' : 'Ajouter un Espace' }}</h2>
+      <form (ngSubmit)="submitForm()">
+        <label for="nom">Nom de l'espace:</label>
+        <input type="text" id="nom" [(ngModel)]="selectedEspace.nom" name="nom" required>
+        
+        <label for="description">Description:</label>
+        <input type="text" id="description" [(ngModel)]="selectedEspace.description" name="description" required>
+        
+        <label for="capacite">Capacité:</label>
+        <input type="number" id="capacite" [(ngModel)]="selectedEspace.capacite" name="capacite" required>
+        
+        <label for="adresse">Adresse:</label>
+        <input type="text" id="adresse" [(ngModel)]="selectedEspace.adresse" name="adresse" required>
+        
+        <label for="equipement">Équipement:</label>
+        <select id="equipement" [(ngModel)]="selectedEspace.equipement" name="equipement" required>
+          <option *ngFor="let equip of TypeEquipement | keyvalue" [ngValue]="equip.key">{{ equip.key }}</option>
+        </select>
+        
+        <label for="photo">Photo:</label>
+        <input type="file" id="photo" (change)="onFileSelected($event)">
+        
+        
+        <br>
+        <button type="submit">{{ editMode ? 'Modifier' : 'Ajouter' }}</button>
+      </form>
+    </div>
+  </div>
+  
+  
