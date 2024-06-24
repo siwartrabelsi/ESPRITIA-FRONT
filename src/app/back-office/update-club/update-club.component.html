@@ -1,0 +1,10 @@
+<h2>Update Club</h2>
+<form (ngSubmit)="updateClub()">
+  <label for="nom">Name:</label>
+  <input id="nom" [(ngModel)]="club.nom" name="nom">
+
+  <label for="description">Description:</label>
+  <textarea id="description" [(ngModel)]="club.description" name="description"></textarea>
+
+  <button type="submit" class="update-button">Update</button> 
+</form>

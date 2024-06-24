@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -87,15 +88,23 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css"
+              
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js"
+
+            ]
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "c96f3b57-7040-4161-a486-94b7853e6ac6"
+    "analytics": "9cf8bb63-0e21-4e13-b1d0-646a15fea325"
   }
 }

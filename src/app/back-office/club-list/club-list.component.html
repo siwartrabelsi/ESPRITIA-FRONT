@@ -1,0 +1,43 @@
+<div>
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Enter club name">
+  <button (click)="searchClubs()">Search</button>
+
+  <div *ngIf="clubs.length === 0">No clubs available</div>
+  <div *ngFor="let club of clubs">
+    <div *ngIf="!searchTerm || club.nom.toLowerCase().includes(searchTerm.toLowerCase())">
+      <input id="nom" [(ngModel)]="club.nom" name="nom">
+      <input id="description" [(ngModel)]="club.description" name="description">
+      <button class="delete-button" (click)="deleteClub(club.id)">Delete</button> 
+      <a [routerLink]="['/back-office/update-club', club.id]" class="update-button">Update</a>
+      <a [routerLink]="['/back-office/clubs', club.id]">Show detail</a>
+      <button (click)="likeClub(club.id)">
+        <fa-icon [icon]="faThumbsUp"></fa-icon>
+      </button>
+      <button (click)="dislikeClub(club.id)">
+        <fa-icon [icon]="faThumbsDown"></fa-icon>
+      </button>
+      <button (click)="downloadPdf(club.id)">Download PDF</button> <!-- Bouton pour télécharger le PDF -->
+      <img [src]="generateQRCodeUrl(club.id)" alt="QR Code" /> <!-- Affiche l'image du code QR -->
+    </div>
+  </div>
+  <a routerLink="/back-office/add-club">Add New Club</a>
+
+  <!-- Statistiques -->
+  <h2>Statistiques</h2>
+
+<table>
+  <tr>
+    <td>Total des clubs:</td>
+    <td>{{ getTotalClubCount() }}</td>
+  </tr>
+  <tr>
+    <td>Total des likes:</td>
+    <td>{{ getTotalLikesCount() }}</td>
+  </tr>
+  <tr>
+    <td>Total des dislikes:</td>
+    <td>{{ getTotalDislikesCount() }}</td>
+  </tr>
+</table>
+
+</div>

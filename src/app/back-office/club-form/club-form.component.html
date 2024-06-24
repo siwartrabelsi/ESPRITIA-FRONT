@@ -1,0 +1,18 @@
+<form (ngSubmit)="save()" #clubForm="ngForm">
+  <label for="nom">Nom:</label>
+  <input id="nom" [(ngModel)]="club.nom" name="nom" placeholder="Enter le nom du club" required>
+  <!-- Afficher un message d'erreur pour le champ "Nom" s'il est invalide -->
+  <div *ngIf="clubForm.controls['nom'].invalid && clubForm.controls['nom'].touched">
+    <span style="color: red;">Le nom est obligatoire.</span>
+  </div>
+  <br>
+  <label for="description">Description:</label>
+  <textarea id="description" [(ngModel)]="club.description" name="description" placeholder="Enter la description du club" required></textarea>
+  <!-- Afficher un message d'erreur pour le champ "Description" s'il est invalide -->
+  <div *ngIf="clubForm.controls['description'].invalid && clubForm.controls['description'].touched">
+    <span style="color: red;">La description est obligatoire.</span>
+  </div>
+
+  <!-- Afficher le bouton "Save" uniquement si les champs "nom" et "description" sont valides -->
+  <button type="submit" [disabled]="!clubForm.valid">Save</button>
+</form>
