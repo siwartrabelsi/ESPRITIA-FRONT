@@ -28,6 +28,7 @@ import { EvenementListComponent } from './back-office/evenement-list/evenement-l
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
+import { CovoiturageComponent } from './front-office/covoiturage/covoiturage.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { EvenementDetailComponent } from './back-office/evenement-detail/eveneme
     EvenementListComponent,
     EvenementDetailComponent,
     EvenementFormComponent,
-    EvenementUpdateComponent
+    EvenementUpdateComponent,
+    CovoiturageComponent
   ],
   imports: [
     BrowserModule,
