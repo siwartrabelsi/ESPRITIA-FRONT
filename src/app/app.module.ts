@@ -29,6 +29,7 @@ import { EvenementUpdateComponent } from './back-office/evenement-update/eveneme
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
 import { CovoiturageComponent } from './front-office/covoiturage/covoiturage.component';
+import { CovoiturageService } from './services/covoiturage.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { CovoiturageComponent } from './front-office/covoiturage/covoiturage.com
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [
     {

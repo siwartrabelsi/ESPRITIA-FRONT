@@ -26,6 +26,10 @@ import { EvenementUpdateComponent } from './back-office/evenement-update/eveneme
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
 
+import { CovoiturageComponent } from './front-office/covoiturage/covoiturage.component';  // Importez votre composant
+
+
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -53,10 +57,12 @@ const routes: Routes = [
       { path: 'updateEvenement/:id', component: EvenementUpdateComponent }
     ]
   },
+  { path: 'covoiturage', component: CovoiturageComponent },
   {
     path: 'front-office', component: FrontOfficeComponent, children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
+      
     ]
   },
   { path: '**', redirectTo: '/login' },

@@ -119,7 +119,10 @@
                         <img class="card-img-top" src="assets/covoiturge.jpg" alt="" />
                         <div class="card-body p-4">
                             <div class="badge bg-danger bg-gradient rounded-pill mb-2">Covoiturage</div>
-                            <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Trouver un coviturage</h5></a>
+                            <a class="text-decoration-none link-dark stretched-link" [routerLink]="['/covoiturage']">
+                                <h5 class="card-title mb-3">Trouver un coviturage</h5>
+                              </a>
+                              
                             <p class="card-text mb-0">La route des vacances, pas des dépenses.</p>
                         </div>
                         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">

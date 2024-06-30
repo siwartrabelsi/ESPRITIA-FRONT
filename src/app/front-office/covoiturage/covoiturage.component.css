@@ -1,0 +1,26 @@
+.content {
+    padding: 20px;
+}
+
+.header-image {
+    position: relative;
+    overflow: hidden;
+    max-height: 300px; /* Ajustez la hauteur maximale selon vos besoins */
+}
+
+.header-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Ajouter une règle hover pour l'image si nécessaire */
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+}
