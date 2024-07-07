@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ClubListComponent } from './back-office/club-list/club-list.component';
 import { ClubDetailComponent } from './back-office/club-detail/club-detail.component';
 import { ClubFormComponent } from './back-office/club-form/club-form.component';
-import { UpdateClubComponent } from './back-office/update-club/update-club.component';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +28,22 @@ import { EvenementListComponent } from './back-office/evenement-list/evenement-l
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
+import { ClubMapComponent } from './club-map/club-map.component';
+import { FormationListComponent } from './back-office/formation-list/formation-list.component';
+import { AddFormationComponent } from './back-office/add-formation/add-formation.component';
+import { UpdateClubComponent } from './back-office/update-club/update-club.component';
+import { ModifierFormationComponent } from './back-office/modifier-formation/modifier-formation.component';
+import { FormationDetailComponent } from './back-office/formation-detail/formation-detail.component';
+import{ FullCalendarModule} from '@fullcalendar/angular';
+import { CalendarComponent } from './calendar/calendar.component';
+import { ParticipantListComponent } from './back-office/participant-list/participant-list.component';
+import { AddParticipantComponent } from './back-office/add-participant/add-participant.component';
+import { UpdateParticipantComponent } from './back-office/update-participant/update-participant.component';
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -53,7 +69,18 @@ import { EvenementDetailComponent } from './back-office/evenement-detail/eveneme
     EvenementListComponent,
     EvenementDetailComponent,
     EvenementFormComponent,
-    EvenementUpdateComponent
+    EvenementUpdateComponent,
+    ClubMapComponent,
+    FormationListComponent,
+    AddFormationComponent,
+    ModifierFormationComponent,
+    FormationDetailComponent,
+    CalendarComponent,
+    ParticipantListComponent,
+    AddParticipantComponent,
+    UpdateParticipantComponent
+   
+    
   ],
   imports: [
     BrowserModule,
@@ -61,7 +88,11 @@ import { EvenementDetailComponent } from './back-office/evenement-detail/eveneme
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FullCalendarModule
+
+    
+    
   ],
   providers: [
     {

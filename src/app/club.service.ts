@@ -70,4 +70,21 @@ export class ClubService {
   getTotalDislikesCount(): Observable<number> {
     return this.http.get<number>(`${this.apiUrl}/stats/total-dislikes`);
   }
+  getClubPointsFidelite(clubId: number): Observable<number> {
+    const url = `${this.apiUrl}/${clubId}/points-fidelite`;
+    return this.http.get<number>(url);
+  }
+
+  getClubStats(clubId: number): Observable<string> {
+    const url = `${this.apiUrl}/${clubId}/stats`;
+    return this.http.get<string>(url);
+  }
+  addMemberToClub(clubId: number, userId: number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/${clubId}/members/${userId}`, {});
+  }
+
+  assignEventsToClub(clubId: number, eventIds: number[]): Observable<any> {
+    return this.http.post(`${this.apiUrl}/${clubId}/events`, eventIds);
+  }
+
 }

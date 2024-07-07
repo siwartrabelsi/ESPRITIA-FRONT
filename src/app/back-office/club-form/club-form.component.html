@@ -1,18 +1,33 @@
 <form (ngSubmit)="save()" #clubForm="ngForm">
   <label for="nom">Nom:</label>
-  <input id="nom" [(ngModel)]="club.nom" name="nom" placeholder="Enter le nom du club" required>
-  <!-- Afficher un message d'erreur pour le champ "Nom" s'il est invalide -->
+  <input id="nom" [(ngModel)]="club.nom" name="nom" placeholder="Entrez le nom du club" required>
   <div *ngIf="clubForm.controls['nom'].invalid && clubForm.controls['nom'].touched">
     <span style="color: red;">Le nom est obligatoire.</span>
   </div>
   <br>
-  <label for="description">Description:</label>
-  <textarea id="description" [(ngModel)]="club.description" name="description" placeholder="Enter la description du club" required></textarea>
-  <!-- Afficher un message d'erreur pour le champ "Description" s'il est invalide -->
-  <div *ngIf="clubForm.controls['description'].invalid && clubForm.controls['description'].touched">
-    <span style="color: red;">La description est obligatoire.</span>
-  </div>
 
-  <!-- Afficher le bouton "Save" uniquement si les champs "nom" et "description" sont valides -->
-  <button type="submit" [disabled]="!clubForm.valid">Save</button>
+  <label for="objectif">Objectif:</label>
+  <textarea id="objectif" [(ngModel)]="club.objectif" name="objectif" placeholder="Entrez l'objectif du club" required></textarea>
+  <div *ngIf="clubForm.controls['objectif'].invalid && clubForm.controls['objectif'].touched">
+    <span style="color: red;">L'objectif est obligatoire.</span>
+  </div>
+  <br>
+
+  <label for="date">Date:</label>
+  <input id="date" type="date" [(ngModel)]="club.date" name="date" required>
+  <div *ngIf="clubForm.controls['date'].invalid && clubForm.controls['date'].touched">
+    <span style="color: red;">La date est obligatoire.</span>
+  </div>
+  <br>
+
+  <label for="latitude">Latitude:</label>
+  <input id="latitude" type="number" step="any" [(ngModel)]="club.latitude" name="latitude" placeholder="Entrez la latitude">
+  <br>
+
+  <label for="longitude">Longitude:</label>
+  <input id="longitude" type="number" step="any" [(ngModel)]="club.longitude" name="longitude" placeholder="Entrez la longitude">
+  <br>
+
+  <!-- Désactiver le bouton "Save" si le formulaire n'est pas valide -->
+  <button type="submit" [disabled]="!clubForm.valid">Enregistrer</button>
 </form>

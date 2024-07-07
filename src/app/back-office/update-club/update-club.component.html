@@ -3,8 +3,11 @@
   <label for="nom">Name:</label>
   <input id="nom" [(ngModel)]="club.nom" name="nom">
 
-  <label for="description">Description:</label>
-  <textarea id="description" [(ngModel)]="club.description" name="description"></textarea>
+  <label for="objectif">Objectif:</label>
+  <textarea id="objectif" [(ngModel)]="club.objectif" name="objectif"></textarea>
+
+  <label for="date">Date:</label>
+  <input type="date" id="date" [(ngModel)]="club.date" name="date">
 
   <button type="submit" class="update-button">Update</button> 
 </form>

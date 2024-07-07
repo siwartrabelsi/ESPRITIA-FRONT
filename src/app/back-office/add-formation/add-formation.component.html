@@ -1,0 +1,39 @@
+<h2>Ajouter une nouvelle formation</h2>
+<form (ngSubmit)="onSubmit()" #formationForm="ngForm">
+  <div>
+    <label for="nom">Nom</label>
+    <input id="nom" [(ngModel)]="nom" name="nom" required>
+    <div *ngIf="formationForm.controls['nom'].invalid && (formationForm.controls['nom'].dirty || formationForm.controls['nom'].touched)" class="error">
+      Le nom est obligatoire.
+    </div>
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <input id="description" [(ngModel)]="description" name="description" required>
+    <div *ngIf="formationForm.controls['description'].invalid && (formationForm.controls['description'].dirty || formationForm.controls['description'].touched)" class="error">
+      La description est obligatoire.
+    </div>
+  </div>
+  <div>
+    <label for="dateDebut">Date de début</label>
+    <input id="dateDebut" [(ngModel)]="dateDebut" name="dateDebut" type="date" required>
+    <div *ngIf="formationForm.controls['dateDebut'].invalid && (formationForm.controls['dateDebut'].dirty || formationForm.controls['dateDebut'].touched)" class="error">
+      La date de début est obligatoire.
+    </div>
+  </div>
+  <div>
+    <label for="dateFin">Date de fin</label>
+    <input id="dateFin" [(ngModel)]="dateFin" name="dateFin" type="date" required>
+    <div *ngIf="formationForm.controls['dateFin'].invalid && (formationForm.controls['dateFin'].dirty || formationForm.controls['dateFin'].touched)" class="error">
+      La date de fin est obligatoire.
+    </div>
+  </div>
+  <div>
+    <label for="clubId">Club ID</label>
+    <input id="clubId" [(ngModel)]="clubId" name="clubId" type="number" required>
+    <div *ngIf="formationForm.controls['clubId'].invalid && (formationForm.controls['clubId'].dirty || formationForm.controls['clubId'].touched)" class="error">
+      L'ID du club est obligatoire.
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="formationForm.invalid">Ajouter</button>
+</form>

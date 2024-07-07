@@ -1,0 +1,12 @@
+<div *ngIf="formation">
+    <h2>Détails de la Formation</h2>
+    <p><strong>Nom:</strong> {{ formation.nom }}</p>
+    <p><strong>Description:</strong> {{ formation.description }}</p>
+    <p><strong>Date de début:</strong> {{ formation.dateDebut | date }}</p>
+    <p><strong>Date de fin:</strong> {{ formation.dateFin | date }}</p>
+    <p><strong></strong> {{ formation.clubId }}</p>
+  </div>
+  <div *ngIf="!formation">
+    <p>Chargement des détails de la formation en cours...</p>
+  </div>
+  

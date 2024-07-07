@@ -9,7 +9,7 @@ import { Club } from '../../club';
   styleUrls: ['./update-club.component.css']
 })
 export class UpdateClubComponent implements OnInit {
-  club: Club = { id: 0, nom: '', description: '', members: [], evenements: [], nbLikes: 0, nbDislikes: 0  };
+  club: Club = { id: 0, nom: '', objectif: '',   date: new Date(), members: [], evenements: [], nbLikes: 0, nbDislikes: 0, pointsFidelite: 0, latitude: 0, longitude: 0,formations: []  };
 
   constructor(
     private route: ActivatedRoute,

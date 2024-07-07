@@ -1,0 +1,22 @@
+<div class="add-participant-form">
+    <h2>Ajouter un Participant</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" [(ngModel)]="nom" name="nom" required>
+        <div *ngIf="nomError" class="error-message">{{ nomError }}</div>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" [(ngModel)]="email" name="email" required>
+        <div *ngIf="emailError" class="error-message">{{ emailError }}</div>
+      </div>
+      <div>
+        <label for="formationId">ID de la Formation:</label>
+        <input type="number" id="formationId" [(ngModel)]="formationId" name="formationId" required>
+        <div *ngIf="formationIdError" class="error-message">{{ formationIdError }}</div>
+      </div>
+      <button type="submit" [disabled]="!validateForm()">Ajouter</button>
+    </form>
+  </div>
+  

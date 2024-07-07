@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EspacesComponent } from './back-office/espaces/espaces.component';
-
-
 import { ClubListComponent } from './back-office/club-list/club-list.component';
 import { ClubDetailComponent } from './back-office/club-detail/club-detail.component';
 import { ClubFormComponent } from './back-office/club-form/club-form.component';
-import { UpdateClubComponent } from './back-office/update-club/update-club.component';
-
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { BackOfficeComponent } from './back-office/back-office.component';
@@ -25,6 +21,16 @@ import { EvenementListComponent } from './back-office/evenement-list/evenement-l
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
+import { FormationListComponent } from './back-office/formation-list/formation-list.component';
+import { AddFormationComponent } from './back-office/add-formation/add-formation.component';
+import { UpdateClubComponent } from './back-office/update-club/update-club.component';
+import { ModifierFormationComponent } from './back-office/modifier-formation/modifier-formation.component';
+import { FormationDetailComponent } from './back-office/formation-detail/formation-detail.component';
+import { ParticipantListComponent } from './back-office/participant-list/participant-list.component';
+import { AddParticipantComponent } from './back-office/add-participant/add-participant.component';
+import { UpdateParticipantComponent } from './back-office/update-participant/update-participant.component';
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -50,7 +56,14 @@ const routes: Routes = [
       { path: 'createEvent', component: EvenementFormComponent },
       { path: 'edit/:id', component: EvenementFormComponent },
       { path: 'detailEvenement/:id', component: EvenementDetailComponent },
-      { path: 'updateEvenement/:id', component: EvenementUpdateComponent }
+      { path: 'updateEvenement/:id', component: EvenementUpdateComponent },
+      {path: 'formations',component:FormationListComponent},
+      {path: 'add-formation',component:AddFormationComponent},
+      {path: 'modifier-formation/:id',component:ModifierFormationComponent},
+      {path:'formations/:id',component:FormationDetailComponent},
+      {path:'participants',component:ParticipantListComponent},
+      {path:'add-participant',component:AddParticipantComponent},
+      {path:'update-participant/:id',component:UpdateParticipantComponent}
     ]
   },
   {

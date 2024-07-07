@@ -28,4 +28,11 @@
   .delete-button:hover {
     background-color: #c82333; /* Rouge plus foncé au survol */
   }
+  #myChartContainer {
+    max-width: 600px; /* Ajustez la largeur selon vos besoins */
+    height: 300px; /* Ajustez la hauteur selon vos besoins */
+    margin: auto;
+  }
+  
+  
   

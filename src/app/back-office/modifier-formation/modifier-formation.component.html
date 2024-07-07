@@ -1,0 +1,31 @@
+<!-- modifier-formation.component.html -->
+
+<div class="container">
+    <h2>Modifier Formation</h2>
+    
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Nom:</label>
+        <input type="text" class="form-control" [(ngModel)]="formation.nom" name="nom" required>
+      </div>
+      <div class="form-group">
+        <label>Description:</label>
+        <textarea class="form-control" [(ngModel)]="formation.description" name="description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Date de début:</label>
+        <input type="date" class="form-control" [(ngModel)]="formation.dateDebut" name="dateDebut" required>
+      </div>
+      <div class="form-group">
+        <label>Date de fin:</label>
+        <input type="date" class="form-control" [(ngModel)]="formation.dateFin" name="dateFin" required>
+      </div>
+      <div class="form-group">
+        <label>Club ID:</label>
+        <input type="number" class="form-control" [(ngModel)]="formation.clubId" name="clubId" required>
+      </div>
+      <!-- Vous pouvez ajouter d'autres champs ici si nécessaire -->
+      <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </form>
+  </div>
+  

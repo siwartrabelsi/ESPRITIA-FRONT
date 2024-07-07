@@ -12,11 +12,16 @@ export class ClubFormComponent {
   club: Club = {
     id: 0,
     nom: '',
-    description: '',
+    objectif: '',
+    date: new Date,
     members: [],
     evenements: [],
     nbLikes: 0,
-    nbDislikes: 0 
+    nbDislikes: 0,
+    pointsFidelite: 0,
+    latitude: 0, 
+    longitude: 0,
+    formations: []
   };
 
   constructor(private clubService: ClubService, private router: Router) {}
