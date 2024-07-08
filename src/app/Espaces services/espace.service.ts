@@ -41,4 +41,7 @@ export class EspaceService {
         searchEspaces(nom: string): Observable<Espace[]> {
           return this.http.get<Espace[]>(`${this.apiUrl}/search?nom=${nom}`);
         }
+        getAvailableSpaces(date: string): Observable<Espace[]> {
+          return this.http.get<Espace[]>(`${this.apiUrl}/espace/disponibles?date=${date}`);
+        }
 }

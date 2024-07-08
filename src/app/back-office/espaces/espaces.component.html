@@ -14,6 +14,9 @@
     <input type="text" [(ngModel)]="searchTerm" placeholder="Entrez le nom de l'espace">
     <button (click)="searchEspaces()">Rechercher</button>
   </div>
+  <div>
+    <a routerLink="/back-office/calendar">Calendar</a>
+  </div>
   
 
   <div *ngIf="espaces" class="listespaces-container">
@@ -75,6 +78,11 @@
         <select id="equipement" [(ngModel)]="selectedEspace.equipement" name="equipement" required>
           <option *ngFor="let equip of TypeEquipement | keyvalue" [ngValue]="equip.key">{{ equip.key }}</option>
         </select>
+        <label for="latitude">Latitude:</label>
+        <input type="number" id="latitude" [(ngModel)]="selectedEspace.latitude" name="latitude" required>
+  
+        <label for="longitude">Longitude:</label>
+        <input type="number" id="longitude" [(ngModel)]="selectedEspace.longitude" name="longitude" required>
         
         <label for="photo">Photo:</label>
         <input type="file" id="photo" (change)="onFileSelected($event)">
@@ -85,5 +93,6 @@
       </form>
     </div>
   </div>
-  
+  <!-- Carte -->
+  <div id="map" style="height: 500px; margin-top: 20px;"></div>
   

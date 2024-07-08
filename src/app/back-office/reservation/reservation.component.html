@@ -34,7 +34,7 @@
         <td>{{ reservation.heureDebut }}</td>
         <td>{{ reservation.heureFin }}</td>
         <td>
-          {{ reservation.nomEspace }}
+          {{ reservation.espacenName }}
           </td>
         <td>
           <button (click)="editReservation(reservation)">Modifier</button>
@@ -84,5 +84,12 @@
       <br>
       <button type="submit">{{ editMode ? 'Modifier' : 'Ajouter' }}</button>
     </form>
+  </div>
+</div>
+
+<div>
+  <h2>Statistiques</h2>
+  <div id="myChartContainer" style="width: 100%; height: 300px;">
+    <canvas id="myChart"></canvas>
   </div>
 </div>

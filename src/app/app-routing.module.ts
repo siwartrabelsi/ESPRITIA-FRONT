@@ -25,6 +25,7 @@ import { EvenementListComponent } from './back-office/evenement-list/evenement-l
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
+import { CalendarComponent } from './back-office/calendar/calendar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -50,7 +51,8 @@ const routes: Routes = [
       { path: 'createEvent', component: EvenementFormComponent },
       { path: 'edit/:id', component: EvenementFormComponent },
       { path: 'detailEvenement/:id', component: EvenementDetailComponent },
-      { path: 'updateEvenement/:id', component: EvenementUpdateComponent }
+      { path: 'updateEvenement/:id', component: EvenementUpdateComponent },
+      { path: 'calendar', component: CalendarComponent  }
     ]
   },
   {
