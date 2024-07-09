@@ -40,8 +40,11 @@
           <td>{{ espace.capacite }}</td>
           <td>{{ espace.adresse }}</td>
           <td>{{ espace.equipement }}</td>
-          <td><img [src]="'assets/' + espace.photo" alt="Espace photo" *ngIf="espace.photo" style="width: 100px; height: 100px;">
+          <!--<td><img [src]="'assets/' + espace.photo" alt="Espace photo" *ngIf="espace.photo" style="width: 100px; height: 100px;">
           
+          </td>-->
+          <td>
+            <img [src]="espace.photo" alt="Photo de l'espace" *ngIf="espace.photo" style="width: 100px; height: 100px;">
           </td>
           <td>
             <button (click)="editEspace(espace)">Modifier</button>

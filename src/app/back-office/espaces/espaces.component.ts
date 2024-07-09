@@ -107,7 +107,7 @@ export class EspacesComponent implements OnInit {
         this.selectedFile = file;
       }
     }
-    uploadImage(id: number): void {
+    /*uploadImage(id: number): void {
       if (!this.selectedFile) return;
   
       const formData: FormData = new FormData();
@@ -117,8 +117,25 @@ export class EspacesComponent implements OnInit {
         this.getEspaces();
         this.closeModal();
       });
-    }
-     
+    }*/
+      uploadImage(id: number): void {
+        if (!this.selectedFile) return;
+      
+        const formData: FormData = new FormData();
+        formData.append('file', this.selectedFile, this.selectedFile.name);
+      
+        this.espaceService.uploadImage(id, formData).subscribe(
+          () => {
+            console.log('Image uploaded successfully');
+            this.getEspaces(); // Recharger la liste des espaces après le téléchargement
+            this.closeModal();
+          },
+          (error) => {
+            console.error('Error uploading image:', error);
+            // Gérer l'erreur ici (affichage d'un message d'erreur, etc.)
+          }
+        );
+      }
    
       searchEspaces(): void {
         if (this.searchTerm) {
