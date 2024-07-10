@@ -25,12 +25,15 @@ import { EvenementListComponent } from './back-office/evenement-list/evenement-l
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
+import { ResetPasswordConfirmComponent } from './reset-password-confirm/reset-password-confirm.component';
+import { ReclamationsComponent } from './back-office/reclamations/reclamations.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forget-password', component: ForgetPasswordComponent },
+  { path: 'reset-password-confirm', component: ResetPasswordConfirmComponent },
   {
     path: 'back-office', component: BackOfficeComponent, children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -50,7 +53,8 @@ const routes: Routes = [
       { path: 'createEvent', component: EvenementFormComponent },
       { path: 'edit/:id', component: EvenementFormComponent },
       { path: 'detailEvenement/:id', component: EvenementDetailComponent },
-      { path: 'updateEvenement/:id', component: EvenementUpdateComponent }
+      { path: 'updateEvenement/:id', component: EvenementUpdateComponent },
+      { path: 'reclamations', component: ReclamationsComponent }
     ]
   },
   {

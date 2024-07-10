@@ -28,6 +28,8 @@ import { EvenementListComponent } from './back-office/evenement-list/evenement-l
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
+import { ResetPasswordConfirmComponent } from './reset-password-confirm/reset-password-confirm.component';
+import { ReclamationsComponent } from './back-office/reclamations/reclamations.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { EvenementDetailComponent } from './back-office/evenement-detail/eveneme
     EvenementListComponent,
     EvenementDetailComponent,
     EvenementFormComponent,
-    EvenementUpdateComponent
+    EvenementUpdateComponent,
+    ResetPasswordConfirmComponent,
+    ReclamationsComponent
   ],
   imports: [
     BrowserModule,
