@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EspacesComponent } from './back-office/espaces/espaces.component';
 
-
 import { ClubListComponent } from './back-office/club-list/club-list.component';
 import { ClubDetailComponent } from './back-office/club-detail/club-detail.component';
 import { ClubFormComponent } from './back-office/club-form/club-form.component';
@@ -25,10 +24,8 @@ import { EvenementListComponent } from './back-office/evenement-list/evenement-l
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
-
-import { CovoiturageComponent } from './front-office/covoiturage/covoiturage.component';  // Importez votre composant
-
-
+import { CoiturageFrontComponent } from './front-office/coiturage-front/coiturage-front.component'; 
+import { ListCovoiturageFontComponent } from './list-covoiturage-font/list-covoiturage-font.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -48,24 +45,30 @@ const routes: Routes = [
       { path: 'espaces', component: EspacesComponent },
       { path: 'reservation', component: ReservationComponent },
       { path: 'covoiturages', component: CovoiturageListComponent },
-      { path: 'create', component: CreateCovoiturageComponent },
-      { path: 'edit/:id', component: EditCovoiturageComponent },
-      { path: 'listEvent', component: EvenementListComponent },
-      { path: 'createEvent', component: EvenementFormComponent },
-      { path: 'edit/:id', component: EvenementFormComponent },
-      { path: 'detailEvenement/:id', component: EvenementDetailComponent },
-      { path: 'updateEvenement/:id', component: EvenementUpdateComponent }
-    ]
-  },
-  { path: 'covoiturage', component: CovoiturageComponent },
-  {
-    path: 'front-office', component: FrontOfficeComponent, children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent },
+      { path: 'create-covoiturage', component: CreateCovoiturageComponent},
+      { path: 'edit-covoiturage/:id', component: EditCovoiturageComponent },
+      { path: 'list-event', component: EvenementListComponent },
+      { path: 'create-event', component: EvenementFormComponent },
+      { path: 'edit-event/:id', component: EvenementUpdateComponent },
+      { path: 'detail-evenement/:id', component: EvenementDetailComponent },
+      { path: 'update-evenement/:id', component: EvenementUpdateComponent },
       
     ]
   },
+  
+  {
+    path: 'front-office', component: FrontOfficeComponent, children: [
+      { path: '', redirectTo: 'covoiturage-list', pathMatch: 'full' },
+      { path: 'coiturage-front', component: CoiturageFrontComponent } ,
+      { path: 'covoiturage-list', component: ListCovoiturageFontComponent } ,
+    { path: 'home', component: HomeComponent },
+      
+     
+    ]
+  },
   { path: '**', redirectTo: '/login' },
+  
+
 ];
 
 @NgModule({

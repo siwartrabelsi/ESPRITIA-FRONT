@@ -21,4 +21,8 @@ export class FrontOfficeComponent {
     localStorage.removeItem('role');
     this.router.navigate(['/']);
   }
+
+  gotocovoiturage(){
+    location.href ="coiturage-front";
+  }
 }

@@ -5,5 +5,6 @@ export interface Covoiturage {
   destination: string;
   nbPlace: number;
   status: string; // Ou utilisez un type Enum qui correspond à IStatutCovoiturage
+  fumeur: string;
   user?: any; // Si nécessaire
 }

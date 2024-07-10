@@ -24,12 +24,14 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { CovoiturageListComponent } from './back-office/covoiturage-list/covoiturage-list.component';
 import { CreateCovoiturageComponent } from './back-office/create-covoiturage/create-covoiturage.component';
 import { EditCovoiturageComponent } from './back-office/edit-covoiturage/edit-covoiturage.component';
+import { CoiturageFrontComponent } from './front-office/coiturage-front/coiturage-front.component';
+
 import { EvenementListComponent } from './back-office/evenement-list/evenement-list.component';
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
-import { CovoiturageComponent } from './front-office/covoiturage/covoiturage.component';
 import { CovoiturageService } from './services/covoiturage.service';
+import { ListCovoiturageFontComponent } from './list-covoiturage-font/list-covoiturage-font.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import { CovoiturageService } from './services/covoiturage.service';
     EvenementDetailComponent,
     EvenementFormComponent,
     EvenementUpdateComponent,
-    CovoiturageComponent
+    CoiturageFrontComponent,
+    ListCovoiturageFontComponent,     
   ],
   imports: [
     BrowserModule,

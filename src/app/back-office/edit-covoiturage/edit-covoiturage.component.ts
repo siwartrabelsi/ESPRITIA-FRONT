@@ -15,7 +15,8 @@ export class EditCovoiturageComponent implements OnInit {
     lieuDepart: '',
     destination: '',
     nbPlace: 0,
-    status: 'disponible'
+    status: 'disponible',
+    fumeur: 'Non fumeur' // Valeur par défaut pour fumeur
   };
 
   statuses: string[] = ['disponible', 'annulé', 'non_disponible', 'reporté']; // Liste des statuts

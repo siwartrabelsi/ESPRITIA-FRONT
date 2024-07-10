@@ -11,14 +11,23 @@
 
   <label for="lieuDepart">Lieu de départ:</label>
   <input id="lieuDepart" [(ngModel)]="covoiturage.lieuDepart" name="lieuDepart" required>
+  
   <label for="destination">Destination:</label>
   <input id="destination" [(ngModel)]="covoiturage.destination" name="destination" required>
+  
   <label for="nbPlace">Nombre de places:</label>
   <input id="nbPlace" type="number" [(ngModel)]="covoiturage.nbPlace" name="nbPlace" required>
+  
   <label for="status">Statut:</label>
   <select id="status" [(ngModel)]="covoiturage.status" name="status" required>
     <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
   </select>
-
+  
+  <label for="fumeur">Fumeur:</label>
+  <select id="fumeur" [(ngModel)]="covoiturage.fumeur" name="fumeur" required>
+    <option value="Fumeur">Fumeur</option>
+    <option value="Non fumeur">Non fumeur</option>
+  </select>
+  
   <button type="submit" class="blue-button">{{ covoiturage.id ? 'Mettre à jour' : 'Créer' }}</button>
 </form>

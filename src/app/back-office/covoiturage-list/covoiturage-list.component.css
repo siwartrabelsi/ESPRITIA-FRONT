@@ -1,66 +1,83 @@
-/* src/app/components/covoiturage-list/covoiturage-list.component.css */
-.table-container {
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #f4f4f4;
-  }
-  
-  tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .action-button {
-    background-color: #007bff; /* Bleu par défaut de Bootstrap */
-    color: #fff; /* Texte blanc */
-    border: none;
-    padding: 0.375rem 0.75rem;
-    cursor: pointer;
-  }
-  
-  .action-button:hover {
-    background-color: #0056b3; /* Couleur de survol plus foncée */
-  }
-  
+/* Stylisation du champ Fumeur */
+.search-form select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-size: 16px;
+  background-color: #fff; /* Fond blanc */
+  color: #000; /* Texte noir */
+}
+
+/* Stylisation des options du champ Fumeur */
+.search-form option {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Stylisation du bouton Rechercher */
+.search-form button {
+  padding: 8px 16px;
+  background-color: #dc3545; /* Rouge */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px; /* Ajout de marge à gauche */
+}
+
+.search-form button:hover {
+  background-color: #c82333; /* Rouge foncé au survol */
+}
+
+/* Stylisation des inputs de texte */
+.search-form input[type="text"], .search-form input[type="date"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px; /* Ajout de marge en bas */
+  font-size: 16px;
+}
+
+/* Stylisation de la carte des covoiturages */
+.card {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-footer {
+  padding: 10px;
+  text-align: right;
+}
+
+.card-footer button {
+  padding: 6px 12px;
+  background-color: #dc3545; /* Rouge */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px; /* Ajout de marge à gauche */
+}
+
+.card-footer button:hover {
+  background-color: #c82333; /* Rouge foncé au survol */
+}
+
+/* Espacement entre les cartes */
+.card + .card {
+  margin-top: 20px;
+}
