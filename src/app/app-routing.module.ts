@@ -24,8 +24,8 @@ import { EvenementListComponent } from './back-office/evenement-list/evenement-l
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
-import { CoiturageFrontComponent } from './front-office/coiturage-front/coiturage-front.component'; 
-import { ListCovoiturageFontComponent } from './list-covoiturage-font/list-covoiturage-font.component';
+import { CoiturageFrontComponent } from './front-office/coiturage-front/coiturage-front.component';
+import { ListCovoiturageFontComponent } from './front-office/list-covoiturage-font/list-covoiturage-font.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -45,29 +45,28 @@ const routes: Routes = [
       { path: 'espaces', component: EspacesComponent },
       { path: 'reservation', component: ReservationComponent },
       { path: 'covoiturages', component: CovoiturageListComponent },
-      { path: 'create-covoiturage', component: CreateCovoiturageComponent},
+      { path: 'create-covoiturage', component: CreateCovoiturageComponent },
       { path: 'edit-covoiturage/:id', component: EditCovoiturageComponent },
       { path: 'list-event', component: EvenementListComponent },
       { path: 'create-event', component: EvenementFormComponent },
       { path: 'edit-event/:id', component: EvenementUpdateComponent },
       { path: 'detail-evenement/:id', component: EvenementDetailComponent },
       { path: 'update-evenement/:id', component: EvenementUpdateComponent },
-      
+
     ]
   },
-  
+
   {
     path: 'front-office', component: FrontOfficeComponent, children: [
-      { path: '', redirectTo: 'covoiturage-list', pathMatch: 'full' },
-      { path: 'coiturage-front', component: CoiturageFrontComponent } ,
-      { path: 'covoiturage-list', component: ListCovoiturageFontComponent } ,
-    { path: 'home', component: HomeComponent },
-      
-     
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'coiturage-front', component: CoiturageFrontComponent },
+      { path: 'covoiturage-list', component: ListCovoiturageFontComponent },
+      { path: 'home', component: HomeComponent },
+
     ]
   },
   { path: '**', redirectTo: '/login' },
-  
+
 
 ];
 

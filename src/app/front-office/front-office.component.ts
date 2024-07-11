@@ -12,9 +12,9 @@ export class FrontOfficeComponent {
     if (localStorage.getItem('role') === 'Admin') {
       this.router.navigate(['/back-office']);
     }
-    else if (localStorage.getItem('role') === 'President' || localStorage.getItem('role') === 'Membre' || localStorage.getItem('role') === 'Conducteur' || localStorage.getItem('role') === 'Passager' || localStorage.getItem('role') === 'Organisateur') {
-      this.router.navigate(['/front-office']);
-    }
+    // else if (localStorage.getItem('role') === 'President' || localStorage.getItem('role') === 'Membre' || localStorage.getItem('role') === 'Conducteur' || localStorage.getItem('role') === 'Passager' || localStorage.getItem('role') === 'Organisateur') {
+    //   this.router.navigate(['/front-office']);
+    // }
   }
   disconnect(){
     localStorage.removeItem('accessToken');

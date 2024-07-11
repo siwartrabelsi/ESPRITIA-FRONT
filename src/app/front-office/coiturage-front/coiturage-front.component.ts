@@ -9,6 +9,5 @@ export class CoiturageFrontComponent {
   constructor() { }
 
   ngOnInit(): void {
-    // Initialisation
   }
 }

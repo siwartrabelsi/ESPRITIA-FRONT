@@ -7,8 +7,6 @@ import { Component } from '@angular/core';
 })
 export class ListCovoiturageFontComponent {
 
-  gotocovoiturage(){
-    location.href ="http://localhost:4200/front-office/coiturage-front";
-  }
+
 
 }

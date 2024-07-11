@@ -31,7 +31,7 @@ import { EvenementUpdateComponent } from './back-office/evenement-update/eveneme
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
 import { CovoiturageService } from './services/covoiturage.service';
-import { ListCovoiturageFontComponent } from './list-covoiturage-font/list-covoiturage-font.component';
+import { ListCovoiturageFontComponent } from './front-office/list-covoiturage-font/list-covoiturage-font.component';
 
 @NgModule({
   declarations: [
