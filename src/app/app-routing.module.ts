@@ -4,6 +4,7 @@ import { EspacesComponent } from './back-office/espaces/espaces.component';
 import { ClubListComponent } from './back-office/club-list/club-list.component';
 import { ClubDetailComponent } from './back-office/club-detail/club-detail.component';
 import { ClubFormComponent } from './back-office/club-form/club-form.component';
+import { UpdateClubComponent } from './back-office/update-club/update-club.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { BackOfficeComponent } from './back-office/back-office.component';
@@ -22,7 +23,6 @@ import { EvenementDetailComponent } from './back-office/evenement-detail/eveneme
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
 import { FormationListComponent } from './back-office/formation-list/formation-list.component';
 import { AddFormationComponent } from './back-office/add-formation/add-formation.component';
-import { UpdateClubComponent } from './back-office/update-club/update-club.component';
 import { ModifierFormationComponent } from './back-office/modifier-formation/modifier-formation.component';
 import { FormationDetailComponent } from './back-office/formation-detail/formation-detail.component';
 import { ParticipantListComponent } from './back-office/participant-list/participant-list.component';
@@ -34,13 +34,19 @@ import { EventformationComponent } from './eventformation/eventformation.compone
 import { DetailclubComponent } from './detailclub/detailclub.component';
 import { DashboardComponent } from './back-office/dashboard/dashboard.component';
 
-
+import { CalendarComponent } from './back-office/calendar/calendar.component';
+import { EspaceEventComponent } from './espace-event/espace-event.component';
+import { CalendarFrontComponent } from './calendar-front/calendar-front.component';
+import { ReservationEventComponent } from './reservation-event/reservation-event.component';
+import { ResetPasswordConfirmComponent } from './reset-password-confirm/reset-password-confirm.component';
+import { ReclamationsComponent } from './back-office/reclamations/reclamations.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forget-password', component: ForgetPasswordComponent },
+  { path: 'reset-password-confirm', component: ResetPasswordConfirmComponent },
   {
     path: 'back-office', component: BackOfficeComponent, children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -61,7 +67,9 @@ const routes: Routes = [
       { path: 'edit/:id', component: EvenementFormComponent },
       { path: 'detailEvenement/:id', component: EvenementDetailComponent },
       { path: 'updateEvenement/:id', component: EvenementUpdateComponent },
-      {path: 'formations',component:FormationListComponent},
+      { path: 'calendar', component: CalendarComponent },
+      { path: 'reclamations', component: ReclamationsComponent },
+       {path: 'formations',component:FormationListComponent},
       {path: 'add-formation',component:AddFormationComponent},
       {path: 'modifier-formation/:id',component:ModifierFormationComponent},
       {path:'formations/:id',component:FormationDetailComponent},
@@ -70,7 +78,10 @@ const routes: Routes = [
       {path:'update-participant/:id',component:UpdateParticipantComponent}
     ]
   },
-  {path: 'club',component:ClubComponent},
+  { path: 'espaceEvent', component: EspaceEventComponent },
+  { path: 'calendarFront', component: CalendarFrontComponent },
+  { path: 'reservationEvent', component: ReservationEventComponent},
+   {path: 'club',component:ClubComponent},
   {path: 'participer',component:ParticiperComponent},
   {path:'eventformation',component:EventformationComponent},
   {path:'detailclub/:id',component:DetailclubComponent},
@@ -78,7 +89,7 @@ const routes: Routes = [
     path: 'front-office', component: FrontOfficeComponent, children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent }
-      
+
     ]
   },
   { path: '**', redirectTo: '/login' },

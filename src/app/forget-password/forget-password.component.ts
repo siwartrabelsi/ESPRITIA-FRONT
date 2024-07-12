@@ -20,26 +20,20 @@ export class ForgetPasswordComponent {
       this.router.navigate(['/front-office']);
     }
   }
-  login() {
-    const resetRequest = {
-      email: this.email,
-    };
 
-    this.authService.signin(resetRequest).subscribe((response: any) => {
-      // Handle successful registration
-      console.log('Signin successful:', response.user.role);
-      localStorage.setItem('accessToken', response.token);
-      if (response.user.role === 'Admin') {
-        this.router.navigate(['/back-office']);
-      }
-      else {
-        this.router.navigate(['/front-office']);
-      }
-    }, error => {
-      // Handle error
-      console.error('Registration error:', error.error);
-      this.error = error.error;
-    });
+  sendResetPasswordSMS(): void {
+    this.error = '';
+    this.authService.sendResetPasswordSMS(this.email)
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.router.navigate(['/reset-password-confirm']);
+        },
+        error => {
+          console.error('Error sending SMS', error);
+          this.error = 'Failed to send reset password SMS. Please try again.';
+        }
+      );
   }
   register() {
     this.router.navigate(['/signup']);

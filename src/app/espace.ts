@@ -11,6 +11,8 @@ export class Espace {
     adresse: string;
     equipement: TypeEquipement;
     photo: string;
+    latitude!: number; // Ajoutez ces propriétés si elles ne sont pas déjà présentes
+    longitude!: number;
     reservations: Reservation[];
     constructor(
       id: number,
@@ -20,6 +22,8 @@ export class Espace {
       adresse: string,
       equipement: TypeEquipement,
       photo: string,
+      latitude: number, 
+      longitude: number,
       reservations: Reservation[],
     
     ) {

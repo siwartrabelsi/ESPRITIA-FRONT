@@ -11,7 +11,7 @@ export class Reservation {
   heureFin: string;
   espaceId: number;
   espace: Espace ;
-  nomEspace: string;
+  espacenName: string;
 
   constructor(
     id: number,
@@ -24,7 +24,7 @@ export class Reservation {
     heureFin: string,
     espaceId: number,
     espace: Espace ,
-    nomEspace: string
+    espacenName: string
   ) {
     this.id = id;
     this.datedebut = datedebut;
@@ -36,6 +36,6 @@ export class Reservation {
     this.heureFin = heureFin;
     this.espaceId = espaceId;
     this.espace = espace;
-    this.nomEspace = nomEspace;
+    this.espacenName = espacenName;
   }
 }
