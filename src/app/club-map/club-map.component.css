@@ -2,4 +2,18 @@
     height: 100%;
     width: 100%;
   }
-  
+  /* club-map.component.css */
+.leaflet-popup-content-wrapper {
+  font-size: 16px; /* Taille de police augmentée */
+  max-width: 200px; /* Largeur maximale du popup */
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  padding: 8px;
+  color: #333; /* Couleur du texte */
+  background-color: #fff; /* Couleur de fond */
+  border: 1px solid #ccc; /* Bordure */
+  border-radius: 4px; /* Coins arrondis */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Ombre */
+}

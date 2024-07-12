@@ -7,7 +7,6 @@ import { ClubFormComponent } from './back-office/club-form/club-form.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { BackOfficeComponent } from './back-office/back-office.component';
-import { DashboardComponent } from './back-office/dashboard/dashboard.component';
 import { UsersComponent } from './back-office/users/users.component';
 import { SettingsComponent } from './back-office/settings/settings.component';
 import { FrontOfficeComponent } from './front-office/front-office.component';
@@ -29,6 +28,11 @@ import { FormationDetailComponent } from './back-office/formation-detail/formati
 import { ParticipantListComponent } from './back-office/participant-list/participant-list.component';
 import { AddParticipantComponent } from './back-office/add-participant/add-participant.component';
 import { UpdateParticipantComponent } from './back-office/update-participant/update-participant.component';
+import { ClubComponent } from './club/club.component';
+import { ParticiperComponent } from './participer/participer.component';
+import { EventformationComponent } from './eventformation/eventformation.component';
+import { DetailclubComponent } from './detailclub/detailclub.component';
+import { DashboardComponent } from './back-office/dashboard/dashboard.component';
 
 
 
@@ -40,7 +44,7 @@ const routes: Routes = [
   {
     path: 'back-office', component: BackOfficeComponent, children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent },
+      { path: 'dashboard', component:DashboardComponent},
       { path: 'users', component: UsersComponent },
       { path: 'settings', component: SettingsComponent },
       { path: 'clubs', component: ClubListComponent },
@@ -66,10 +70,15 @@ const routes: Routes = [
       {path:'update-participant/:id',component:UpdateParticipantComponent}
     ]
   },
+  {path: 'club',component:ClubComponent},
+  {path: 'participer',component:ParticiperComponent},
+  {path:'eventformation',component:EventformationComponent},
+  {path:'detailclub/:id',component:DetailclubComponent},
   {
     path: 'front-office', component: FrontOfficeComponent, children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent },
+      { path: 'home', component: HomeComponent }
+      
     ]
   },
   { path: '**', redirectTo: '/login' },

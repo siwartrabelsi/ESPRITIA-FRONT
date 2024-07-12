@@ -1,4 +1,3 @@
-// formation-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormationService } from '../../formation.service';
 import { Formation } from '../../formation';

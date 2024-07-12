@@ -13,4 +13,5 @@ export interface Club {
   latitude: number;
   longitude: number;
   formations:Formation[];
+  photo: string;
 }

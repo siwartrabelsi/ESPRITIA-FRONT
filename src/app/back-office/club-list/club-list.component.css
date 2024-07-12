@@ -1,38 +1,50 @@
-.update-button {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .update-button:hover {
-    background-color: #0056b3;
-  }
-  .delete-button {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #dc3545; /* Rouge pour le bouton Delete */
-    color: #fff;
-    text-decoration: none;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .delete-button:hover {
-    background-color: #c82333; /* Rouge plus foncé au survol */
-  }
-  #myChartContainer {
-    max-width: 600px; /* Ajustez la largeur selon vos besoins */
-    height: 300px; /* Ajustez la hauteur selon vos besoins */
-    margin: auto;
-  }
-  
-  
-  
+/* Ajoutez ceci dans votre fichier CSS global ou spécifique au composant */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.img-fluid {
+  border-radius: 15px 0 0 15px;
+}
+
+.btn {
+  margin-right: 5px;
+}
+
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+.table {
+  margin-top: 15px;
+}
+
+#myChartContainer {
+  width: 100%;
+  height: 300px;
+}
+
+.card-title {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.card-text {
+  color: #6c757d;
+}

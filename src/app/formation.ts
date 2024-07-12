@@ -8,5 +8,6 @@ export interface Formation {
     dateFin: Date;
     clubId: number;
     participant:Participant[];
+    
   }
   

@@ -1,58 +1,77 @@
-<div>
-  <input type="text" [(ngModel)]="searchTerm" placeholder="Enter club name">
- 
+<!-- Include Bootstrap 5 CSS in index.html -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
 
-  <div *ngIf="clubs.length === 0">No clubs available</div>
-  <div *ngFor="let club of clubs">
-    <div *ngIf="!searchTerm || club.nom.toLowerCase().includes(searchTerm.toLowerCase())">
-      <input id="nom" [(ngModel)]="club.nom" name="nom">
-      <input id="objectif" [(ngModel)]="club.objectif" name="objectif">
-      <span>{{ club.date | date }}</span>
-      <button class="delete-button" (click)="deleteClub(club.id)">Delete</button> 
-      <a [routerLink]="['/back-office/update-club', club.id]" class="update-button">Update</a>
-      <a [routerLink]="['/back-office/clubs', club.id]">Show detail</a>
-      <button (click)="likeClub(club.id)">
-        <fa-icon [icon]="faThumbsUp"></fa-icon>
-      </button>
-      <button (click)="dislikeClub(club.id)">
-        <fa-icon [icon]="faThumbsDown"></fa-icon>
-      </button>
-      <button (click)="downloadPdf(club.id)">Download PDF</button> <!-- Bouton pour télécharger le PDF -->
-      <img [src]="generateQRCodeUrl(club.id)" alt="QR Code" /> <!-- Affiche l'image du code QR -->
+<div class="container mt-5">
+  <div class="card p-4 shadow-lg rounded-lg border-0">
+    <h2 class="text-center text-primary mb-4">List of Clubs</h2>
+    <div class="input-group mb-3">
+      <input type="text" [(ngModel)]="searchTerm" class="form-control rounded-pill" placeholder="Enter club name">
     </div>
-  </div>
-  <a routerLink="/back-office/add-club">Add New Club</a>
 
-  <!-- Statistiques -->
-  <div>
-    <!-- Statistiques -->
-    <h2>Statistiques</h2>
-  
-    <table>
+    <div *ngIf="clubs.length === 0" class="alert alert-warning">No clubs available</div>
+
+    <div class="row">
+      <div *ngFor="let club of clubs" class="col-md-6">
+        <div *ngIf="!searchTerm || club.nom.toLowerCase().includes(searchTerm.toLowerCase())" class="card mb-3 shadow-sm">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img *ngIf="club.photo" [src]="club.photo" alt="Photo du Club" class="img-fluid rounded-start">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ club.nom }}</h5>
+                <p class="card-text">{{ club.objectif }}</p>
+                <p class="card-text"><small class="text-muted">Creation date: {{ club.date | date }}</small></p>
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <button class="btn btn-danger btn-sm" (click)="deleteClub(club.id)">Delete</button>
+                    <a [routerLink]="['/back-office/update-club', club.id]" class="btn btn-warning btn-sm">Update</a>
+                    <a [routerLink]="['/back-office/clubs', club.id]" class="btn btn-info btn-sm">Details</a>
+                  </div>
+                  <div>
+                    <button class="btn btn-success btn-sm" (click)="likeClub(club.id)">
+                      <fa-icon [icon]="faThumbsUp"></fa-icon>
+                    </button>
+                    <button class="btn btn-danger btn-sm" (click)="dislikeClub(club.id)">
+                      <fa-icon [icon]="faThumbsDown"></fa-icon>
+                    </button>
+                    <button class="btn btn-primary btn-sm" (click)="downloadPdf(club.id)">Download PDF</button>
+                    <img [src]="generateQRCodeUrl(club.id)" alt="QR Code" class="img-thumbnail" width="50">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a routerLink="/back-office/add-club" class="btn btn-primary mt-4">Add a New Club</a>
+  </div>
+
+  <div class="card mt-5 p-4 shadow-lg rounded-lg border-0">
+    <h2 class="text-center text-primary mb-4">Statistics</h2>
+    <table class="table table-striped mt-3">
       <tr>
-        <td>Total des clubs:</td>
+        <td>Total clubs:</td>
         <td>{{ totalClubCount }}</td>
       </tr>
       <tr>
-        <td>Total des likes:</td>
+        <td>Total likes:</td>
         <td>{{ totalLikesCount }}</td>
       </tr>
       <tr>
-        <td>Total des dislikes:</td>
+        <td>Total dislikes:</td>
         <td>{{ totalDislikesCount }}</td>
       </tr>
     </table>
   </div>
-  
 
-<div>
-  <h2>Statistiques</h2>
-  <div id="myChartContainer" style="width: 100%; height: 300px;">
-    <canvas id="myChart"></canvas>
+  <div class="card mt-5 p-4 shadow-lg rounded-lg border-0">
+    <h2 class="text-center text-primary mb-4">Statistics</h2>
+    <div id="myChartContainer" style="width: 100%; height: 300px;">
+      <canvas id="myChart"></canvas>
+    </div>
   </div>
-  
 
+  <app-club-map class="mt-5"></app-club-map>
 </div>
-
-
-

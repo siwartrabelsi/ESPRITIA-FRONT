@@ -1,33 +1,47 @@
-<form (ngSubmit)="save()" #clubForm="ngForm">
-  <label for="nom">Nom:</label>
-  <input id="nom" [(ngModel)]="club.nom" name="nom" placeholder="Entrez le nom du club" required>
-  <div *ngIf="clubForm.controls['nom'].invalid && clubForm.controls['nom'].touched">
-    <span style="color: red;">Le nom est obligatoire.</span>
+<!-- Include Bootstrap 5 CSS in index.html -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+<form (ngSubmit)="save()" #clubForm="ngForm" class="container mt-5 p-4 border rounded shadow-sm bg-light">
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="nom" class="form-label">Name:</label>
+      <input id="nom" [(ngModel)]="club.nom" name="nom" class="form-control" placeholder="Entrez le nom du club" required>
+      <div *ngIf="clubForm.controls['nom'].invalid && clubForm.controls['nom'].touched" class="text-danger">
+        Le nom est obligatoire.
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="date" class="form-label">Date:</label>
+      <input id="date" type="date" [(ngModel)]="club.date" name="date" class="form-control" required>
+      <div *ngIf="clubForm.controls['date'].invalid && clubForm.controls['date'].touched" class="text-danger">
+        La date est obligatoire.
+      </div>
+    </div>
   </div>
-  <br>
 
-  <label for="objectif">Objectif:</label>
-  <textarea id="objectif" [(ngModel)]="club.objectif" name="objectif" placeholder="Entrez l'objectif du club" required></textarea>
-  <div *ngIf="clubForm.controls['objectif'].invalid && clubForm.controls['objectif'].touched">
-    <span style="color: red;">L'objectif est obligatoire.</span>
+  <div class="mb-3">
+    <label for="objectif" class="form-label">Objectif:</label>
+    <textarea id="objectif" [(ngModel)]="club.objectif" name="objectif" class="form-control" placeholder="Entrez l'objectif du club" rows="3" required></textarea>
+    <div *ngIf="clubForm.controls['objectif'].invalid && clubForm.controls['objectif'].touched" class="text-danger">
+      L'objectif est obligatoire.
+    </div>
   </div>
-  <br>
 
-  <label for="date">Date:</label>
-  <input id="date" type="date" [(ngModel)]="club.date" name="date" required>
-  <div *ngIf="clubForm.controls['date'].invalid && clubForm.controls['date'].touched">
-    <span style="color: red;">La date est obligatoire.</span>
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="latitude" class="form-label">Latitude:</label>
+      <input id="latitude" type="number" step="any" [(ngModel)]="club.latitude" name="latitude" class="form-control" placeholder="Entrez la latitude">
+    </div>
+    <div class="col-md-6">
+      <label for="longitude" class="form-label">Longitude:</label>
+      <input id="longitude" type="number" step="any" [(ngModel)]="club.longitude" name="longitude" class="form-control" placeholder="Entrez la longitude">
+    </div>
   </div>
-  <br>
 
-  <label for="latitude">Latitude:</label>
-  <input id="latitude" type="number" step="any" [(ngModel)]="club.latitude" name="latitude" placeholder="Entrez la latitude">
-  <br>
+  <div class="mb-3">
+    <label for="file" class="form-label">Select an image:</label>
+    <input type="file" id="file" name="file" class="form-control" (change)="onFileSelected($event)" accept="image/*" required>
+  </div>
 
-  <label for="longitude">Longitude:</label>
-  <input id="longitude" type="number" step="any" [(ngModel)]="club.longitude" name="longitude" placeholder="Entrez la longitude">
-  <br>
-
-  <!-- Désactiver le bouton "Save" si le formulaire n'est pas valide -->
-  <button type="submit" [disabled]="!clubForm.valid">Enregistrer</button>
+  <button type="submit" class="btn btn-primary w-100" [disabled]="!clubForm.valid">Save</button>
 </form>

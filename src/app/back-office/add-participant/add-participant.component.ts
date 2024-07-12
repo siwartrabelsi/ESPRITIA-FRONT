@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Formation } from 'src/app/formation';
+import { FormationService } from 'src/app/formation.service';
 import { Participant } from 'src/app/participant';
 import { ParticipantService } from 'src/app/participant.service';
 
@@ -12,18 +14,27 @@ export class AddParticipantComponent implements OnInit {
   nom: string = '';
   email: string = '';
   formationId: number | null = null;
-
+  formations: Formation[] = [];
   // Propriétés pour la validation
   nomError: string = '';
   emailError: string = '';
   formationIdError: string = '';
 
-  constructor(private participantService: ParticipantService, private router: Router) {}
+  constructor(private participantService: ParticipantService, private router: Router,private formationService: FormationService) {}
 
   ngOnInit(): void {
-    // Initialisation si nécessaire
+    this.getAllFormations();
   }
-
+  getAllFormations(): void {
+    this.formationService.getAllFormations().subscribe(
+      (data: Formation[]) => {
+        this.formations = data;
+      },
+      (error) => {
+        console.error('Error fetching formations', error);
+      }
+    );
+  }
   onSubmit() {
     // Vérifier la validité des champs avant de soumettre le formulaire
     if (!this.validateForm()) {

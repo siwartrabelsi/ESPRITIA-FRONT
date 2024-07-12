@@ -1,16 +1,27 @@
-<div class="container">
-  <div *ngIf="club" class="card mt-4">
+<!-- Include Bootstrap 5 CSS in index.html if not already included -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-5">
+  <div *ngIf="club" class="card shadow-lg border-0 rounded-lg">
     <div class="card-body">
-      <h2 class="card-title">{{ club.nom }}</h2>
+      <h2 class="card-title text-primary">{{ club.nom }}</h2>
       <p class="card-text">{{ club.objectif }}</p>
       <p class="card-text">Date: {{ club.date | date }}</p>
-      <p class="card-text mt-2">Points de fidélité: {{ club.pointsFidelite }}</p>
-      <div class="d-flex justify-content-between align-items-center">
-        <button class="btn btn-primary" (click)="downloadPdf(club.id)">Download PDF</button>
+      <p class="card-text mt-2">Points de fidélité: <span class="badge bg-success">{{ club.pointsFidelite }}</span></p>
+      <div class="text-center my-4">
+        <img *ngIf="club.photo" [src]="club.photo" alt="Club Photo" class="img-thumbnail" width="200">
       </div>
-      <button class="btn btn-secondary" (click)="navigateToList()">Retourner à la liste des clubs</button>
-      <a [attr.href]="generateQRCodeUrl(club.id)" target="_blank">Générer QR Code</a>
-      <app-club-map></app-club-map>
+      <div class="d-flex justify-content-between align-items-center mt-4">
+        <button class="btn btn-primary" (click)="downloadPdf(club.id)">
+          <i class="bi bi-download"></i> Download PDF
+        </button>
+        <a class="btn btn-secondary" (click)="navigateToList()">
+          <i class="bi bi-arrow-left"></i> Retourner à la liste des clubs
+        </a>
+        <a class="btn btn-info" [attr.href]="generateQRCodeUrl(club.id)" target="_blank">
+          <i class="bi bi-qr-code"></i> Générer QR Code
+        </a>
+      </div>
     </div>
   </div>
 </div>

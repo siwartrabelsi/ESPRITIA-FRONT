@@ -1,0 +1,68 @@
+<div class="container mt-4 p-4 club-container">
+    <div class="row">
+        <!-- Colonne pour la liste des clubs -->
+        <div class="col-md-12">
+            <!-- Zone de recherche -->
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Enter club name">
+                <button class="btn btn-outline-light" type="button" id="button-addon2">Search</button>
+            </div>
+            <!-- Aucun club disponible -->
+            <div class="alert alert-warning" *ngIf="clubs.length === 0">No clubs available</div>
+
+            <!-- Liste des clubs avec fond coloré -->
+            <div class="club-list">
+                <div class="row">
+                    <div *ngFor="let club of clubs" class="col-md-6 mb-4">
+                        <div *ngIf="!searchTerm || club.nom.toLowerCase().includes(searchTerm.toLowerCase())" class="card h-100 shadow-sm">
+                            <div class="card-horizontal">
+                                <div class="img-square-wrapper">
+                                    <img *ngIf="club.photo" [src]="club.photo" alt="Club Photo">
+                                </div>
+                                <div class="card-body">
+                                    <!-- Nom du club et description -->
+                                    <div class="mb-3">
+                                        <h5 class="card-title">{{club.nom}}</h5>
+                                    
+                                       
+                                    </div>
+
+                                    <!-- Boutons pour aimer, ne pas aimer et télécharger le PDF -->
+                                    <div class="btn-group" role="group">
+                                        <button (click)="likeClub(club.id)" class="btn btn-success"><fa-icon [icon]="faThumbsUp"></fa-icon></button>
+                                        <button (click)="dislikeClub(club.id)" class="btn btn-danger"><fa-icon [icon]="faThumbsDown"></fa-icon></button>
+                                        <button (click)="downloadPdf(club.id)" class="btn btn-warning">
+                                            <fa-icon [icon]="faFilePdf"></fa-icon>
+                                        </button>
+                                    </div>
+
+                                    <!-- Image du code QR -->
+                                    <div class="qr-code-container">
+                                        <img [src]="generateQRCodeUrl(club.id)" class="img-thumbnail qr-code" alt="QR Code">
+                                    </div>
+                                    <a [routerLink]="['/detailclub', club.id]" class="btn btn-info btn-detail">
+                                        <fa-icon [icon]="faInfoCircle"></fa-icon> Show Details
+                                    </a>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carte des clubs en bas de la page -->
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card shadow-lg rounded-lg border-0 club-map-card">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Carte des Clubs</h5>
+                    <app-club-map></app-club-map>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

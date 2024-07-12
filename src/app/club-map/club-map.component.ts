@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { Club } from '../club';
 import { ClubService } from '../club.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-club-map',
@@ -22,18 +23,11 @@ export class ClubMapComponent implements OnInit {
 
   clubs: Club[] = [];
 
-  constructor(private clubService: ClubService) {}
+  constructor(private clubService: ClubService, private router: Router) {}
 
   ngOnInit(): void {
     this.initializeMap();
     this.loadClubs();
-
-    // Ajouter un écouteur de clic à la carte pour afficher les coordonnées
-    if (this.map) {
-      this.map.on('click', (e: L.LeafletMouseEvent) => {
-        alert(`Latitude: ${e.latlng.lat}, Longitude: ${e.latlng.lng}`);
-      });
-    }
   }
 
   private initializeMap(): void {
@@ -58,7 +52,12 @@ export class ClubMapComponent implements OnInit {
     this.clubs.forEach(club => {
       const marker = L.marker([club.latitude, club.longitude], { icon: this.defaultIcon })
         .addTo(this.map!)
-        .bindPopup(`<b>${club.nom}</b>`); // Personnalisez le contenu du popup comme vous le souhaitez
+        .bindPopup(`<b>${club.nom}</b>`)
+        .on('click', () => this.navigateToClubDetail(club.id)); // Ajouter un événement de clic au marqueur
     });
+  }
+
+  private navigateToClubDetail(clubId: number): void {
+    this.router.navigate(['/back-office/clubs', clubId]); // Utiliser clubId au lieu de club.id
   }
 }

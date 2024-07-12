@@ -1,0 +1,42 @@
+/* Ajoutez ceci dans votre fichier CSS global ou spécifique au composant */
+body {
+    background-color: #f0f2f5;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .container {
+    max-width: 800px;
+  }
+  
+  .card {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card .card-title {
+    font-weight: bold;
+    font-size: 1.75rem;
+  }
+  
+  .card .card-text {
+    font-size: 1rem;
+  }
+  
+  .badge {
+    font-size: 1rem;
+  }
+  
+  .btn {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .btn i {
+    margin-right: 8px;
+  }
+  
+  .img-thumbnail {
+    border-radius: 15px;
+  }
+  

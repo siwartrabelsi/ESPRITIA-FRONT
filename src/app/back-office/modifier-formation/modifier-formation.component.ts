@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Formation } from 'src/app/formation';
 import { FormationService } from 'src/app/formation.service';
+import { Club } from 'src/app/club'; // Importez le modèle Club
+import { ClubService } from 'src/app/club.service'; // Importez le service ClubService
 
 @Component({
   selector: 'app-modifier-formation',
@@ -18,13 +20,15 @@ export class ModifierFormationComponent implements OnInit {
     clubId: 0,
     participant: []  // Initialisez selon vos besoins
   };
-
+  clubs: Club[] = []; // Liste des clubs disponibles
+  clubNom: string = ''; // Nom du club sélectionné
   formSubmitted: boolean = false;
 
   constructor(
     private formationService: FormationService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private clubService: ClubService // Injectez le service ClubService
   ) {}
 
   ngOnInit(): void {
@@ -34,6 +38,23 @@ export class ModifierFormationComponent implements OnInit {
         this.loadFormationDetails(+params['id']);
       }
     });
+    this.getAllClubs();
+  }
+
+  getAllClubs(): void {
+    this.clubService.getClubs().subscribe(
+      (data: Club[]) => {
+        this.clubs = data;
+        // Trouver le nom du club associé à la formation actuelle
+        const selectedClub = this.clubs.find(club => club.id === this.formation.clubId);
+        if (selectedClub) {
+          this.clubNom = selectedClub.nom;
+        }
+      },
+      (error) => {
+        console.error('Error fetching clubs', error);
+      }
+    );
   }
 
   loadFormationDetails(id: number): void {
@@ -41,6 +62,11 @@ export class ModifierFormationComponent implements OnInit {
     this.formationService.getFormationById(id).subscribe(
       (formation: Formation) => {
         this.formation = formation;
+        // Trouver le nom du club associé à la formation
+        const selectedClub = this.clubs.find(club => club.id === this.formation.clubId);
+        if (selectedClub) {
+          this.clubNom = selectedClub.nom;
+        }
       },
       (error: any) => {
         console.error('Erreur lors du chargement des détails de la formation:', error);
@@ -54,6 +80,15 @@ export class ModifierFormationComponent implements OnInit {
 
     // Vérifier si le formulaire est valide
     if (!this.isFormValid()) {
+      return;
+    }
+
+    // Trouver l'ID du club à partir du nom sélectionné
+    const selectedClub = this.clubs.find(club => club.nom === this.clubNom);
+    if (selectedClub) {
+      this.formation.clubId = selectedClub.id;
+    } else {
+      console.error('Erreur: Club sélectionné introuvable.');
       return;
     }
 
@@ -72,6 +107,6 @@ export class ModifierFormationComponent implements OnInit {
 
   isFormValid(): boolean {
     return !!this.formation.nom && !!this.formation.description 
-           && !!this.formation.dateDebut && !!this.formation.dateFin && !!this.formation.clubId;
+           && !!this.formation.dateDebut && !!this.formation.dateFin && !!this.clubNom;
   }
 }

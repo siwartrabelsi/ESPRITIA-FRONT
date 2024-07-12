@@ -1,31 +1,38 @@
-<!-- modifier-formation.component.html -->
+<!-- Include Bootstrap 5 CSS in index.html if not already included -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
 
-<div class="container">
-    <h2>Modifier Formation</h2>
-    
-    <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label>Nom:</label>
-        <input type="text" class="form-control" [(ngModel)]="formation.nom" name="nom" required>
-      </div>
-      <div class="form-group">
-        <label>Description:</label>
-        <textarea class="form-control" [(ngModel)]="formation.description" name="description" required></textarea>
-      </div>
-      <div class="form-group">
-        <label>Date de début:</label>
-        <input type="date" class="form-control" [(ngModel)]="formation.dateDebut" name="dateDebut" required>
-      </div>
-      <div class="form-group">
-        <label>Date de fin:</label>
-        <input type="date" class="form-control" [(ngModel)]="formation.dateFin" name="dateFin" required>
-      </div>
-      <div class="form-group">
-        <label>Club ID:</label>
-        <input type="number" class="form-control" [(ngModel)]="formation.clubId" name="clubId" required>
-      </div>
-      <!-- Vous pouvez ajouter d'autres champs ici si nécessaire -->
-      <button type="submit" class="btn btn-primary">Mettre à jour</button>
-    </form>
+<div class="container mt-4">
+  <div class="card shadow-lg border-0 rounded">
+    <div class="card-body">
+      <h2 class="card-title text-center text-primary mb-4">Edit Training</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="nom" class="form-label">Name:</label>
+          <input type="text" id="nom" class="form-control" [(ngModel)]="formation.nom" name="nom" required>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description:</label>
+          <textarea id="description" class="form-control" [(ngModel)]="formation.description" name="description" rows="4" required></textarea>
+        </div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="dateDebut" class="form-label">Start Date:</label>
+            <input type="date" id="dateDebut" class="form-control" [(ngModel)]="formation.dateDebut" name="dateDebut" required>
+          </div>
+          <div class="col-md-6">
+            <label for="dateFin" class="form-label">End date:</label>
+            <input type="date" id="dateFin" class="form-control" [(ngModel)]="formation.dateFin" name="dateFin" required>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="clubNom" class="form-label">Club Name:</label>
+          <select id="clubNom" class="form-select" [(ngModel)]="clubNom" name="clubNom" required>
+            <option *ngFor="let club of clubs" [value]="club.nom">{{ club.nom }}</option>
+          </select>
+        </div>
+        <!-- Ajoutez d'autres champs si nécessaire -->
+        <button type="submit" class="btn btn-primary w-100 mt-3">Update</button>
+      </form>
+    </div>
   </div>
-  
+</div>

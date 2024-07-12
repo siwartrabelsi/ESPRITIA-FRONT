@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Formation } from './formation'; // Assurez-vous d'avoir un modèle pour Formation
 import { Club } from './club';
@@ -35,5 +35,13 @@ export class FormationService {
   getClub(id: number): Observable<Club> {
     return this.http.get<Club>(`${this.apiUrl}/${id}`);
   }
+  searchFormationsByNom(nom: string): Observable<Formation[]> {
+    const params = new HttpParams().set('nom', nom); // Ajoutez d'autres paramètres si nécessaire
 
+    return this.http.get<Formation[]>(this.apiUrl, { params });
+  }
+  getAllClubs(): Observable<Club[]> {
+    return this.http.get<Club[]>('http://localhost:9090/api/clubs');
+  }
+  
 }

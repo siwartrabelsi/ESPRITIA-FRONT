@@ -19,8 +19,7 @@ export class ClubService {
   getClub(id: number): Observable<Club> {
     return this.http.get<Club>(`${this.apiUrl}/${id}`);
   }
-
-  createClub(club: Club): Observable<Club> {
+ createClub(club: Club): Observable<Club> {
     return this.http.post<Club>(this.apiUrl, club);
   }
 
@@ -86,5 +85,9 @@ export class ClubService {
   assignEventsToClub(clubId: number, eventIds: number[]): Observable<any> {
     return this.http.post(`${this.apiUrl}/${clubId}/events`, eventIds);
   }
-
+  uploadPhoto(clubId: number, formData: FormData): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/uploadImage/${clubId}`, formData);
+  }
+  
+  
 }

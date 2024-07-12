@@ -28,17 +28,19 @@ export class ParticipantListComponent implements OnInit {
   } 
  
   deleteParticipant(id: number): void {
-    console.log('Deleting participant with id:', id); // Log before deletion
-    this.participantService.deleteParticipant(id).subscribe(
-      () => {
-        console.log('Participant deleted successfully'); // Log after successful deletion
-        // Supprimer le participant de la liste locale
-        this.participants = this.participants.filter(participant => participant.id !== id);
-      },
-      (error) => {
-        console.log('Erreur lors de la suppression du participant:', error);
-      }
-    );
+    if (confirm('Êtes-vous sûr de vouloir supprimer ce participant ?')) {
+      console.log('Deleting participant with id:', id); // Log before deletion
+      this.participantService.deleteParticipant(id).subscribe(
+        () => {
+          console.log('Participant deleted successfully'); // Log after successful deletion
+          // Supprimer le participant de la liste locale
+          this.participants = this.participants.filter(participant => participant.id !== id);
+        },
+        (error) => {
+          console.log('Erreur lors de la suppression du participant:', error);
+        }
+      );
+    }
   }
 
 }

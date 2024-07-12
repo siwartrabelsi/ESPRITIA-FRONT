@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ClubListComponent } from './back-office/club-list/club-list.component';
 import { ClubDetailComponent } from './back-office/club-detail/club-detail.component';
 import { ClubFormComponent } from './back-office/club-form/club-form.component';
-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +15,6 @@ import { SignupComponent } from './signup/signup.component';
 import { AuthInterceptor } from './AuthInterceptor';
 import { HomeComponent } from './front-office/home/home.component';
 import { BackOfficeComponent } from './back-office/back-office.component';
-import { DashboardComponent } from './back-office/dashboard/dashboard.component';
 import { UsersComponent } from './back-office/users/users.component';
 import { SettingsComponent } from './back-office/settings/settings.component';
 import { FrontOfficeComponent } from './front-office/front-office.component';
@@ -39,6 +37,12 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { ParticipantListComponent } from './back-office/participant-list/participant-list.component';
 import { AddParticipantComponent } from './back-office/add-participant/add-participant.component';
 import { UpdateParticipantComponent } from './back-office/update-participant/update-participant.component';
+import { ClubComponent } from './club/club.component';
+import { ParticiperComponent } from './participer/participer.component';
+import { EventformationComponent } from './eventformation/eventformation.component';
+import { DetailclubComponent } from './detailclub/detailclub.component';
+import { NgxPowerBiModule } from 'ngx-powerbi';
+import { PowerBiDashboardComponent } from './power-bi-dashboard/power-bi-dashboard.component';
 
 
 
@@ -58,7 +62,6 @@ import { UpdateParticipantComponent } from './back-office/update-participant/upd
     SignupComponent,
     HomeComponent,
     BackOfficeComponent,
-    DashboardComponent,
     UsersComponent,
     SettingsComponent,
     FrontOfficeComponent,
@@ -78,7 +81,12 @@ import { UpdateParticipantComponent } from './back-office/update-participant/upd
     CalendarComponent,
     ParticipantListComponent,
     AddParticipantComponent,
-    UpdateParticipantComponent
+    UpdateParticipantComponent,
+    ClubComponent,
+    ParticiperComponent,
+    EventformationComponent,
+    DetailclubComponent,
+    PowerBiDashboardComponent
    
     
   ],
@@ -89,7 +97,8 @@ import { UpdateParticipantComponent } from './back-office/update-participant/upd
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FullCalendarModule
+    FullCalendarModule,
+    NgxPowerBiModule
 
     
     

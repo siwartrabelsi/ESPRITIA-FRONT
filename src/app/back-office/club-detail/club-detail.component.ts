@@ -14,6 +14,8 @@ export class ClubDetailComponent implements OnInit {
   id!: number;
   pointsFidelite: number = 0;
   map: L.Map | undefined;
+  selectedFiles: { [key: number]: File } = {}; 
+  clubs: Club[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -86,4 +88,30 @@ export class ClubDetailComponent implements OnInit {
       }
     );
   }
+  
+  onFileSelected(event: any, clubId: number): void {
+    const file: File = event.target.files[0];
+    this.selectedFiles[clubId] = file;
+  }
+
+ uploadPhoto(clubId: number): void {
+  const file = this.selectedFiles[clubId];
+  if (file) {
+    const formData = new FormData();
+    formData.append('file', file, file.name);
+
+    this.clubService.uploadPhoto(clubId, formData).subscribe(
+      (response) => {
+        // Mettre à jour l'URL de la photo du club après téléchargement
+        const club = this.clubs.find(club => club.id === clubId);
+        if (club) {
+          club.photo = response.photo; // Assurez-vous que la structure de la réponse correspond à ce que vous attendez
+        }
+      },
+      (error) => {
+        console.error('Error uploading photo', error);
+      }
+    );
+  }
+}
 }
