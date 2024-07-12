@@ -1,41 +1,39 @@
+<br>
 
 <h2 class="listreservations-title">Liste des réservations</h2>
-<div *ngIf="reservations" class="listreservations-container">
-
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Date de début</th>
-        <th>Date de fin</th>
-        <th>Club organisateur</th>
-        <th>Type d'événement</th>
-        <th>Participants attendus</th>
-        <th>Heure de début</th>
-        <th>Heure de fin</th>
-        <th>Espaces réservés</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let reservation of reservations">
-        <td>{{ reservation.datedebut | date: 'short' }}</td>
-        <td>{{ reservation.datefin | date: 'short' }}</td>
-        <td>{{ reservation.clubOrganisateur }}</td>
-        <td>{{ reservation.typeEvenement }}</td>
-        <td>{{ reservation.nombreParicipantsAttendus }}</td>
-        <td>{{ reservation.heureDebut }}</td>
-        <td>{{ reservation.heureFin }}</td>
-        <td>
-          {{ reservation.espacenName }}
-          </td>
-        <td>
-          <button mat-raised-button class="button-red" style="margin-top: 10px;" (click)="editReservation(reservation)">edit</button>
-          <button mat-raised-button class="button-red" style="margin-top: 10px;" (click)="deleteReservation(reservation.id)">delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<button mat-raised-button class="button-red" style="margin-top: 10px;" [routerLink]="['/espaceEvent']" >
+    Espace
+  </button>
+  <br>
+  <div class="container mt-5">
+    <div *ngIf="reservations" class="listreservations-container">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col" *ngFor="let reservation of reservations">
+          <div class="card shadow-lg border-0 rounded-lg">
+            <div class="card-body">
+                <h5 class="text-center mb-4" style="color: red">Réservation du {{ reservation.datedebut | date: 'short' }}</h5>
+              <div class="mb-3">
+                <p class="card-text"><strong>Date de début:</strong> {{ reservation.datedebut | date: 'medium' }}</p>
+                <p class="card-text"><strong>Date de fin:</strong> {{ reservation.datefin | date: 'medium' }}</p>
+                <p class="card-text"><strong>Club organisateur:</strong> {{ reservation.clubOrganisateur }}</p>
+                <p class="card-text"><strong>Type d'événement:</strong> {{ reservation.typeEvenement }}</p>
+                <p class="card-text"><strong>Participants attendus:</strong> {{ reservation.nombreParicipantsAttendus }}</p>
+                <p class="card-text"><strong>Heure de début:</strong> {{ reservation.heureDebut }}</p>
+                <p class="card-text"><strong>Heure de fin:</strong> {{ reservation.heureFin }}</p>
+                <p class="card-text"><strong>Espace réservé:</strong> {{ reservation.espacenName }}</p>
+              </div>
+              
+              <div class="text-center">
+                <button mat-raised-button class="btn btn-danger button-red" (click)="deleteReservation(reservation.id)">
+                  <i class="bi bi-trash"></i> Annuler 
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <div class="bttn">    
   <button mat-raised-button class="button-red"  (click)="showAddReservationModal()">Ajouter une réservation</button>
@@ -89,9 +87,9 @@
   </div>
 </div>
 
-<div>
-  <h2>Statistiques</h2>
-  <div id="myChartContainer" style="width: 100%; height: 300px;">
-    <canvas id="myChart"></canvas>
-  </div>
-</div>
+
+
+
+  
+  
+  

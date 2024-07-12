@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClubListComponent } from './back-office/club-list/club-list.component';
 import { ClubDetailComponent } from './back-office/club-detail/club-detail.component';
 import { ClubFormComponent } from './back-office/club-form/club-form.component';
@@ -30,6 +31,20 @@ import { EvenementFormComponent } from './back-office/evenement-form/evenement-f
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
 import { CalendarComponent } from './back-office/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { EspaceEventComponent } from './espace-event/espace-event.component';
+import { CalendarFrontComponent } from './calendar-front/calendar-front.component';
+
+import { EspaceDashboardComponent } from './espace-dashboard/espace-dashboard.component';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { ReservationEventComponent } from './reservation-event/reservation-event.component';
+
 
 
 @NgModule({
@@ -57,17 +72,29 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     EvenementDetailComponent,
     EvenementFormComponent,
     EvenementUpdateComponent,
-    CalendarComponent
+    CalendarComponent,
+    EspaceEventComponent,
+    CalendarFrontComponent,
+    EspaceDashboardComponent,
+    ReservationEventComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
     FullCalendarModule,
-    
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    //MatCardModule,
+    //MatButtonModule
   ],
   providers: [
     {
