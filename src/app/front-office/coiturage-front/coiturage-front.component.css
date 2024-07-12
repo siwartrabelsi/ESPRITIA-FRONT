@@ -1,0 +1,36 @@
+/* src/app/components/create-covoiturage/create-covoiturage.component.css */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  input, button {
+    margin-top: 5px;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f1756c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #f1756c;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: smaller;
+    font-style: italic;
+  }
+  

@@ -1,2 +1,37 @@
-<p>coiturage-front works!</p>
-kkkkkk
+<div class="search-form">
+    <label for="searchFumeur">Fumeur:</label>
+    <select id="searchFumeur" class="custom-select" [(ngModel)]="searchFumeur">
+      <option value="">Tous</option>
+      <option value="Fumeur">Fumeur</option>
+      <option value="Non fumeur">Non fumeur</option>
+    </select>
+  
+    <label for="searchDate">Date de départ:</label>
+    <input type="date" id="searchDate" class="custom-input" [(ngModel)]="searchDate">
+  
+    <label for="searchLieuDepart">Départ:</label>
+    <input type="text" id="searchLieuDepart" class="custom-input" [(ngModel)]="searchLieuDepart">
+  
+    <label for="searchDestination">Destination:</label>
+    <input type="text" id="searchDestination" class="custom-input" [(ngModel)]="searchDestination">
+  
+    <button class="custom-button" (click)="searchCovoiturages()">Rechercher</button>
+  </div>
+<div class="card-container">
+    <div *ngFor="let covoiturage of covoiturages" class="card">
+      <div class="card-header">
+        <h3>{{ covoiturage.lieuDepart }} &rarr; {{ covoiturage.destination }}</h3>
+      </div>
+      <div class="card-body">
+        <p><strong>Date de départ:</strong> {{ covoiturage.heureDepart | date:'medium' }}</p>
+        <p><strong>Places disponibles:</strong> {{ covoiturage.nbPlace }}</p>
+        <p><strong>Statut:</strong> {{ covoiturage.status }}</p>
+        <p><strong>Fumeur:</strong> {{ covoiturage.fumeur }}</p>
+      </div>
+      <div class="card-footer">
+       
+        <button (click)="reservePlace(covoiturage)">Reserver</button>
+      </div>
+    </div>
+  </div>
+  
