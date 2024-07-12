@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClubListComponent } from './back-office/club-list/club-list.component';
@@ -23,10 +23,20 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { CovoiturageListComponent } from './back-office/covoiturage-list/covoiturage-list.component';
 import { CreateCovoiturageComponent } from './back-office/create-covoiturage/create-covoiturage.component';
 import { EditCovoiturageComponent } from './back-office/edit-covoiturage/edit-covoiturage.component';
+import { CoiturageFrontComponent } from './front-office/coiturage-front/coiturage-front.component';
+
 import { EvenementListComponent } from './back-office/evenement-list/evenement-list.component';
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
+import { CovoiturageService } from './services/covoiturage.service';
+import { ListCovoiturageFontComponent } from './front-office/list-covoiturage-font/list-covoiturage-font.component';
+import { PlanningEventComponent } from './back-office/planning-event/planning-event.component';
+import { ParticiperEventUserComponent } from './front-office/participer-event-user/participer-event-user.component';
+import { UserEventsComponent } from './front-office/user-events/user-events.component';
+import { EventClubComponent } from './back-office/event-club/event-club.component';
+import { ToastrModule } from 'ngx-toastr';
+// Importez BrowserAnimationsModule depuis @angular/platform-browser/animations
 import { ClubMapComponent } from './club-map/club-map.component';
 import { FormationListComponent } from './back-office/formation-list/formation-list.component';
 import { AddFormationComponent } from './back-office/add-formation/add-formation.component';
@@ -66,11 +76,24 @@ import { ReclamationsComponent } from './back-office/reclamations/reclamations.c
     ReservationComponent,
     ClubListComponent,
     ClubDetailComponent,
+    FormationDetailComponent,
+    ModifierFormationComponent,
+    PowerBiDashboardComponent,
+    FormationListComponent,
     ClubFormComponent,
+    AddFormationComponent,
+    ParticiperComponent,
     UpdateClubComponent,
+    AddParticipantComponent,
+    UpdateParticipantComponent,
+    ClubMapComponent,
+    ParticipantListComponent,
+    ClubComponent,
     LoginComponent,
     SignupComponent,
     HomeComponent,
+    CalendarEyaComponent,
+    EventformationComponent,
     BackOfficeComponent,
     UsersComponent,
     SettingsComponent,
@@ -83,12 +106,20 @@ import { ReclamationsComponent } from './back-office/reclamations/reclamations.c
     EvenementDetailComponent,
     EvenementFormComponent,
     EvenementUpdateComponent,
+    CoiturageFrontComponent,
+    ListCovoiturageFontComponent,     
+    PlanningEventComponent,
+    ParticiperEventUserComponent,
+    UserEventsComponent,
+    EventClubComponent,
     CalendarComponent,
     EspaceEventComponent,
     CalendarFrontComponent,
     EspaceDashboardComponent,
     ReservationEventComponent,
     ResetPasswordConfirmComponent,
+    ReclamationsComponent,
+    DetailclubComponent,
     ReclamationsComponent
   ],
   imports: [
@@ -99,6 +130,8 @@ import { ReclamationsComponent } from './back-office/reclamations/reclamations.c
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     FullCalendarModule,
     NgxPowerBiModule,
     MatToolbarModule,
@@ -106,15 +139,18 @@ import { ReclamationsComponent } from './back-office/reclamations/reclamations.c
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
+    MatSelectModule,
+    MatCardModule,
     MatSelectModule
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor, // Add your interceptor service here
-      multi: true
-    }
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}

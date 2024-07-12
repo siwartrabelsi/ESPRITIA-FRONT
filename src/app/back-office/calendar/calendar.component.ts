@@ -12,7 +12,7 @@ import { ReservationService } from 'src/app/Reservations services/reservation.se
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })
-export class CalendarComponent implements OnInit{
+export class CalendarEyaComponent implements OnInit{
   espaces: Espace[] = [];
   reservations: Reservation[] = [];
   espacesDisponibles: Espace[] = []

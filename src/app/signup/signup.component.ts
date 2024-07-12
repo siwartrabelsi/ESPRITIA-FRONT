@@ -34,7 +34,7 @@ export class SignupComponent {
       role: this.role,
       phone: this.phone
     };
-    
+
     this.authService.signup(signupRequest).subscribe(response => {
       // Handle successful registration
       console.log('Registration successful:', response);

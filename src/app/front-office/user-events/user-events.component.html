@@ -1,0 +1,18 @@
+<div *ngIf="evenements.length > 0; else noEvenements" class="card-container">
+  <div *ngFor="let evenement of evenements" class="event-card">
+    <img [src]="'assets/' + evenement.affiche" alt="Affiche de l'événement" class="event-image">
+    <div class="event-details">
+      <h2>{{ evenement.nom }}</h2>
+      <p><strong>Date:</strong> {{ evenement.date }}</p>
+      <p><strong>Date Fin:</strong> {{ evenement.dateFin }}</p>
+      <div class="rating">
+        <span class="rating-stars" [style.width.%]="evenement.rating * 20">
+          ★★★★★
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noEvenements>
+  <p>Aucun événement trouvé pour cet utilisateur.</p>
+</ng-template>

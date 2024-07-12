@@ -21,6 +21,12 @@ import { EvenementListComponent } from './back-office/evenement-list/evenement-l
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
+import { CoiturageFrontComponent } from './front-office/coiturage-front/coiturage-front.component';
+import { ListCovoiturageFontComponent } from './front-office/list-covoiturage-font/list-covoiturage-font.component';
+import { PlanningEventComponent } from './back-office/planning-event/planning-event.component';
+import { ParticiperEventUserComponent } from './front-office/participer-event-user/participer-event-user.component';
+import { UserEventsComponent } from './front-office/user-events/user-events.component';
+import { EventClubComponent } from './back-office/event-club/event-club.component';
 import { FormationListComponent } from './back-office/formation-list/formation-list.component';
 import { AddFormationComponent } from './back-office/add-formation/add-formation.component';
 import { ModifierFormationComponent } from './back-office/modifier-formation/modifier-formation.component';
@@ -34,7 +40,7 @@ import { EventformationComponent } from './eventformation/eventformation.compone
 import { DetailclubComponent } from './detailclub/detailclub.component';
 import { DashboardComponent } from './back-office/dashboard/dashboard.component';
 
-import { CalendarComponent } from './back-office/calendar/calendar.component';
+import { CalendarEyaComponent } from './back-office/calendar/calendar.component';
 import { EspaceEventComponent } from './espace-event/espace-event.component';
 import { CalendarFrontComponent } from './calendar-front/calendar-front.component';
 import { ReservationEventComponent } from './reservation-event/reservation-event.component';
@@ -48,7 +54,9 @@ const routes: Routes = [
   { path: 'forget-password', component: ForgetPasswordComponent },
   { path: 'reset-password-confirm', component: ResetPasswordConfirmComponent },
   {
-    path: 'back-office', component: BackOfficeComponent, children: [
+    path: 'back-office',
+    component: BackOfficeComponent,
+    children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component:DashboardComponent},
       { path: 'users', component: UsersComponent },
@@ -60,6 +68,23 @@ const routes: Routes = [
       { path: 'espaces', component: EspacesComponent },
       { path: 'reservation', component: ReservationComponent },
       { path: 'covoiturages', component: CovoiturageListComponent },
+      { path: 'create-covoiturage', component: CreateCovoiturageComponent },
+      { path: 'edit-covoiturage/:id', component: EditCovoiturageComponent },
+      { path: 'list-event', component: EvenementListComponent },
+      { path: 'create-event', component: EvenementFormComponent },
+      { path: 'edit-event/:id', component: EvenementUpdateComponent },
+      { path: 'detail-evenement/:id', component: EvenementDetailComponent },
+      { path: 'update-evenement/:id', component: EvenementUpdateComponent },
+
+    ]
+  },
+
+  {
+    path: 'front-office', component: FrontOfficeComponent, children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
+      { path: 'coiturage-front', component: CoiturageFrontComponent },
+      { path: 'covoiturage-list', component: ListCovoiturageFontComponent },
       { path: 'create', component: CreateCovoiturageComponent },
       { path: 'edit/:id', component: EditCovoiturageComponent },
       { path: 'listEvent', component: EvenementListComponent },
@@ -67,7 +92,17 @@ const routes: Routes = [
       { path: 'edit/:id', component: EvenementFormComponent },
       { path: 'detailEvenement/:id', component: EvenementDetailComponent },
       { path: 'updateEvenement/:id', component: EvenementUpdateComponent },
-      { path: 'calendar', component: CalendarComponent },
+      { path: 'calendar', component: CalendarEyaComponent },
+      { path: 'reclamations', component: ReclamationsComponent },
+      { path: 'formations', component: FormationListComponent },
+      { path: 'add-formation', component: AddFormationComponent },
+      { path: 'modifier-formation/:id', component: ModifierFormationComponent },
+      { path: 'formations/:id', component: FormationDetailComponent },
+      { path: 'participants', component: ParticipantListComponent },
+      { path: 'add-participant', component: AddParticipantComponent },
+      { path: 'update-participant/:id', component: UpdateParticipantComponent },
+      { path: 'planning', component: PlanningEventComponent },
+      { path: 'affecterclubevent', component: EventClubComponent },
       { path: 'reclamations', component: ReclamationsComponent },
        {path: 'formations',component:FormationListComponent},
       {path: 'add-formation',component:AddFormationComponent},
@@ -80,6 +115,11 @@ const routes: Routes = [
   },
   { path: 'espaceEvent', component: EspaceEventComponent },
   { path: 'calendarFront', component: CalendarFrontComponent },
+  { path: 'reservationEvent', component: ReservationEventComponent },
+  { path: 'club', component: ClubComponent },
+  { path: 'participer', component: ParticiperComponent },
+  { path: 'eventformation', component: EventformationComponent },
+  { path: 'detailclub/:id', component: DetailclubComponent },
   { path: 'reservationEvent', component: ReservationEventComponent},
    {path: 'club',component:ClubComponent},
   {path: 'participer',component:ParticiperComponent},
@@ -88,15 +128,18 @@ const routes: Routes = [
   {
     path: 'front-office', component: FrontOfficeComponent, children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent }
-
+      { path: 'home', component: HomeComponent },
+      { path: 'participerEvenement', component: ParticiperEventUserComponent },
+      { path: 'userEvent', component: UserEventsComponent },
     ]
   },
   { path: '**', redirectTo: '/login' },
+
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

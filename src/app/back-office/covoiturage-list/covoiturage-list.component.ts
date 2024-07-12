@@ -10,9 +10,12 @@ import { CovoiturageService } from '../../services/covoiturage.service';
 })
 export class CovoiturageListComponent implements OnInit {
   covoiturages: Covoiturage[] = [];
-  searchId: number | undefined;
+  searchLieuDepart: string = '';
+  searchDestination: string = '';
+  searchDate: Date | null = null;
+  searchFumeur: string = '';
 
-  constructor(private covoiturageService: CovoiturageService, private router: Router) { }
+  constructor(private covoiturageService: CovoiturageService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadCovoiturages();
@@ -25,7 +28,7 @@ export class CovoiturageListComponent implements OnInit {
   }
 
   editCovoiturage(id: number): void {
-    this.router.navigate(['/edit', id]);
+    this.router.navigate(['/back-office/edit-covoiturage', id]);
   }
 
   deleteCovoiturage(id: number): void {
@@ -37,11 +40,17 @@ export class CovoiturageListComponent implements OnInit {
     }
   }
 
-  searchCovoiturage(): void {
-    if (this.searchId !== undefined) {
-      this.covoiturageService.getCovoiturageById(this.searchId).subscribe(data => {
-        this.covoiturages = [data]; // Mettre le résultat de la recherche dans un tableau pour l'affichage
-      });
-    }
+  searchCovoiturages(): void {
+    const criteria = {
+      fumeur: this.searchFumeur,
+      dateDepart: this.searchDate,
+      lieuDepart: this.searchLieuDepart,
+      destination: this.searchDestination
+    };
+
+    this.covoiturageService.searchCovoiturages(criteria).subscribe(data => {
+      this.covoiturages = data;
+    });
   }
+ 
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClubService } from '../../club.service';
 import { Club } from '../../club';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
-import { Chart, registerables } from 'chart.js';
+import { Chart } from 'chart.js';
 @Component({
   selector: 'app-club-list',
   templateUrl: './club-list.component.html',
@@ -73,7 +73,7 @@ export class ClubListComponent implements OnInit {
         }
       );
     } else {
-      this.getClubs(); // Recharge la liste complète si le champ de recherche est vide
+      this.getClubs();
     }
   }
 
@@ -130,14 +130,12 @@ export class ClubListComponent implements OnInit {
   getTotalClubCount(): number {
     return this.clubs.length;
   }
-  
+
   getTotalLikesCount(): number {
-    // Calculer le total des likes à partir des clubs
     return this.clubs.reduce((totalLikes, club) => totalLikes + club.nbLikes, 0);
   }
-  
+
   getTotalDislikesCount(): number {
-    // Calculer le total des dislikes à partir des clubs
     return this.clubs.reduce((totalDislikes, club) => totalDislikes + club.nbDislikes, 0);
   }
   renderChart(): void {
@@ -174,21 +172,21 @@ export class ClubListComponent implements OnInit {
         },
         options: {
           responsive: true,
-          scales: {
-            x: {
-              title: {
-                display: true,
-                text: 'Clubs'
-              }
-            },
-            y: {
-              beginAtZero: true,
-              title: {
-                display: true,
-                text: 'Votes'
-              }
-            }
-          }
+          // scales: {
+          //   x: {
+          //     title: {
+          //       display: true,
+          //       text: 'Clubs'
+          //     }
+          //   },
+          //   y: {
+          //     beginAtZero: true,
+          //     title: {
+          //       display: true,
+          //       text: 'Votes'
+          //     }
+          //   }
+          // }
         }
       });
     }
@@ -221,4 +219,4 @@ export class ClubListComponent implements OnInit {
   }
 }
 
-  }
+}

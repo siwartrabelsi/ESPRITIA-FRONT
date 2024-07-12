@@ -1,6 +1,6 @@
 .rating {
   unicode-bidi: bidi-override;
-  direction: rtl;
+  direction: ltr;
   text-align: center;
 }
 
