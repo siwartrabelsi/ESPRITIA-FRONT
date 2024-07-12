@@ -1,16 +1,45 @@
-.update-button {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #28a745; /* Vert pour le bouton Update */
-    color: #fff;
-    text-decoration: none;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .update-button:hover {
-    background-color: #218838; /* Vert plus foncé au survol */
-  }
-  
+/* Ajoutez ceci dans votre fichier CSS global ou spécifique au composant */
+body {
+  background-color: #f0f2f5;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  max-width: 700px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  border-bottom: none;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.card .card-title {
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+
+.form-group .form-label {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+.img-thumbnail {
+  border-radius: 50%;
+  border: 3px solid #dee2e6;
+}
+
+.d-grid .btn-block {
+  font-size: 1.1rem;
+}

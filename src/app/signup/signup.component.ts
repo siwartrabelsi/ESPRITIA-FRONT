@@ -13,6 +13,7 @@ export class SignupComponent {
   motDePasse!: string;
   role: string = "";
   roles: string[] = ['Admin', 'President', 'Membre', 'Conducteur', 'Passager', 'Organisateur'];
+  phone!:string;
   constructor(private authService: AuthService, private router: Router) {}
   ngOnInit() {
     if (localStorage.getItem('role') === 'Admin') {
@@ -30,7 +31,8 @@ export class SignupComponent {
       nom: this.nom,
       email: this.email,
       motDePasse: this.motDePasse,
-      role: this.role
+      role: this.role,
+      phone: this.phone
     };
 
     this.authService.signup(signupRequest).subscribe(response => {

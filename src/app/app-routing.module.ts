@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EspacesComponent } from './back-office/espaces/espaces.component';
-
 import { ClubListComponent } from './back-office/club-list/club-list.component';
 import { ClubDetailComponent } from './back-office/club-detail/club-detail.component';
 import { ClubFormComponent } from './back-office/club-form/club-form.component';
 import { UpdateClubComponent } from './back-office/update-club/update-club.component';
-
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { BackOfficeComponent } from './back-office/back-office.component';
-import { DashboardComponent } from './back-office/dashboard/dashboard.component';
 import { UsersComponent } from './back-office/users/users.component';
 import { SettingsComponent } from './back-office/settings/settings.component';
 import { FrontOfficeComponent } from './front-office/front-office.component';
@@ -28,13 +25,32 @@ import { PlanningEventComponent } from './back-office/planning-event/planning-ev
 import { ParticiperEventUserComponent } from './front-office/participer-event-user/participer-event-user.component';
 import { UserEventsComponent } from './front-office/user-events/user-events.component';
 import { EventClubComponent } from './back-office/event-club/event-club.component';
+import { FormationListComponent } from './back-office/formation-list/formation-list.component';
+import { AddFormationComponent } from './back-office/add-formation/add-formation.component';
+import { ModifierFormationComponent } from './back-office/modifier-formation/modifier-formation.component';
+import { FormationDetailComponent } from './back-office/formation-detail/formation-detail.component';
+import { ParticipantListComponent } from './back-office/participant-list/participant-list.component';
+import { AddParticipantComponent } from './back-office/add-participant/add-participant.component';
+import { UpdateParticipantComponent } from './back-office/update-participant/update-participant.component';
+import { ClubComponent } from './club/club.component';
+import { ParticiperComponent } from './participer/participer.component';
+import { EventformationComponent } from './eventformation/eventformation.component';
+import { DetailclubComponent } from './detailclub/detailclub.component';
+import { DashboardComponent } from './back-office/dashboard/dashboard.component';
+
+import { CalendarEyaComponent } from './back-office/calendar/calendar.component';
+import { EspaceEventComponent } from './espace-event/espace-event.component';
+import { CalendarFrontComponent } from './calendar-front/calendar-front.component';
+import { ReservationEventComponent } from './reservation-event/reservation-event.component';
+import { ResetPasswordConfirmComponent } from './reset-password-confirm/reset-password-confirm.component';
+import { ReclamationsComponent } from './back-office/reclamations/reclamations.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forget-password', component: ForgetPasswordComponent },
-
+  { path: 'reset-password-confirm', component: ResetPasswordConfirmComponent },
   {
     path: 'back-office',
     component: BackOfficeComponent,
@@ -57,20 +73,33 @@ const routes: Routes = [
       { path: 'edit/:id', component: EvenementFormComponent },
       { path: 'detailEvenement/:id', component: EvenementDetailComponent },
       { path: 'updateEvenement/:id', component: EvenementUpdateComponent },
+      { path: 'calendar', component: CalendarEyaComponent },
+      { path: 'reclamations', component: ReclamationsComponent },
+      { path: 'formations', component: FormationListComponent },
+      { path: 'add-formation', component: AddFormationComponent },
+      { path: 'modifier-formation/:id', component: ModifierFormationComponent },
+      { path: 'formations/:id', component: FormationDetailComponent },
+      { path: 'participants', component: ParticipantListComponent },
+      { path: 'add-participant', component: AddParticipantComponent },
+      { path: 'update-participant/:id', component: UpdateParticipantComponent },
       { path: 'planning', component: PlanningEventComponent },
-
       { path: 'affecterclubevent', component: EventClubComponent },
-    ],
+    ]
   },
+  { path: 'espaceEvent', component: EspaceEventComponent },
+  { path: 'calendarFront', component: CalendarFrontComponent },
+  { path: 'reservationEvent', component: ReservationEventComponent },
+  { path: 'club', component: ClubComponent },
+  { path: 'participer', component: ParticiperComponent },
+  { path: 'eventformation', component: EventformationComponent },
+  { path: 'detailclub/:id', component: DetailclubComponent },
   {
-    path: 'front-office',
-    component: FrontOfficeComponent,
-    children: [
-      // { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent },
+    path: 'front-office', component: FrontOfficeComponent, children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent }
       { path: 'participerEvenement', component: ParticiperEventUserComponent },
       { path: 'userEvent', component: UserEventsComponent },
-    ],
+    ]
   },
   { path: '**', redirectTo: '/login' },
 ];
@@ -79,4 +108,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
