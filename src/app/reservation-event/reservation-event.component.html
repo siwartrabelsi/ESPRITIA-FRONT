@@ -1,0 +1,95 @@
+<br>
+
+<h2 class="listreservations-title">Liste des réservations</h2>
+<button mat-raised-button class="button-red" style="margin-top: 10px;" [routerLink]="['/espaceEvent']" >
+    Espace
+  </button>
+  <br>
+  <div class="container mt-5">
+    <div *ngIf="reservations" class="listreservations-container">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col" *ngFor="let reservation of reservations">
+          <div class="card shadow-lg border-0 rounded-lg">
+            <div class="card-body">
+                <h5 class="text-center mb-4" style="color: red">Réservation du {{ reservation.datedebut | date: 'short' }}</h5>
+              <div class="mb-3">
+                <p class="card-text"><strong>Date de début:</strong> {{ reservation.datedebut | date: 'medium' }}</p>
+                <p class="card-text"><strong>Date de fin:</strong> {{ reservation.datefin | date: 'medium' }}</p>
+                <p class="card-text"><strong>Club organisateur:</strong> {{ reservation.clubOrganisateur }}</p>
+                <p class="card-text"><strong>Type d'événement:</strong> {{ reservation.typeEvenement }}</p>
+                <p class="card-text"><strong>Participants attendus:</strong> {{ reservation.nombreParicipantsAttendus }}</p>
+                <p class="card-text"><strong>Heure de début:</strong> {{ reservation.heureDebut }}</p>
+                <p class="card-text"><strong>Heure de fin:</strong> {{ reservation.heureFin }}</p>
+                <p class="card-text"><strong>Espace réservé:</strong> {{ reservation.espacenName }}</p>
+              </div>
+              
+              <div class="text-center">
+                <button mat-raised-button class="btn btn-danger button-red" (click)="deleteReservation(reservation.id)">
+                  <i class="bi bi-trash"></i> Annuler 
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="bttn">    
+  <button mat-raised-button class="button-red"  (click)="showAddReservationModal()">Ajouter une réservation</button>
+</div>
+
+<div *ngIf="showModal" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2 style="text-align: center;">{{ editMode ? 'Modifier Réservation' : 'Ajouter une Réservation' }}</h2>
+    <br>
+    <form (ngSubmit)="submitForm()"style="margin-bottom: 20px;">
+      <span style="display: inline-block; margin-right: 10px;">
+      <label for="datedebut">Date de début:</label>
+      <input type="date" id="datedebut" [(ngModel)]="selectedReservation.datedebut" name="datedebut" required>
+    </span>
+
+    <span style="display: inline-block; margin-right: 10px;">
+      <label for="datefin">Date de fin:</label>
+      <input type="date" id="datefin" [(ngModel)]="selectedReservation.datefin" name="datefin" required>
+    </span>
+    <span style="display: inline-block; margin-right: 10px;"> 
+      <label for="clubOrganisateur">Club organisateur:</label>
+      <input type="text" id="clubOrganisateur" [(ngModel)]="selectedReservation.clubOrganisateur" name="clubOrganisateur" required>
+    </span>
+    <span style="display: inline-block; margin-right: 10px;">
+      <label for="typeEvenement">Type d'événement:</label>
+      <input type="text" id="typeEvenement" [(ngModel)]="selectedReservation.typeEvenement" name="typeEvenement" required>
+    </span>
+      <span style="display: inline-block; margin-right: 10px;">
+      <label for="nombreParicipantsAttendus">Participants attendus:</label>
+      <input type="number" id="nombreParicipantsAttendus" [(ngModel)]="selectedReservation.nombreParicipantsAttendus" name="nombreParicipantsAttendus" required>
+      </span>
+      <span style="display: inline-block; margin-right: 10px;">
+      <label for="heureDebut">Heure de début:</label>
+      <input type="time" id="heureDebut" [(ngModel)]="selectedReservation.heureDebut" name="heureDebut" required>
+      </span>
+      <span style="display: inline-block; margin-right: 10px;">
+      <label for="heureFin">Heure de fin:</label>
+      <input type="time" id="heureFin" [(ngModel)]="selectedReservation.heureFin" name="heureFin" required>
+      </span>
+      <span style="display: inline-block; margin-right: 10px;">
+      <label for="espace">Espace:</label>
+      <select id="espace" [(ngModel)]="selectedReservation.espace" name="espace" required>
+        <option *ngFor="let espace of espaces" [ngValue]="espace">{{ espace.nom }}</option>
+      </select>
+      </span>
+      
+      <br>
+      <button mat-raised-button class="button-red" style="margin-top: 10px;" type="submit">{{ editMode ? 'Modifier' : 'Ajouter' }}</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+  
+  
+  

@@ -1,0 +1,132 @@
+.club-container {
+    background-image: url('src/assets/uploads/back.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white; /* Couleur du texte sur l'arrière-plan */
+    min-height: 100vh; /* Hauteur minimale de la section pour couvrir l'écran */
+    padding: 20px;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent pour chaque carte de club */
+    margin-bottom: 50px; /* Marge entre les cartes */
+}
+
+.img-thumbnail {
+    max-width: 50px; /* Taille maximale de l'image QR */
+}
+
+
+.club-list .card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    transition: box-shadow 0.3s;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    height: 250px; /* Hauteur de la carte */
+    margin-bottom: 20px; /* Espace entre les cartes */
+}
+
+.club-list .card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.club-list .img-square-wrapper {
+    flex: 0 0 150px;
+    max-width: 150px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.club-list .img-square-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.club-list .card-body {
+    flex: 1;
+    padding: 20px;
+}
+
+.club-list .card-body .card-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.club-list .card-body .card-text {
+    margin-bottom: 20px;
+}
+
+.club-list .card-body .btn-group .btn {
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
+
+.club-list .card-body .btn-group .btn fa-icon {
+    font-size: 1.2rem;
+}
+
+.club-list .card-body img.img-thumbnail {
+    max-width: 100px;
+    margin-top: 10px;
+}
+
+.qr-code {
+    width: 80px;
+    height: 80px;
+}
+.club-list .card-body .qr-code-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.club-list .card-body img.qr-code {
+    max-width: 100px;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;}
+.btn-detail {
+    display: inline-flex;
+    align-items: center;
+    background-color: #17a2b8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-detail fa-icon {
+    margin-right: 10px;
+}
+
+.btn-detail:hover {
+    background-color: #138496;
+    transform: translateY(-2px);
+}
+
+.btn-detail:active {
+    background-color: #117a8b;
+    transform: translateY(0);
+}

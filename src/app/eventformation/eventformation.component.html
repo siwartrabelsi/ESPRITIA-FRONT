@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <fieldset>
+      <legend class="text-primary border-bottom pb-2">List of Trainings</legend>
+
+      <!-- Section pour la liste des formations -->
+      <div *ngIf="formations && formations.length > 0" class="row row-cols-1 row-cols-md-2 g-4">
+          <div *ngFor="let formation of formations" class="col mb-4">
+              <div class="card h-100 border-primary shadow-sm">
+                  <div class="card-body">
+                      <h3 class="card-title text-primary">{{ formation.nom }}</h3>
+                      <p class="card-text">{{ formation.description }}</p>
+                      <p class="card-text"><strong>Start date :</strong> {{ formation.dateDebut | date }}</p>
+                      <p class="card-text"><strong>End date :</strong> {{ formation.dateFin | date }}</p>
+                      <p class="card-text"><strong></strong> {{ formation.clubId }}</p>
+                      <a routerLink="/participer" class="btn btn-primary">Participate</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Message si aucune formation disponible -->
+      <div *ngIf="formations && formations.length === 0">
+          <div class="alert alert-warning mt-3" role="alert">
+              Aucune formation disponible pour le moment.
+          </div>
+      </div>
+
+      <!-- Message de chargement -->
+      <div *ngIf="!formations">
+          <div class="alert alert-info mt-3" role="alert">
+              Chargement des formations en cours...
+          </div>
+      </div>
+  </fieldset>
+
+  <!-- Section pour le calendrier -->
+  <div class="mt-4">
+      <app-calendar></app-calendar>
+  </div>
+</div>

@@ -11,7 +11,16 @@
                         <a class="nav-link text-light" routerLink="/back-office/users" routerLinkActive="active">Users</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link text-light" routerLink="/back-office/reclamations" routerLinkActive="active">Reclamations</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-light" routerLink="/back-office/clubs" routerLinkActive="active">Clubs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" routerLink="/back-office/formations" routerLinkActive="active">Formations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" routerLink="/back-office/participants" routerLinkActive="active">Participants</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" routerLink="/back-office/espaces" routerLinkActive="active">Espace</a>
@@ -38,10 +47,31 @@
             </div>
         </div>
 
-        <div class="col-md-10 p-2 content">
-            <div class="container">
-                <router-outlet></router-outlet>
-            </div>
-        </div>
+          <li class="nav-item">
+            <a class="nav-link text-light" routerLink="/back-office/listEvent"
+              routerLinkActive="active">Evenements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" routerLink="/back-office/planning"
+              routerLinkActive="active">Schedular Evenements</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-light" routerLink="/back-office/settings"
+              routerLinkActive="active">Settings</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <a class="nav-link text-light disconnect" href="#"
+          (click)="disconnect()">Disconnect</a>
+      </div>
     </div>
+
+    <div class="col-md-10 p-2 content">
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
 </div>

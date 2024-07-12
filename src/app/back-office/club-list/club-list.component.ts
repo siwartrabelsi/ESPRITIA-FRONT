@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClubService } from '../../club.service';
 import { Club } from '../../club';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
-
+import { Chart } from 'chart.js';
 @Component({
   selector: 'app-club-list',
   templateUrl: './club-list.component.html',
@@ -13,8 +13,16 @@ export class ClubListComponent implements OnInit {
   searchTerm: string = '';
   faThumbsUp = faThumbsUp;
   faThumbsDown = faThumbsDown;
-
-  constructor(private clubService: ClubService) {}
+  chart: any;
+  selectedFiles: { [key: number]: File } = {}; 
+ 
+  // Propriétés pour les statistiques
+  totalClubCount: number = 0;
+  totalLikesCount: number = 0;
+  totalDislikesCount: number = 0
+  constructor(private clubService: ClubService) {
+    Chart.register(...registerables);
+  }
 
   ngOnInit(): void {
     this.getClubs();
@@ -24,6 +32,8 @@ export class ClubListComponent implements OnInit {
     this.clubService.getClubs().subscribe(
       (data: Club[]) => {
         this.clubs = data;
+        this.renderChart();
+        this.updateStatistics();
       },
       (error) => {
         console.error('Error fetching clubs', error);
@@ -32,9 +42,13 @@ export class ClubListComponent implements OnInit {
   }
 
   deleteClub(id: number): void {
-    this.clubService.deleteClub(id).subscribe(() => {
-      this.clubs = this.clubs.filter(club => club.id !== id);
-    });
+    if (confirm('Êtes-vous sûr de vouloir supprimer ce club ?')) {
+      this.clubService.deleteClub(id).subscribe(() => {
+        this.clubs = this.clubs.filter(club => club.id !== id);
+        this.updateStatistics();
+        this.renderChart();
+      });
+    }
   }
 
   updateClub(id: number): void {
@@ -59,20 +73,45 @@ export class ClubListComponent implements OnInit {
         }
       );
     } else {
-      this.getClubs(); // Recharge la liste complète si le champ de recherche est vide
+      this.getClubs();
     }
   }
 
   likeClub(id: number): void {
-    this.clubService.likeClub(id).subscribe(() => {
-      console.log(`Liked club with ID ${id}`);
-    });
+    this.clubService.likeClub(id).subscribe(
+      () => {
+        const club = this.clubs.find(club => club.id === id);
+        if (club) {
+          club.nbLikes += 1;
+          this.updateStatistics(); // Mettre à jour les statistiques après un like
+          this.renderChart();
+        }
+      },
+      (error) => {
+        console.error('Error liking club', error);
+      }
+    );
   }
 
   dislikeClub(id: number): void {
-    this.clubService.dislikeClub(id).subscribe(() => {
-      console.log(`Disliked club with ID ${id}`);
-    });
+    this.clubService.dislikeClub(id).subscribe(
+      () => {
+        const club = this.clubs.find(club => club.id === id);
+        if (club) {
+          club.nbDislikes += 1;
+          this.updateStatistics(); // Mettre à jour les statistiques après un dislike
+          this.renderChart();
+        }
+      },
+      (error) => {
+        console.error('Error disliking club', error);
+      }
+    );
+  }
+  updateStatistics(): void {
+    this.totalClubCount = this.getTotalClubCount();
+    this.totalLikesCount = this.getTotalLikesCount();
+    this.totalDislikesCount = this.getTotalDislikesCount();
   }
 
   downloadPdf(clubId: number): void {
@@ -91,15 +130,94 @@ export class ClubListComponent implements OnInit {
   getTotalClubCount(): number {
     return this.clubs.length;
   }
-  
+
   getTotalLikesCount(): number {
-    // Calculer le total des likes à partir des clubs
     return this.clubs.reduce((totalLikes, club) => totalLikes + club.nbLikes, 0);
   }
-  
+
   getTotalDislikesCount(): number {
-    // Calculer le total des dislikes à partir des clubs
     return this.clubs.reduce((totalDislikes, club) => totalDislikes + club.nbDislikes, 0);
   }
+
+  renderChart(): void {
+    const labels = this.clubs.map(club => club.nom);
+    const likesData = this.clubs.map(club => club.nbLikes);
+    const dislikesData = this.clubs.map(club => club.nbDislikes);
   
+    if (this.chart) {
+      this.chart.destroy(); // Détruire le graphique existant s'il y en a un pour éviter les duplications
+    }
+  
+    const ctx = document.getElementById('myChart') as HTMLCanvasElement;
+    if (ctx) {
+      this.chart = new Chart(ctx, {
+        type: 'bar', // Changer le type de graphique à 'bar' pour un graphique en barres
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Likes',
+              data: likesData,
+              backgroundColor: 'rgba(0, 123, 255, 0.2)', // Couleur de remplissage sous la barre des likes
+              borderColor: '#007BFF', // Couleur de la barre des likes
+              borderWidth: 2,
+            },
+            {
+              label: 'Dislikes',
+              data: dislikesData,
+              backgroundColor: 'rgba(220, 53, 69, 0.2)', // Couleur de remplissage sous la barre des dislikes
+              borderColor: '#DC3545', // Couleur de la barre des dislikes
+              borderWidth: 2,
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          // scales: {
+          //   x: {
+          //     title: {
+          //       display: true,
+          //       text: 'Clubs'
+          //     }
+          //   },
+          //   y: {
+          //     beginAtZero: true,
+          //     title: {
+          //       display: true,
+          //       text: 'Votes'
+          //     }
+          //   }
+          // }
+        }
+      });
+    }
+  }
+
+
+  onFileSelected(event: any, clubId: number): void {
+    const file: File = event.target.files[0];
+    this.selectedFiles[clubId] = file;
+  }
+
+ uploadPhoto(clubId: number): void {
+  const file = this.selectedFiles[clubId];
+  if (file) {
+    const formData = new FormData();
+    formData.append('file', file, file.name);
+
+    this.clubService.uploadPhoto(clubId, formData).subscribe(
+      (response) => {
+        // Mettre à jour l'URL de la photo du club après téléchargement
+        const club = this.clubs.find(club => club.id === clubId);
+        if (club) {
+          club.photo = response.photo; // Assurez-vous que la structure de la réponse correspond à ce que vous attendez
+        }
+      },
+      (error) => {
+        console.error('Error uploading photo', error);
+      }
+    );
+  }
+}
+
 }

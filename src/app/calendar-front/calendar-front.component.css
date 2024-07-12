@@ -1,0 +1,33 @@
+/* Styles spécifiques pour la section calendrier */
+.container {
+    padding: 20px; /* Ajoute un espace intérieur */
+  }
+  
+  .text-center {
+    margin-bottom: 20px; /* Marge en bas pour l'élément text-center */
+  }
+  
+  .btn-espace {
+    background-color: #dc3545; /* Couleur de fond pour le bouton Espace */
+    color: white; /* Couleur du texte */
+    border-color: #dc3545; /* Couleur de la bordure */
+  }
+  
+  .btn-espace:hover {
+    background-color: #c82333; /* Couleur de fond au survol */
+    border-color: #c82333; /* Couleur de la bordure au survol */
+  }
+  
+  h2 {
+    color: black; /* Couleur de texte noire pour le titre h2 */
+    margin-bottom: 20px; /* Marge en bas pour le titre h2 */
+  }
+  
+  .full-calendar {
+    margin-top: 20px; /* Marge en haut pour le calendrier */
+  }
+  .button-red {
+    background-color: red !important;
+    color: white !important;
+  }
+  

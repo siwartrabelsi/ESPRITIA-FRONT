@@ -1,0 +1,48 @@
+<!-- Include Bootstrap 5 CSS in index.html -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-5 p-4 border rounded shadow-sm bg-light">
+  <h2 class="mb-4 text-center">Add a new training</h2>
+  <form (ngSubmit)="onSubmit()" #formationForm="ngForm">
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom</label>
+      <input id="nom" [(ngModel)]="nom" name="nom" class="form-control" placeholder="Entrez le nom de la formation" required>
+      <div *ngIf="formationForm.controls['nom'].invalid && (formationForm.controls['nom'].dirty || formationForm.controls['nom'].touched)" class="text-danger">
+        Le nom est obligatoire.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea id="description" [(ngModel)]="description" name="description" class="form-control" placeholder="Entrez la description de la formation" rows="3" required></textarea>
+      <div *ngIf="formationForm.controls['description'].invalid && (formationForm.controls['description'].dirty || formationForm.controls['description'].touched)" class="text-danger">
+        La description est obligatoire.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="dateDebut" class="form-label">Start date</label>
+      <input id="dateDebut" [(ngModel)]="dateDebut" name="dateDebut" type="date" class="form-control" required>
+      <div *ngIf="formationForm.controls['dateDebut'].invalid && (formationForm.controls['dateDebut'].dirty || formationForm.controls['dateDebut'].touched)" class="text-danger">
+        La date de début est obligatoire.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="dateFin" class="form-label">End date</label>
+      <input id="dateFin" [(ngModel)]="dateFin" name="dateFin" type="date" class="form-control" required>
+      <div *ngIf="formationForm.controls['dateFin'].invalid && (formationForm.controls['dateFin'].dirty || formationForm.controls['dateFin'].touched)" class="text-danger">
+        La date de fin est obligatoire.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="clubNom" class="form-label">Club name</label>
+      <select id="clubNom" [(ngModel)]="clubNom" name="clubNom" class="form-select" required>
+        <option *ngFor="let club of clubs" [value]="club.nom">{{ club.nom }}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100" [disabled]="formationForm.invalid">Ajouter</button>
+  </form>
+</div>

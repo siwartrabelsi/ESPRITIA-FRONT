@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EvenementService } from '../../evenement.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-evenement-update',
@@ -16,27 +17,40 @@ export class EvenementUpdateComponent implements OnInit {
     private evenementService: EvenementService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
     this.updateForm = this.formBuilder.group({
       nom: ['', Validators.required],
       date: ['', Validators.required],
+      dateFin: ['', Validators.required],
       statut: ['', Validators.required],
+      siteweb: ['', Validators.required],
+      capacite: ['', Validators.required],
+      nbrParticipant: ['', Validators.required],
       affiche: [null],
     });
 
     this.route.paramMap.subscribe((params) => {
       this.evenementId = +params.get('id')!;
+      this.loadEvenementDetails();
     });
+  }
 
+  loadEvenementDetails(): void {
     this.evenementService.getEvenement(this.evenementId).subscribe(
       (evenement: any) => {
+        console.log(evenement);
         this.updateForm.patchValue({
           nom: evenement.nom,
           date: evenement.date,
+          dateFin: evenement.dateFin,
           statut: evenement.statut,
+          siteweb: evenement.siteweb,
+          capacite: evenement.capacite,
+          nbrParticipant: evenement.nbrParticipant,
         });
 
         if (evenement.affiche && evenement.affiche.length > 0) {
@@ -57,7 +71,14 @@ export class EvenementUpdateComponent implements OnInit {
       const formData = new FormData();
       formData.append('nom', this.updateForm.get('nom')!.value);
       formData.append('date', this.updateForm.get('date')!.value);
+      formData.append('dateFin', this.updateForm.get('dateFin')!.value);
       formData.append('statut', this.updateForm.get('statut')!.value);
+      formData.append('siteweb', this.updateForm.get('siteweb')!.value);
+      formData.append('capacite', this.updateForm.get('capacite')!.value);
+      formData.append(
+        'nbrParticipant',
+        this.updateForm.get('nbrParticipant')!.value
+      );
       formData.append('affiche', this.updateForm.get('affiche')!.value);
 
       this.evenementService
@@ -65,7 +86,8 @@ export class EvenementUpdateComponent implements OnInit {
         .subscribe(
           (response: any) => {
             console.log('Événement mis à jour avec succès', response);
-            this.router.navigate(['listEvent']);
+            this.toastr.success('Événement mis à jour avec succès', 'Succès');
+            this.router.navigate(['/back-office/listEvent']);
           },
           (error) => {
             console.log(
@@ -76,8 +98,8 @@ export class EvenementUpdateComponent implements OnInit {
         );
     } else {
       console.log('Le formulaire est invalide');
+      this.toastr.error('Le formulaire est invalide', 'Erreur');
     }
-    this.router.navigate(['listEvent']);
   }
 
   onFileChangeAffiche(event: any) {

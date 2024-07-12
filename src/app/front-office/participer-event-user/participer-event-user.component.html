@@ -1,0 +1,54 @@
+<!--
+ <div class="container">
+  <h2>Sélectionner un événement</h2>
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let evenement of evenements">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ evenement.nom }}</h5>
+          <p class="card-text">Date: {{ evenement.date }}</p>
+          <img [src]="'assets/' + evenement.affiche" alt="Affiche de l'événement" width="170px" height="100px">
+          <p class="card-text">Capacité: {{ evenement.capacite }}</p>
+          <p class="card-text">Date fin: {{ evenement.dateFin }}</p>
+          <div class="rating">
+            <span class="rating-stars" [style.width.%]="evenement.rating * 20">
+              ★★★★★
+            </span>
+          </div>
+          <p class="card-text">Site Web: {{ evenement.siteweb }}</p>
+
+          <p class="card-text">Participants: {{ evenement.nbrParticipant }}</p>
+          <button (click)="participerEvenement(evenement.id)" class="btn btn-primary">Participer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="container">
+  <h2>Sélectionner un événement</h2>
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let evenement of evenements">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ evenement.nom }}</h5>
+          <p class="card-text">Date: {{ evenement.date }}</p>
+          <img [src]="'assets/' + evenement.affiche"
+            alt="Affiche de l'événement" width="170px" height="100px">
+          <p class="card-text">Capacité: {{ evenement.capacite }}</p>
+          <p class="card-text">Date fin: {{ evenement.dateFin }}</p>
+          <div class="rating">
+            <span class="rating-stars" [style.width.%]="evenement.rating * 20">
+              ★★★★★
+            </span>
+          </div>
+
+          <p class="card-text">Participants: {{ evenement.nbrParticipant
+            }}</p><img *ngIf="qrCodeUrls[evenement.id]"
+            [src]="qrCodeUrls[evenement.id]" alt="QR Code" class="qr-code">
+          <button (click)="participerEvenement(evenement.id)"
+            class="btn btn-primary">Participer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

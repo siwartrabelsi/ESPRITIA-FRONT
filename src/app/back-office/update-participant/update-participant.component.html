@@ -1,0 +1,20 @@
+<div class="container mt-5 p-4 border rounded shadow-sm bg-light">
+  <h2 class="mb-4 text-center">Update a Participant</h2>
+  <form (ngSubmit)="onSubmit()" #participantForm="ngForm">
+    <div class="mb-3">
+      <label for="nom" class="form-label">Name</label>
+      <input type="text" id="nom" [(ngModel)]="participant.nom" name="nom" class="form-control" placeholder="Entrez le nom" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" id="email" [(ngModel)]="participant.email" name="email" class="form-control" placeholder="Entrez l'email" required>
+    </div>
+    <div class="mb-3">
+      <label for="formation" class="form-label">Training</label>
+      <select id="formation" [(ngModel)]="formationNom" name="formationNom" class="form-select" required>
+        <option *ngFor="let formation of formations" [value]="formation.nom">{{ formation.nom }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary w-100" [disabled]="!participantForm.form.valid">Update</button>
+  </form>
+</div>

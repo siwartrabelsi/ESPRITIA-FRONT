@@ -26,11 +26,12 @@ export class EvenementService {
   addEvenement(formData: FormData): Observable<string> {
     return this.http.post<string>(`${this.apiUrl}/ajouter`, formData);
   }
+  
   updateEvenement(id: number, formData: FormData): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
-        'enctype': 'multipart/form-data',
-      })
+        enctype: 'multipart/form-data',
+      }),
     };
 
     return this.http.put<any>(
@@ -40,11 +41,28 @@ export class EvenementService {
     );
   }
 
-  // updateEvenement(id: number, evenement: Evenement): Observable<Evenement> {
-  //   return this.http.put<Evenement>(`${this.apiUrl}/${id}`, evenement);
-  // }
+
 
   deleteEvenement(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+
+  participerEvenementF(eventId: number, userId: number): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/${eventId}/participer/${userId}`, { eventId, userId });
+  }
+
+  getEvenementsByUserId(userId: number): Observable<Evenement[]> {
+    return this.http.get<Evenement[]>(`${this.apiUrl}/user/${userId}`);
+  }
+
+
+  affecterEvenement(evenementId: number, clubId: number): Observable<string> {
+    return this.http.post(
+      `${this.apiUrl}/${evenementId}/affecter/${clubId}`,
+      null,
+      { responseType: 'text' }
+    );
+  }
+
 }

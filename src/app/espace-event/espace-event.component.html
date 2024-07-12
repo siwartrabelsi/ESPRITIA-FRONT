@@ -1,0 +1,53 @@
+<div class="container">
+  <h2 class="text-center my-4">Liste des Espaces</h2>
+
+  <div class="search-container mb-4">
+    <mat-form-field appearance="fill">
+      <mat-label>Entrez le nom de l'espace</mat-label>
+      <input matInput [(ngModel)]="searchTerm" placeholder="Rechercher">
+    </mat-form-field>
+    <button mat-raised-button class="button-red" (click)="searchEspaces()">Rechercher</button>
+  </div>
+
+  <div class="text-right mb-4">
+    <button mat-raised-button class="button-red" [routerLink]="['/calendarFront']">
+      Calendrier
+    </button>
+  </div>
+
+  <div class="row gx-5" *ngFor="let pair of espaces | slice:0:espaces.length/2; let i = index">
+    <div class="col-lg-6 mb-5">
+      <div class="card h-100 shadow border-0">
+        <img class="card-img-top" [src]="espaces[i*2].photo" alt="Photo de l'espace" *ngIf="espaces[i*2].photo">
+        <div class="card-body p-4">
+          <h5 class="card-title">{{ espaces[i*2].nom }}</h5>
+          <p class="card-text">{{ espaces[i*2].description }}</p>
+          <p class="card-text">Capacité: {{ espaces[i*2].capacite }}</p>
+          <p class="card-text">Adresse: {{ espaces[i*2].adresse }}</p>
+          <p class="card-text">Équipement: {{ espaces[i*2].equipement }}</p>
+          <button mat-raised-button class="button-red" style="margin-top: 10px;" [routerLink]="['/reservationEvent']">
+            Réserver
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 mb-5" *ngIf="i*2 + 1 < espaces.length">
+      <div class="card h-100 shadow border-0">
+        <img class="card-img-top" [src]="espaces[i*2+1].photo" alt="Photo de l'espace" *ngIf="espaces[i*2+1].photo">
+        <div class="card-body p-4">
+          <h5 class="card-title">{{ espaces[i*2+1].nom }}</h5>
+          <p class="card-text">{{ espaces[i*2+1].description }}</p>
+          <p class="card-text">Capacité: {{ espaces[i*2+1].capacite }}</p>
+          <p class="card-text">Adresse: {{ espaces[i*2+1].adresse }}</p>
+          <p class="card-text">Équipement: {{ espaces[i*2+1].equipement }}</p>
+          <button mat-raised-button class="button-red" style="margin-top: 10px;" [routerLink]="['/reservationEvent']">
+            Réserver
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Carte -->
+<div id="map" style="height: 500px; margin-top: 20px;"></div>

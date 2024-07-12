@@ -6,6 +6,7 @@ import { Router } from '@angular/router'; // Importer le Router pour la navigati
 import { EspaceService } from '../../Espaces services/espace.service';
 import { Espace } from '../../espace';
 import { TypeEquipement } from '../../typeEquipement';
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-espaces',
@@ -13,8 +14,9 @@ import { TypeEquipement } from '../../typeEquipement';
   styleUrls: ['./espaces.component.css']
 })
 export class EspacesComponent implements OnInit {
+  map: L.Map | undefined;
   espaces: Espace[] = [];
-  selectedEspace: Espace = new Espace(0, '', '', 0, '', TypeEquipement.SON, '', []);
+  selectedEspace: Espace = new Espace(0, '', '', 0, '', TypeEquipement.SON, '',0,0, []);
   showModal: boolean = false;
   editMode: boolean = false;
   TypeEquipement = TypeEquipement; 
@@ -31,12 +33,28 @@ export class EspacesComponent implements OnInit {
   getEspaces(): void {
     this.espaceService.getAllEspaces().subscribe((data: Espace[]) => {
       this.espaces = data;
+      this.initializeMap();
     });
     
   }
+  initializeMap(): void {
+    this.map = L.map('map').setView([36.8065, 10.1815], 12); // Tunis coordinates
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(this.map);
+
+    // Ajouter des marqueurs pour chaque espace
+    this.espaces.forEach((espace: Espace) => {
+      L.marker([espace.latitude, espace.longitude])
+        .addTo(this.map!)
+        .bindPopup(`<b>${espace.nom}</b><br>${espace.adresse}`);
+    });
+  }
 
   showAddEspaceModal(): void {
-    this.selectedEspace = new Espace(0, '', '', 0, '', TypeEquipement.SON, '', []);
+    this.selectedEspace = new Espace(0, '', '', 0, '', TypeEquipement.SON, '',0,0, []);
     this.editMode = false;
     this.showModal = true;
   }
@@ -89,7 +107,7 @@ export class EspacesComponent implements OnInit {
         this.selectedFile = file;
       }
     }
-    uploadImage(id: number): void {
+    /*uploadImage(id: number): void {
       if (!this.selectedFile) return;
   
       const formData: FormData = new FormData();
@@ -99,8 +117,25 @@ export class EspacesComponent implements OnInit {
         this.getEspaces();
         this.closeModal();
       });
-    }
-     
+    }*/
+      uploadImage(id: number): void {
+        if (!this.selectedFile) return;
+      
+        const formData: FormData = new FormData();
+        formData.append('file', this.selectedFile, this.selectedFile.name);
+      
+        this.espaceService.uploadImage(id, formData).subscribe(
+          () => {
+            console.log('Image uploaded successfully');
+            this.getEspaces(); // Recharger la liste des espaces après le téléchargement
+            this.closeModal();
+          },
+          (error) => {
+            console.error('Error uploading image:', error);
+            // Gérer l'erreur ici (affichage d'un message d'erreur, etc.)
+          }
+        );
+      }
    
       searchEspaces(): void {
         if (this.searchTerm) {
