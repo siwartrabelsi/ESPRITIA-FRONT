@@ -42,4 +42,7 @@ export class UserService {
         })
       );
   }
+  getUsersByRole(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/charts`);
+  }
 }

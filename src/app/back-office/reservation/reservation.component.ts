@@ -4,7 +4,7 @@ import { Espace } from '../../espace';
 import { TypeEquipement } from '../../typeEquipement';
 import { ReservationService } from '../../Reservations services/reservation.service';
 import { EspaceService } from '../../Espaces services/espace.service';
-import Chart from 'chart.js/auto'; // Importer Chart.js
+import {Chart} from 'chart.js'; // Importer Chart.js
 
 
 @Component({
@@ -131,21 +131,21 @@ export class ReservationComponent {
         },
         options: {
           responsive: true,
-          scales: {
-            x: {
-              title: {
-                display: true,
-                text: 'Espaces'
-              }
-            },
-            y: {
-              beginAtZero: true,
-              title: {
-                display: true,
-                text: 'Nombre de réservations'
-              }
-            }
-          }
+          // scales: {
+          //   x: {
+          //     title: {
+          //       display: true,
+          //       text: 'Espaces'
+          //     }
+          //   },
+          //   y: {
+          //     beginAtZero: true,
+          //     title: {
+          //       display: true,
+          //       text: 'Nombre de réservations'
+          //     }
+          //   }
+          // }
         }
       });
     }

@@ -46,6 +46,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReservationEventComponent } from './reservation-event/reservation-event.component';
 
 
+import { ResetPasswordConfirmComponent } from './reset-password-confirm/reset-password-confirm.component';
+import { ReclamationsComponent } from './back-office/reclamations/reclamations.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import { ReservationEventComponent } from './reservation-event/reservation-event
     EspaceEventComponent,
     CalendarFrontComponent,
     EspaceDashboardComponent,
-    ReservationEventComponent
+    ReservationEventComponent,
+    ResetPasswordConfirmComponent,
+    ReclamationsComponent
   ],
   imports: [
     BrowserModule,
@@ -92,9 +96,7 @@ import { ReservationEventComponent } from './reservation-event/reservation-event
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSelectModule,
-    //MatCardModule,
-    //MatButtonModule
+    MatSelectModule
   ],
   providers: [
     {

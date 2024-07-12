@@ -26,12 +26,15 @@ import { CalendarComponent } from './back-office/calendar/calendar.component';
 import { EspaceEventComponent } from './espace-event/espace-event.component';
 import { CalendarFrontComponent } from './calendar-front/calendar-front.component';
 import { ReservationEventComponent } from './reservation-event/reservation-event.component';
+import { ResetPasswordConfirmComponent } from './reset-password-confirm/reset-password-confirm.component';
+import { ReclamationsComponent } from './back-office/reclamations/reclamations.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forget-password', component: ForgetPasswordComponent },
+  { path: 'reset-password-confirm', component: ResetPasswordConfirmComponent },
   {
     path: 'back-office', component: BackOfficeComponent, children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -52,7 +55,8 @@ const routes: Routes = [
       { path: 'edit/:id', component: EvenementFormComponent },
       { path: 'detailEvenement/:id', component: EvenementDetailComponent },
       { path: 'updateEvenement/:id', component: EvenementUpdateComponent },
-      { path: 'calendar', component: CalendarComponent }
+      { path: 'calendar', component: CalendarComponent },
+      { path: 'reclamations', component: ReclamationsComponent }
     ]
   },
   { path: 'espaceEvent', component: EspaceEventComponent },
