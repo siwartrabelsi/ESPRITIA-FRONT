@@ -119,7 +119,8 @@ import { ReclamationsComponent } from './back-office/reclamations/reclamations.c
     ReservationEventComponent,
     ResetPasswordConfirmComponent,
     ReclamationsComponent,
-    DetailclubComponent
+    DetailclubComponent,
+    ReclamationsComponent
   ],
   imports: [
     BrowserModule,
@@ -139,7 +140,8 @@ import { ReclamationsComponent } from './back-office/reclamations/reclamations.c
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule
   ],
   providers: [
     {

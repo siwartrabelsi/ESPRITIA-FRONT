@@ -138,7 +138,6 @@ export class ClubListComponent implements OnInit {
   getTotalDislikesCount(): number {
     return this.clubs.reduce((totalDislikes, club) => totalDislikes + club.nbDislikes, 0);
   }
-
   renderChart(): void {
     const labels = this.clubs.map(club => club.nom);
     const likesData = this.clubs.map(club => club.nbLikes);

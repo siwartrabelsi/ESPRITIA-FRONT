@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EspacesComponent } from './back-office/espaces/espaces.component';
-
 import { ClubListComponent } from './back-office/club-list/club-list.component';
 import { ClubDetailComponent } from './back-office/club-detail/club-detail.component';
 import { ClubFormComponent } from './back-office/club-form/club-form.component';
@@ -59,7 +58,7 @@ const routes: Routes = [
     component: BackOfficeComponent,
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent },
+      { path: 'dashboard', component:DashboardComponent},
       { path: 'users', component: UsersComponent },
       { path: 'settings', component: SettingsComponent },
       { path: 'clubs', component: ClubListComponent },
@@ -104,6 +103,14 @@ const routes: Routes = [
       { path: 'update-participant/:id', component: UpdateParticipantComponent },
       { path: 'planning', component: PlanningEventComponent },
       { path: 'affecterclubevent', component: EventClubComponent },
+      { path: 'reclamations', component: ReclamationsComponent },
+       {path: 'formations',component:FormationListComponent},
+      {path: 'add-formation',component:AddFormationComponent},
+      {path: 'modifier-formation/:id',component:ModifierFormationComponent},
+      {path:'formations/:id',component:FormationDetailComponent},
+      {path:'participants',component:ParticipantListComponent},
+      {path:'add-participant',component:AddParticipantComponent},
+      {path:'update-participant/:id',component:UpdateParticipantComponent}
     ]
   },
   { path: 'espaceEvent', component: EspaceEventComponent },
@@ -113,10 +120,15 @@ const routes: Routes = [
   { path: 'participer', component: ParticiperComponent },
   { path: 'eventformation', component: EventformationComponent },
   { path: 'detailclub/:id', component: DetailclubComponent },
+  { path: 'reservationEvent', component: ReservationEventComponent},
+   {path: 'club',component:ClubComponent},
+  {path: 'participer',component:ParticiperComponent},
+  {path:'eventformation',component:EventformationComponent},
+  {path:'detailclub/:id',component:DetailclubComponent},
   {
     path: 'front-office', component: FrontOfficeComponent, children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent }
+      { path: 'home', component: HomeComponent },
       { path: 'participerEvenement', component: ParticiperEventUserComponent },
       { path: 'userEvent', component: UserEventsComponent },
     ]

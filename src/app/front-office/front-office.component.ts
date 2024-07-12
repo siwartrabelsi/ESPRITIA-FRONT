@@ -41,7 +41,6 @@ export class FrontOfficeComponent {
     localStorage.removeItem('role');
     this.router.navigate(['/']);
   }
-
   onSubmit(): void {
     if (this.reclamationForm.valid) {
       const descriptionControl = this.reclamationForm.get('description')?.value;
