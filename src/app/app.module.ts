@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClubListComponent } from './back-office/club-list/club-list.component';
 import { ClubDetailComponent } from './back-office/club-detail/club-detail.component';
 import { ClubFormComponent } from './back-office/club-form/club-form.component';
-import { UpdateClubComponent } from './back-office/update-club/update-club.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +16,6 @@ import { SignupComponent } from './signup/signup.component';
 import { AuthInterceptor } from './AuthInterceptor';
 import { HomeComponent } from './front-office/home/home.component';
 import { BackOfficeComponent } from './back-office/back-office.component';
-import { DashboardComponent } from './back-office/dashboard/dashboard.component';
 import { UsersComponent } from './back-office/users/users.component';
 import { SettingsComponent } from './back-office/settings/settings.component';
 import { FrontOfficeComponent } from './front-office/front-office.component';
@@ -29,13 +27,27 @@ import { EvenementListComponent } from './back-office/evenement-list/evenement-l
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
-import { CalendarComponent } from './back-office/calendar/calendar.component';
-import { FullCalendarModule } from '@fullcalendar/angular';
+import { ClubMapComponent } from './club-map/club-map.component';
+import { FormationListComponent } from './back-office/formation-list/formation-list.component';
+import { AddFormationComponent } from './back-office/add-formation/add-formation.component';
+import { UpdateClubComponent } from './back-office/update-club/update-club.component';
+import { ModifierFormationComponent } from './back-office/modifier-formation/modifier-formation.component';
+import { FormationDetailComponent } from './back-office/formation-detail/formation-detail.component';
+import{ FullCalendarModule} from '@fullcalendar/angular';
+import { CalendarComponent } from './calendar/calendar.component';
+import { ParticipantListComponent } from './back-office/participant-list/participant-list.component';
+import { AddParticipantComponent } from './back-office/add-participant/add-participant.component';
+import { UpdateParticipantComponent } from './back-office/update-participant/update-participant.component';
+import { ClubComponent } from './club/club.component';
+import { ParticiperComponent } from './participer/participer.component';
+import { EventformationComponent } from './eventformation/eventformation.component';
+import { DetailclubComponent } from './detailclub/detailclub.component';
+import { NgxPowerBiModule } from 'ngx-powerbi';
+import { PowerBiDashboardComponent } from './power-bi-dashboard/power-bi-dashboard.component';
+import { CalendarEyaComponent } from './back-office/calendar/calendar.component';
 import { EspaceEventComponent } from './espace-event/espace-event.component';
 import { CalendarFrontComponent } from './calendar-front/calendar-front.component';
-
 import { EspaceDashboardComponent } from './espace-dashboard/espace-dashboard.component';
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -44,8 +56,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ReservationEventComponent } from './reservation-event/reservation-event.component';
-
-
 import { ResetPasswordConfirmComponent } from './reset-password-confirm/reset-password-confirm.component';
 import { ReclamationsComponent } from './back-office/reclamations/reclamations.component';
 
@@ -62,7 +72,6 @@ import { ReclamationsComponent } from './back-office/reclamations/reclamations.c
     SignupComponent,
     HomeComponent,
     BackOfficeComponent,
-    DashboardComponent,
     UsersComponent,
     SettingsComponent,
     FrontOfficeComponent,
@@ -91,6 +100,7 @@ import { ReclamationsComponent } from './back-office/reclamations/reclamations.c
     HttpClientModule,
     ReactiveFormsModule,
     FullCalendarModule,
+    NgxPowerBiModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,

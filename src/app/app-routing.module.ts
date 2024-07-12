@@ -8,7 +8,6 @@ import { UpdateClubComponent } from './back-office/update-club/update-club.compo
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { BackOfficeComponent } from './back-office/back-office.component';
-import { DashboardComponent } from './back-office/dashboard/dashboard.component';
 import { UsersComponent } from './back-office/users/users.component';
 import { SettingsComponent } from './back-office/settings/settings.component';
 import { FrontOfficeComponent } from './front-office/front-office.component';
@@ -22,6 +21,19 @@ import { EvenementListComponent } from './back-office/evenement-list/evenement-l
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
+import { FormationListComponent } from './back-office/formation-list/formation-list.component';
+import { AddFormationComponent } from './back-office/add-formation/add-formation.component';
+import { ModifierFormationComponent } from './back-office/modifier-formation/modifier-formation.component';
+import { FormationDetailComponent } from './back-office/formation-detail/formation-detail.component';
+import { ParticipantListComponent } from './back-office/participant-list/participant-list.component';
+import { AddParticipantComponent } from './back-office/add-participant/add-participant.component';
+import { UpdateParticipantComponent } from './back-office/update-participant/update-participant.component';
+import { ClubComponent } from './club/club.component';
+import { ParticiperComponent } from './participer/participer.component';
+import { EventformationComponent } from './eventformation/eventformation.component';
+import { DetailclubComponent } from './detailclub/detailclub.component';
+import { DashboardComponent } from './back-office/dashboard/dashboard.component';
+
 import { CalendarComponent } from './back-office/calendar/calendar.component';
 import { EspaceEventComponent } from './espace-event/espace-event.component';
 import { CalendarFrontComponent } from './calendar-front/calendar-front.component';
@@ -38,7 +50,7 @@ const routes: Routes = [
   {
     path: 'back-office', component: BackOfficeComponent, children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent },
+      { path: 'dashboard', component:DashboardComponent},
       { path: 'users', component: UsersComponent },
       { path: 'settings', component: SettingsComponent },
       { path: 'clubs', component: ClubListComponent },
@@ -56,17 +68,27 @@ const routes: Routes = [
       { path: 'detailEvenement/:id', component: EvenementDetailComponent },
       { path: 'updateEvenement/:id', component: EvenementUpdateComponent },
       { path: 'calendar', component: CalendarComponent },
-      { path: 'reclamations', component: ReclamationsComponent }
+      { path: 'reclamations', component: ReclamationsComponent },
+       {path: 'formations',component:FormationListComponent},
+      {path: 'add-formation',component:AddFormationComponent},
+      {path: 'modifier-formation/:id',component:ModifierFormationComponent},
+      {path:'formations/:id',component:FormationDetailComponent},
+      {path:'participants',component:ParticipantListComponent},
+      {path:'add-participant',component:AddParticipantComponent},
+      {path:'update-participant/:id',component:UpdateParticipantComponent}
     ]
   },
   { path: 'espaceEvent', component: EspaceEventComponent },
   { path: 'calendarFront', component: CalendarFrontComponent },
   { path: 'reservationEvent', component: ReservationEventComponent},
+   {path: 'club',component:ClubComponent},
+  {path: 'participer',component:ParticiperComponent},
+  {path:'eventformation',component:EventformationComponent},
+  {path:'detailclub/:id',component:DetailclubComponent},
   {
     path: 'front-office', component: FrontOfficeComponent, children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent }
-      
 
     ]
   },

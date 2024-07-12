@@ -1,0 +1,19 @@
+.card {
+    border-radius: 10px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+.custom-legend {
+    background-color: #007bff; /* Exemple de couleur de fond */
+    color: white; /* Couleur du texte */
+    padding: 5px 10px; /* Espacement interne */
+    border-radius: 5px; /* Bord arrondi */
+}
