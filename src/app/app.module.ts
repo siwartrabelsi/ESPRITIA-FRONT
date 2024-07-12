@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClubListComponent } from './back-office/club-list/club-list.component';
 import { ClubDetailComponent } from './back-office/club-detail/club-detail.component';
 import { ClubFormComponent } from './back-office/club-form/club-form.component';
@@ -28,6 +29,23 @@ import { EvenementListComponent } from './back-office/evenement-list/evenement-l
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
+import { CalendarComponent } from './back-office/calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { EspaceEventComponent } from './espace-event/espace-event.component';
+import { CalendarFrontComponent } from './calendar-front/calendar-front.component';
+
+import { EspaceDashboardComponent } from './espace-dashboard/espace-dashboard.component';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { ReservationEventComponent } from './reservation-event/reservation-event.component';
+
+
 import { ResetPasswordConfirmComponent } from './reset-password-confirm/reset-password-confirm.component';
 import { ReclamationsComponent } from './back-office/reclamations/reclamations.component';
 
@@ -56,16 +74,29 @@ import { ReclamationsComponent } from './back-office/reclamations/reclamations.c
     EvenementDetailComponent,
     EvenementFormComponent,
     EvenementUpdateComponent,
+    CalendarComponent,
+    EspaceEventComponent,
+    CalendarFrontComponent,
+    EspaceDashboardComponent,
+    ReservationEventComponent,
     ResetPasswordConfirmComponent,
     ReclamationsComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FullCalendarModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [
     {

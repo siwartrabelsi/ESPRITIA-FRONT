@@ -36,6 +36,12 @@ export class ReservationService {
   getEspaceNameById(id: number): Observable<Espace> {
     return this.http.get<Espace>(`${this.apiUrl}/getEspaceById/${id}`);
   }
-  
+  // Nouvelle méthode pour récupérer les réservations par date
+  getReservationsByDate(date: string): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(`${this.apiUrl}/byDate/${date}`);}
+
+   getReservationCountByDate(date: string): Observable<any> {
+      return this.http.get<any>(`${this.apiUrl}/countByDate/${date}`);
+    }
 
 }

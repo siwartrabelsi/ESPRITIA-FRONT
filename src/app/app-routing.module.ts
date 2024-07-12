@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EspacesComponent } from './back-office/espaces/espaces.component';
-
-
 import { ClubListComponent } from './back-office/club-list/club-list.component';
 import { ClubDetailComponent } from './back-office/club-detail/club-detail.component';
 import { ClubFormComponent } from './back-office/club-form/club-form.component';
 import { UpdateClubComponent } from './back-office/update-club/update-club.component';
-
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { BackOfficeComponent } from './back-office/back-office.component';
@@ -25,6 +22,10 @@ import { EvenementListComponent } from './back-office/evenement-list/evenement-l
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
+import { CalendarComponent } from './back-office/calendar/calendar.component';
+import { EspaceEventComponent } from './espace-event/espace-event.component';
+import { CalendarFrontComponent } from './calendar-front/calendar-front.component';
+import { ReservationEventComponent } from './reservation-event/reservation-event.component';
 import { ResetPasswordConfirmComponent } from './reset-password-confirm/reset-password-confirm.component';
 import { ReclamationsComponent } from './back-office/reclamations/reclamations.component';
 
@@ -54,13 +55,19 @@ const routes: Routes = [
       { path: 'edit/:id', component: EvenementFormComponent },
       { path: 'detailEvenement/:id', component: EvenementDetailComponent },
       { path: 'updateEvenement/:id', component: EvenementUpdateComponent },
+      { path: 'calendar', component: CalendarComponent },
       { path: 'reclamations', component: ReclamationsComponent }
     ]
   },
+  { path: 'espaceEvent', component: EspaceEventComponent },
+  { path: 'calendarFront', component: CalendarFrontComponent },
+  { path: 'reservationEvent', component: ReservationEventComponent},
   {
     path: 'front-office', component: FrontOfficeComponent, children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent },
+      { path: 'home', component: HomeComponent }
+      
+
     ]
   },
   { path: '**', redirectTo: '/login' },

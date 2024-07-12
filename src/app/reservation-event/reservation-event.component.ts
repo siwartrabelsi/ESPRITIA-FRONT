@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
-import { Reservation } from '../../reservation';
-import { Espace } from '../../espace';
-import { TypeEquipement } from '../../typeEquipement';
-import { ReservationService } from '../../Reservations services/reservation.service';
-import { EspaceService } from '../../Espaces services/espace.service';
+import { Reservation } from '../reservation';
+import { Espace } from '../espace';
+import { TypeEquipement } from '../typeEquipement';
+import { ReservationService } from '../Reservations services/reservation.service';
+import { EspaceService } from '../Espaces services/espace.service';
 import {Chart} from 'chart.js'; // Importer Chart.js
 
-
 @Component({
-  selector: 'app-reservation',
-  templateUrl: './reservation.component.html',
-  styleUrls: ['./reservation.component.css']
+  selector: 'app-reservation-event',
+  templateUrl: './reservation-event.component.html',
+  styleUrls: ['./reservation-event.component.css']
 })
-export class ReservationComponent {
+export class ReservationEventComponent {
   reservations: Reservation[] = [];
   espaces: Espace[] = [];
   selectedReservation: Reservation = new Reservation(
@@ -132,7 +131,7 @@ export class ReservationComponent {
         options: {
           responsive: true,
           // scales: {
-          //   x: {
+          //   xAxes: {
           //     title: {
           //       display: true,
           //       text: 'Espaces'

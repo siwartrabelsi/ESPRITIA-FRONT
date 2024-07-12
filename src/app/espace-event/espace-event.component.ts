@@ -1,19 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-
-
-
-import { Router } from '@angular/router'; // Importer le Router pour la navigation
-import { EspaceService } from '../../Espaces services/espace.service';
-import { Espace } from '../../espace';
-import { TypeEquipement } from '../../typeEquipement';
+import { Component } from '@angular/core';
+import { Espace } from '../espace';
+import { TypeEquipement } from '../typeEquipement';
+import { EspaceService } from '../Espaces services/espace.service';
+import { Router } from '@angular/router';
 import * as L from 'leaflet';
 
 @Component({
-  selector: 'app-espaces',
-  templateUrl: './espaces.component.html',
-  styleUrls: ['./espaces.component.css']
+  selector: 'app-espace-event',
+  templateUrl: './espace-event.component.html',
+  styleUrls: ['./espace-event.component.css']
 })
-export class EspacesComponent implements OnInit {
+export class EspaceEventComponent {
   map: L.Map | undefined;
   espaces: Espace[] = [];
   selectedEspace: Espace = new Espace(0, '', '', 0, '', TypeEquipement.SON, '',0,0, []);
@@ -22,8 +19,6 @@ export class EspacesComponent implements OnInit {
   TypeEquipement = TypeEquipement; 
   selectedFile: File | null = null;
   searchTerm: string = ''; // Déclaration de searchTerm ici
-
-
   constructor(private espaceService: EspaceService , private router: Router) {}
 
   ngOnInit(): void {
