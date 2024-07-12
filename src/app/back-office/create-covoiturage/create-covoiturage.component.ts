@@ -14,10 +14,12 @@ export class CreateCovoiturageComponent implements OnInit {
     lieuDepart: '',
     destination: '',
     nbPlace: 0,
-    status: 'disponible'
+    status: 'disponible',
+    fumeur: 'Non fumeur' // Valeur par défaut pour fumeur
   };
 
   statuses: string[] = ['disponible', 'annulé', 'non_disponible', 'reporté'];
+  fumeurOptions: string[] = ['Fumeur', 'Non fumeur']; // Options pour le champ fumeur
   showErrorMessage = false;
 
   constructor(private covoiturageService: CovoiturageService, private router: Router) {}
@@ -31,7 +33,7 @@ export class CreateCovoiturageComponent implements OnInit {
     }
     this.covoiturageService.addCovoiturage(this.covoiturage).subscribe(() => {
       console.log('Nouveau covoiturage créé avec succès !');
-      this.router.navigate(['/covoiturages']);
+      this.router.navigate(['/create-covoiturage']);
     });
   }
 

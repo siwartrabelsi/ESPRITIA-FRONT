@@ -23,10 +23,14 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { CovoiturageListComponent } from './back-office/covoiturage-list/covoiturage-list.component';
 import { CreateCovoiturageComponent } from './back-office/create-covoiturage/create-covoiturage.component';
 import { EditCovoiturageComponent } from './back-office/edit-covoiturage/edit-covoiturage.component';
+import { CoiturageFrontComponent } from './front-office/coiturage-front/coiturage-front.component';
+
 import { EvenementListComponent } from './back-office/evenement-list/evenement-list.component';
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
+import { CovoiturageService } from './services/covoiturage.service';
+import { ListCovoiturageFontComponent } from './front-office/list-covoiturage-font/list-covoiturage-font.component';
 import { PlanningEventComponent } from './back-office/planning-event/planning-event.component';
 import { ParticiperEventUserComponent } from './front-office/participer-event-user/participer-event-user.component';
 import { UserEventsComponent } from './front-office/user-events/user-events.component';
@@ -102,6 +106,8 @@ import { ReclamationsComponent } from './back-office/reclamations/reclamations.c
     EvenementDetailComponent,
     EvenementFormComponent,
     EvenementUpdateComponent,
+    CoiturageFrontComponent,
+    ListCovoiturageFontComponent,     
     PlanningEventComponent,
     ParticiperEventUserComponent,
     UserEventsComponent,
@@ -123,7 +129,6 @@ import { ReclamationsComponent } from './back-office/reclamations/reclamations.c
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FullCalendarModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     FullCalendarModule,

@@ -39,6 +39,7 @@
     "@ngx-translate/http-loader": "^8.0.0",
     "@types/chart.js": "^2.9.41",
     "bootstrap": "^5.2.3",
+    "ngx-chartjs": "^0.0.1",
     "calendarjs": "^0.2.1",
     "chart.js": "^4.4.3",
     "install": "^0.13.0",

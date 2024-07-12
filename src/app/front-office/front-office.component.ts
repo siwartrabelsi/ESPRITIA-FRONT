@@ -24,9 +24,9 @@ export class FrontOfficeComponent {
     if (localStorage.getItem('role') === 'Admin') {
       this.router.navigate(['/back-office']);
     }
-    else if (localStorage.getItem('role') === 'President' || localStorage.getItem('role') === 'Membre' || localStorage.getItem('role') === 'Conducteur' || localStorage.getItem('role') === 'Passager' || localStorage.getItem('role') === 'Organisateur') {
-      this.router.navigate(['/front-office']);
-    }
+    // else if (localStorage.getItem('role') === 'President' || localStorage.getItem('role') === 'Membre' || localStorage.getItem('role') === 'Conducteur' || localStorage.getItem('role') === 'Passager' || localStorage.getItem('role') === 'Organisateur') {
+    //   this.router.navigate(['/front-office']);
+    // }
   }
   handleFileInput(event: Event) {
     const inputElement = event.target as HTMLInputElement;
@@ -41,6 +41,7 @@ export class FrontOfficeComponent {
     localStorage.removeItem('role');
     this.router.navigate(['/']);
   }
+
   onSubmit(): void {
     if (this.reclamationForm.valid) {
       const descriptionControl = this.reclamationForm.get('description')?.value;
