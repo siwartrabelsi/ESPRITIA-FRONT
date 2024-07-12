@@ -1,0 +1,68 @@
+/* Changer la couleur de fond du conteneur du calendrier */
+.calendar-container {
+  background-color: #ffffff; /* Fond blanc */
+  padding: 20px; /* Ajoute du padding autour du calendrier */
+}
+
+/* Changer la couleur de fond du calendrier */
+.fc-theme-standard {
+  background-color: #ffffff; /* Fond blanc */
+  color: #000000; /* Couleur du texte noir */
+}
+
+/* Changer la couleur de fond des jours */
+.fc-daygrid-day {
+  background-color: #ffffff; /* Fond blanc pour les jours */
+  border: 1px solid #e0e0e0; /* Couleur de la bordure des jours */
+  color: #000000; /* Couleur du texte noir */
+}
+
+/* Changer la couleur des événements */
+.fc-event {
+  background-color: #4caf50; /* Couleur pour les événements */
+  border-color: #4caf50; /* Couleur de la bordure des événements */
+  color: white; /* Couleur du texte des événements */
+  border-radius: 4px; /* Coins arrondis pour les événements */
+  padding: 2px 4px; /* Padding interne pour les événements */
+}
+
+/* Changer la couleur des événements au survol */
+.fc-event:hover {
+  background-color: #45a049; /* Couleur pour les événements au survol */
+  border-color: #45a049; /* Couleur de la bordure des événements au survol */
+}
+
+/* Changer la couleur du texte des jours */
+.fc-daygrid-day-number {
+  color: #000000; /* Couleur du texte des jours noir */
+  font-weight: bold; /* Texte en gras */
+}
+
+/* Style pour le header */
+.fc-toolbar-title {
+  color: #000000; /* Couleur du texte du titre noir */
+  font-size: 1.25em; /* Taille de la police du titre */
+}
+
+.fc-button {
+  background-color: #4caf50; /* Couleur de fond des boutons */
+  border-color: #4caf50; /* Couleur de la bordure des boutons */
+  color: white; /* Couleur du texte des boutons */
+  border-radius: 4px; /* Coins arrondis pour les boutons */
+  padding: 5px 10px; /* Padding interne pour les boutons */
+}
+
+.fc-button:hover {
+  background-color: #45a049; /* Couleur de fond des boutons au survol */
+  border-color: #45a049; /* Couleur de la bordure des boutons au survol */
+}
+
+.fc-button-primary:not(:disabled).fc-button-active {
+  background-color: #45a049; /* Couleur de fond des boutons actifs */
+  border-color: #45a049; /* Couleur de la bordure des boutons actifs */
+}
+
+.fc-button-primary:not(:disabled):active {
+  background-color: #388e3c; /* Couleur de fond des boutons pressés */
+  border-color: #388e3c; /* Couleur de la bordure des boutons pressés */
+}

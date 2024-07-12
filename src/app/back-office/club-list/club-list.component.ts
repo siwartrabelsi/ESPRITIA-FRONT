@@ -59,7 +59,7 @@ export class ClubListComponent implements OnInit {
         }
       );
     } else {
-      this.getClubs(); // Recharge la liste complète si le champ de recherche est vide
+      this.getClubs();
     }
   }
 
@@ -91,15 +91,13 @@ export class ClubListComponent implements OnInit {
   getTotalClubCount(): number {
     return this.clubs.length;
   }
-  
+
   getTotalLikesCount(): number {
-    // Calculer le total des likes à partir des clubs
     return this.clubs.reduce((totalLikes, club) => totalLikes + club.nbLikes, 0);
   }
-  
+
   getTotalDislikesCount(): number {
-    // Calculer le total des dislikes à partir des clubs
     return this.clubs.reduce((totalDislikes, club) => totalDislikes + club.nbDislikes, 0);
   }
-  
+
 }

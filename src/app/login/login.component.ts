@@ -30,6 +30,7 @@ export class LoginComponent {
       // Handle successful registration
       console.log('Signin successful:', response.user.role);
       localStorage.setItem('role', response.user.role);
+      localStorage.setItem('id', response.user.id);
       localStorage.setItem('accessToken', response.token);
       if (response.user.role === 'Admin') {
         this.router.navigate(['/back-office']);

@@ -3,9 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\evenement-detail",
-    "\\src\\app\\evenement-list"
+    "\\src\\app\\back-office",
+    "\\src\\app\\back-office\\dashboard",
+    "\\src\\app\\back-office\\evenement-detail",
+    "\\src\\app\\back-office\\evenement-form",
+    "\\src\\app\\back-office\\evenement-list",
+    "\\src\\app\\back-office\\evenement-update",
+    "\\src\\app\\front-office"
   ],
-  "SelectedNode": "\\src\\app\\app.module.ts",
+  "SelectedNode": "\\src\\app\\evenement.service.ts",
   "PreviewInSolutionExplorer": false
 }

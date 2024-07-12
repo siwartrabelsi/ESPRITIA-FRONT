@@ -32,7 +32,7 @@ export class SignupComponent {
       motDePasse: this.motDePasse,
       role: this.role
     };
-    
+
     this.authService.signup(signupRequest).subscribe(response => {
       // Handle successful registration
       console.log('Registration successful:', response);

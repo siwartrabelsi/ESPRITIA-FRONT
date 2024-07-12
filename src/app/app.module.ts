@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ClubListComponent } from './back-office/club-list/club-list.component';
 import { ClubDetailComponent } from './back-office/club-detail/club-detail.component';
@@ -28,7 +28,14 @@ import { EvenementListComponent } from './back-office/evenement-list/evenement-l
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
-
+import { PlanningEventComponent } from './back-office/planning-event/planning-event.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { ParticiperEventUserComponent } from './front-office/participer-event-user/participer-event-user.component';
+import { UserEventsComponent } from './front-office/user-events/user-events.component';
+import { EventClubComponent } from './back-office/event-club/event-club.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// Importez BrowserAnimationsModule depuis @angular/platform-browser/animations
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +60,11 @@ import { EvenementDetailComponent } from './back-office/evenement-detail/eveneme
     EvenementListComponent,
     EvenementDetailComponent,
     EvenementFormComponent,
-    EvenementUpdateComponent
+    EvenementUpdateComponent,
+    PlanningEventComponent,
+    ParticiperEventUserComponent,
+    UserEventsComponent,
+    EventClubComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,15 +72,21 @@ import { EvenementDetailComponent } from './back-office/evenement-detail/eveneme
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
+
+    FullCalendarModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor, // Add your interceptor service here
-      multi: true
-    }
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}

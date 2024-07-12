@@ -1,11 +1,27 @@
-<div *ngIf="evenement" class="container">
-  <h2>{{ evenement.nom }}</h2>
-  <p>Date: {{ evenement.date }}</p>
-  <!-- <p>Organisateur: {{ evenement.organisateur }}</p> -->
-  <p>Statut: {{ evenement.statut }}</p>
-  <img *ngIf="evenement.affiche" [src]="'assets/' + evenement.affiche"
-    alt="Affiche de l'événement" style="max-width: 100px;">
+<div *ngIf="evenement" class="container mt-4 p-3 border rounded shadow-sm">
+  <h2 class="mb-3">{{ evenement.nom }}</h2><img *ngIf="evenement.affiche"
+    [src]="'assets/' + evenement.affiche"
+    alt="Affiche de l'événement" class="img-thumbnail me-3"
+    style="max-width: 100px;">
+  <p><strong>Date :</strong> {{ evenement.date | date: 'longDate' }}</p>
+  <!-- <p><strong>Organisateur :</strong> {{ evenement.organisateur }}</p> -->
+  <p><strong>Statut :</strong> {{ evenement.statut }}</p>
+  <p><strong>Capacité :</strong> {{ evenement.capacite }}</p>
+  <p><strong>nombre des participants :</strong> {{ evenement.nbrParticipant
+    }}</p>
+  <div *ngIf="evenement.siteweb">
+    <p><strong>Siteweb :</strong> {{ evenement.siteweb }}</p>
+    <h3>Clubs affectés</h3>
+    <ul>
+      <li *ngFor="let club of evenement.clubs">
+        {{ club.nom }}
+      </li>
+    </ul>
+  </div>
+  <!-- Affiche l'image de l'événement -->
+  <div class="d-flex align-items-center mb-3">
 
-
-
+    <button (click)="goToUpdateEvenement(evenement.id)"
+      class="btn btn-primary btn-sm">Modifier Evenement</button>
+  </div>
 </div>

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EspacesComponent } from './back-office/espaces/espaces.component';
 
-
 import { ClubListComponent } from './back-office/club-list/club-list.component';
 import { ClubDetailComponent } from './back-office/club-detail/club-detail.component';
 import { ClubFormComponent } from './back-office/club-form/club-form.component';
@@ -25,14 +24,21 @@ import { EvenementListComponent } from './back-office/evenement-list/evenement-l
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
+import { PlanningEventComponent } from './back-office/planning-event/planning-event.component';
+import { ParticiperEventUserComponent } from './front-office/participer-event-user/participer-event-user.component';
+import { UserEventsComponent } from './front-office/user-events/user-events.component';
+import { EventClubComponent } from './back-office/event-club/event-club.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forget-password', component: ForgetPasswordComponent },
+
   {
-    path: 'back-office', component: BackOfficeComponent, children: [
+    path: 'back-office',
+    component: BackOfficeComponent,
+    children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'users', component: UsersComponent },
@@ -50,20 +56,27 @@ const routes: Routes = [
       { path: 'createEvent', component: EvenementFormComponent },
       { path: 'edit/:id', component: EvenementFormComponent },
       { path: 'detailEvenement/:id', component: EvenementDetailComponent },
-      { path: 'updateEvenement/:id', component: EvenementUpdateComponent }
-    ]
+      { path: 'updateEvenement/:id', component: EvenementUpdateComponent },
+      { path: 'planning', component: PlanningEventComponent },
+
+      { path: 'affecterclubevent', component: EventClubComponent },
+    ],
   },
   {
-    path: 'front-office', component: FrontOfficeComponent, children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
+    path: 'front-office',
+    component: FrontOfficeComponent,
+    children: [
+      // { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-    ]
+      { path: 'participerEvenement', component: ParticiperEventUserComponent },
+      { path: 'userEvent', component: UserEventsComponent },
+    ],
   },
   { path: '**', redirectTo: '/login' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
