@@ -22,6 +22,16 @@ export class UserService {
         })
       );
   }
+  displayLogs(): Observable<User[]> {
+    return this.http.get<any>(`${this.apiUrl}/logs`)
+      .pipe(
+        map(response => response),
+        catchError(error => {
+          console.error('Error fetching logs:', error);
+          return throwError(error);
+        })
+      );
+  }
   bannir(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/banUnban/${id}`)
       .pipe(
