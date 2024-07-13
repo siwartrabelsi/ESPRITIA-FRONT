@@ -53,5 +53,9 @@ export class CovoiturageService {
 
     return this.http.get<Covoiturage[]>(`${this.apiUrl}/search`, { params });
   }
+
+  sendReservationEmail(covoiturage: Covoiturage): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}/sendReservationEmail`, covoiturage);
+  }
   
 }

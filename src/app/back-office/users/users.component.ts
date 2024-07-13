@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/back-office/users/Dto/User';
 import { UserService } from 'src/app/back-office/users/user.service';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-users',
@@ -9,6 +11,7 @@ import { UserService } from 'src/app/back-office/users/user.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent {
+  @ViewChild('usersTable') usersTable!: ElementRef;
   public users: User[] = [];
   public isLoading = false;
   public errorOccurred = false;
@@ -17,6 +20,20 @@ export class UsersComponent {
 
   ngOnInit(): void {
     this.displayUsers();
+  }
+  exportAsPDF(): void {
+    const doc = new jsPDF();
+    const table = this.usersTable.nativeElement;
+
+    html2canvas(table).then((canvas) => {
+      // Convert the canvas to an image and add it to the PDF
+      const imgData = canvas.toDataURL('image/png');
+      const imgWidth = 210; // mm (A4 landscape)
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+      doc.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+      doc.save('users-list.pdf');
+    });
   }
   banUnban(id: number) {
     this.userService.bannir(id).subscribe(

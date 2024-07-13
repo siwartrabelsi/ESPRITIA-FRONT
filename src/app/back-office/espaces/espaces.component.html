@@ -1,109 +1,108 @@
+<h2 class="listespaces-title">Liste des espaces</h2><br>
+<div class="search-container mb-4">
+  <mat-form-field appearance="fill">
+    <mat-label>Entrez le nom de l'espace</mat-label>
+    <input matInput [(ngModel)]="searchTerm" placeholder="Rechercher">
+  </mat-form-field>
+  <button mat-raised-button class="button-red" (click)="searchEspaces()">Rechercher</button>
+</div>
+<div>
+  <a routerLink="/back-office/calendar">Calendar</a>
+</div>
 
-  <h2 class="listespaces-title">Liste des espaces</h2><br>
-  <div class="search-container mb-4">
-    <mat-form-field appearance="fill">
-      <mat-label>Entrez le nom de l'espace</mat-label>
-      <input matInput [(ngModel)]="searchTerm" placeholder="Rechercher">
-    </mat-form-field>
-    <button mat-raised-button class="button-red" (click)="searchEspaces()">Rechercher</button>
-  </div>
-  <div>
-    <a routerLink="/back-office/calendar">Calendar</a>
-  </div>
-  
 
-  <div *ngIf="espaces" class="listespaces-container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Nom</th>
-          <th>Description</th>
-          <th>Capacité</th>
-          <th>Adresse</th>
-          <th>Équipement</th>
-          <th>Photo</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let espace of espaces">
-          <td>{{ espace.nom }}</td>
-          <td>{{ espace.description }}</td>
-          <td>{{ espace.capacite }}</td>
-          <td>{{ espace.adresse }}</td>
-          <td>{{ espace.equipement }}</td>
-          <td>
-            <div class="image-container">
-              <img [src]="espace.photo" alt="Photo de l'espace" *ngIf="espace.photo">
-            </div>
-          </td>
-          <td>
-            <button mat-raised-button class="button-red" style="margin-top: 10px;" (click)="editEspace(espace)">
-              edit
-            </button>
-           
-            <button mat-raised-button class="button-red" style="margin-top: 10px;" (click)="deleteEspace(espace.id)">
-              delete
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
-  
-  
-  <div class="bttn">
-    <button mat-raised-button class="button-red" (click)="showAddEspaceModal()">Ajouter un espace</button>
-  </div>
-  
-  <div *ngIf="showModal" class="modal">
-    <div class="modal-content">
-      <span class="close" (click)="closeModal()">&times;</span>
-      <h2 style="text-align: center;">{{ editMode ? 'Modifier Espace' : 'Ajouter un Espace' }}</h2>
-<br>
-<form (ngSubmit)="submitForm()" style="margin-bottom: 20px;">
-  <span style="display: inline-block; margin-right: 10px;">
-    <label for="nom" style="margin-right: 10px;">Nom de l'espace:</label>
-    <input matInput type="text" [(ngModel)]="selectedEspace.nom" name="nom" required>
-  </span>
-  <span style="display: inline-block; margin-right: 10px;">
-    <label for="description" style="margin-right: 10px;">Description:</label>
-    <textarea matInput [(ngModel)]="selectedEspace.description" name="description" required></textarea>
-  </span>
-  <span style="display: inline-block; margin-right: 10px;">
-    <label for="capacite" style="margin-right: 10px;">Capacité:</label>
-    <input type="number" id="capacite" [(ngModel)]="selectedEspace.capacite" name="capacite" required>
-  </span>
-  <span style="display: inline-block; margin-right: 10px;">
-    <label for="adresse" style="margin-right: 10px;">Adresse:</label>
-    <input type="text" id="adresse" [(ngModel)]="selectedEspace.adresse" name="adresse" required>
-  </span>
-  <span style="display: inline-block; margin-right: 10px;">
-    <label for="equipement" style="margin-right: 10px;">Équipement:</label>
-    <select id="equipement" [(ngModel)]="selectedEspace.equipement" name="equipement" required>
-      <option *ngFor="let equip of TypeEquipement | keyvalue" [ngValue]="equip.key">{{ equip.key }}</option>
-    </select>
-  </span>
-  <span style="display: inline-block; margin-right: 10px;">
-    <label for="latitude" style="margin-right: 10px;">Latitude:</label>
-    <input type="number" id="latitude" [(ngModel)]="selectedEspace.latitude" name="latitude" required>
-  </span>
-  <span style="display: inline-block; margin-right: 10px;">
-    <label for="longitude" style="margin-right: 10px;">Longitude:</label>
-    <input type="number" id="longitude" [(ngModel)]="selectedEspace.longitude" name="longitude" required>
-  </span>
-  <span style="display: inline-block; margin-right: 10px;">
-    <label for="photo" style="margin-right: 10px;">Photo:</label>
-    <input type="file" id="photo" (change)="onFileSelected($event)">
-  </span>
-  
-  <button mat-raised-button class="button-red" style="margin-top: 10px;" type="submit">{{ editMode ? 'Modifier' : 'Ajouter' }}</button>
-</form>
+<div *ngIf="espaces" class="listespaces-container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Capacité</th>
+        <th>Adresse</th>
+        <th>Équipement</th>
+        <th>Photo</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let espace of espaces">
+        <td>{{ espace.nom }}</td>
+        <td>{{ espace.description }}</td>
+        <td>{{ espace.capacite }}</td>
+        <td>{{ espace.adresse }}</td>
+        <td>{{ espace.equipement }}</td>
+        <td>
+          <div class="image-container">
+            <img [src]="espace.photo" alt="Photo de l'espace" *ngIf="espace.photo">
+          </div>
+        </td>
+        <td>
+          <button mat-raised-button class="button-red" style="margin-top: 10px;" (click)="editEspace(espace)">
+            edit
+          </button>
 
-      
-    </div>
+          <button mat-raised-button class="button-red" style="margin-top: 10px;" (click)="deleteEspace(espace.id)">
+            delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+<div class="bttn">
+  <button mat-raised-button class="button-red" (click)="showAddEspaceModal()">Ajouter un espace</button>
+</div>
+
+<div *ngIf="showModal" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2 style="text-align: center;">{{ editMode ? 'Modifier Espace' : 'Ajouter un Espace' }}</h2>
+    <br>
+    <form (ngSubmit)="submitForm()" style="margin-bottom: 20px;">
+      <span style="display: inline-block; margin-right: 10px;">
+        <label for="nom" style="margin-right: 10px;">Nom de l'espace:</label>
+        <input matInput type="text" [(ngModel)]="selectedEspace.nom" name="nom" required>
+      </span>
+      <span style="display: inline-block; margin-right: 10px;">
+        <label for="description" style="margin-right: 10px;">Description:</label>
+        <textarea matInput [(ngModel)]="selectedEspace.description" name="description" required></textarea>
+      </span>
+      <span style="display: inline-block; margin-right: 10px;">
+        <label for="capacite" style="margin-right: 10px;">Capacité:</label>
+        <input type="number" id="capacite" [(ngModel)]="selectedEspace.capacite" name="capacite" required>
+      </span>
+      <span style="display: inline-block; margin-right: 10px;">
+        <label for="adresse" style="margin-right: 10px;">Adresse:</label>
+        <input type="text" id="adresse" [(ngModel)]="selectedEspace.adresse" name="adresse" required>
+      </span>
+      <span style="display: inline-block; margin-right: 10px;">
+        <label for="equipement" style="margin-right: 10px;">Équipement:</label>
+        <select id="equipement" [(ngModel)]="selectedEspace.equipement" name="equipement" required>
+          <option *ngFor="let equip of TypeEquipement | keyvalue" [ngValue]="equip.key">{{ equip.key }}</option>
+        </select>
+      </span>
+      <span style="display: inline-block; margin-right: 10px;">
+        <label for="latitude" style="margin-right: 10px;">Latitude:</label>
+        <input type="number" id="latitude" [(ngModel)]="selectedEspace.latitude" name="latitude" required>
+      </span>
+      <span style="display: inline-block; margin-right: 10px;">
+        <label for="longitude" style="margin-right: 10px;">Longitude:</label>
+        <input type="number" id="longitude" [(ngModel)]="selectedEspace.longitude" name="longitude" required>
+      </span>
+      <span style="display: inline-block; margin-right: 10px;">
+        <label for="photo" style="margin-right: 10px;">Photo:</label>
+        <input type="file" id="photo" (change)="onFileSelected($event)">
+      </span>
+
+      <button mat-raised-button class="button-red" style="margin-top: 10px;" type="submit">{{ editMode ? 'Modifier' :
+        'Ajouter' }}</button>
+    </form>
+
+
   </div>
-  <!-- Carte -->
-  <div id="map" style="height: 500px; margin-top: 20px;"></div>
-  
+</div>
+<!-- Carte -->
+<div id="map" style="height: 500px; margin-top: 20px;"></div>

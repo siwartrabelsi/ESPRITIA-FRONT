@@ -32,8 +32,7 @@
               "qrcode"
             ],
             "scripts": [
-              "node_modules/leaflet/dist/leaflet.js",
-              "node_modules/chart.js/dist/Chart.min.js"
+              "node_modules/leaflet/dist/leaflet.js"
             ]
           },
           "configurations": {

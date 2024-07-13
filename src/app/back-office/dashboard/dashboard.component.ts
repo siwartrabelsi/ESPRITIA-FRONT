@@ -110,9 +110,6 @@ export class DashboardComponent implements OnInit {
         data: this.chartData,
         options: {
           responsive: true,
-          legend: {
-            position: 'top', // Adjust legend position
-          },
           animation: {
             animateScale: true,
             animateRotate: true
@@ -130,9 +127,6 @@ export class DashboardComponent implements OnInit {
         data: this.chartData2,
         options: {
           responsive: true,
-          legend: {
-            position: 'top', // Adjust legend position as needed
-          },
           animation: {
             animateScale: true,
             animateRotate: true

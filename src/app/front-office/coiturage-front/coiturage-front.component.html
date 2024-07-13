@@ -1,37 +1,39 @@
+<div class="p-5">
 <div class="search-form">
     <label for="searchFumeur">Fumeur:</label>
-    <select id="searchFumeur" class="custom-select" [(ngModel)]="searchFumeur">
+    <select id="searchFumeur" class="form-control" [(ngModel)]="searchFumeur">
       <option value="">Tous</option>
       <option value="Fumeur">Fumeur</option>
       <option value="Non fumeur">Non fumeur</option>
     </select>
   
     <label for="searchDate">Date de départ:</label>
-    <input type="date" id="searchDate" class="custom-input" [(ngModel)]="searchDate">
+    <input type="date" id="searchDate" class="form-control" [(ngModel)]="searchDate">
   
     <label for="searchLieuDepart">Départ:</label>
-    <input type="text" id="searchLieuDepart" class="custom-input" [(ngModel)]="searchLieuDepart">
+    <input type="text" id="searchLieuDepart" class="form-control" [(ngModel)]="searchLieuDepart">
   
     <label for="searchDestination">Destination:</label>
-    <input type="text" id="searchDestination" class="custom-input" [(ngModel)]="searchDestination">
+    <input type="text" id="searchDestination" class="form-control" [(ngModel)]="searchDestination">
   
     <button class="custom-button" (click)="searchCovoiturages()">Rechercher</button>
   </div>
-<div class="card-container">
-    <div *ngFor="let covoiturage of covoiturages" class="card">
-      <div class="card-header">
-        <h3>{{ covoiturage.lieuDepart }} &rarr; {{ covoiturage.destination }}</h3>
+  <div class="card-container">
+    <div *ngFor="let covoiturage of covoiturages" class="card mb-3">
+      <div class="card-header bg-primary text-white">
+        <h3 class="mb-0">{{ covoiturage.lieuDepart }} &rarr; {{ covoiturage.destination }}</h3>
       </div>
       <div class="card-body">
-        <p><strong>Date de départ:</strong> {{ covoiturage.heureDepart | date:'medium' }}</p>
-        <p><strong>Places disponibles:</strong> {{ covoiturage.nbPlace }}</p>
-        <p><strong>Statut:</strong> {{ covoiturage.status }}</p>
-        <p><strong>Fumeur:</strong> {{ covoiturage.fumeur }}</p>
+        <p class="card-text"><strong>Date de départ:</strong> {{ covoiturage.heureDepart | date:'medium' }}</p>
+        <p class="card-text"><strong>Places disponibles:</strong> {{ covoiturage.nbPlace }}</p>
+        <p class="card-text"><strong>Statut:</strong> {{ covoiturage.status }}</p>
+        <p class="card-text"><strong>Fumeur:</strong> {{ covoiturage.fumeur }}</p>
       </div>
       <div class="card-footer">
-       
-        <button (click)="reservePlace(covoiturage)">Reserver</button>
+        <button class="btn btn-primary" (click)="reservePlace(covoiturage)">Réserver</button>
+        <!-- <button class="btn btn-outline-secondary ml-2" (click)="viewDetails(covoiturage.id)">Détails</button> -->
       </div>
     </div>
   </div>
   
+</div>

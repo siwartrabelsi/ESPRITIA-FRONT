@@ -8,7 +8,7 @@ import { EspaceService } from 'src/app/Espaces services/espace.service';
 import { ReservationService } from 'src/app/Reservations services/reservation.service';
 
 @Component({
-  selector: 'app-calendar',
+  selector: 'app-eya-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })

@@ -1,10 +1,10 @@
 <div *ngIf="covoiturage">
     <h2>Détails du Covoiturage</h2>
-    <p><strong>Lieu de départ:</strong> {{ covoiturage.lieuDepart }}</p>
-    <p><strong>Destination:</strong> {{ covoiturage.destination }}</p>
-    <p><strong>Date de départ:</strong> {{ covoiturage.heureDepart | date:'medium' }}</p>
-    <p><strong>Places disponibles:</strong> {{ covoiturage.nbPlace }}</p>
-    <p><strong>Statut:</strong> {{ covoiturage.status }}</p>
-    <p><strong>Fumeur:</strong> {{ covoiturage.fumeur }}</p>
+    <p><strong>Lieu de départ:</strong> {{ covoiturage?.lieuDepart }}</p>
+    <p><strong>Destination:</strong> {{ covoiturage?.destination }}</p>
+    <p><strong>Date de départ:</strong> {{ covoiturage?.heureDepart }}</p>
+    <p><strong>Places disponibles:</strong> {{ covoiturage?.nbPlace }}</p>
+    <p><strong>Statut:</strong> {{ covoiturage?.status }}</p>
+    <p><strong>Fumeur:</strong> {{ covoiturage?.fumeur }}</p>
   </div>
   

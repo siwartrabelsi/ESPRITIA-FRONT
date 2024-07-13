@@ -46,6 +46,7 @@ import { CalendarFrontComponent } from './calendar-front/calendar-front.componen
 import { ReservationEventComponent } from './reservation-event/reservation-event.component';
 import { ResetPasswordConfirmComponent } from './reset-password-confirm/reset-password-confirm.component';
 import { ReclamationsComponent } from './back-office/reclamations/reclamations.component';
+import { CovoiturageDetailsComponent } from './front-office/covoiturage-details/covoiturage-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -75,7 +76,7 @@ const routes: Routes = [
       { path: 'edit-event/:id', component: EvenementUpdateComponent },
       { path: 'detail-evenement/:id', component: EvenementDetailComponent },
       { path: 'update-evenement/:id', component: EvenementUpdateComponent },
-
+      { path: 'reclamations', component: ReclamationsComponent }
     ]
   },
 
@@ -85,6 +86,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'coiturage-front', component: CoiturageFrontComponent },
       { path: 'covoiturage-list', component: ListCovoiturageFontComponent },
+      { path: 'details/:id', component: CovoiturageDetailsComponent },
       { path: 'create', component: CreateCovoiturageComponent },
       { path: 'edit/:id', component: EditCovoiturageComponent },
       { path: 'listEvent', component: EvenementListComponent },
@@ -123,7 +125,6 @@ const routes: Routes = [
   { path: 'reservationEvent', component: ReservationEventComponent},
    {path: 'club',component:ClubComponent},
   {path: 'participer',component:ParticiperComponent},
-  {path:'eventformation',component:EventformationComponent},
   {path:'detailclub/:id',component:DetailclubComponent},
   {
     path: 'front-office', component: FrontOfficeComponent, children: [

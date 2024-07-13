@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClubService } from '../../club.service';
 import { Club } from '../../club';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
-import { Chart } from 'chart.js';
+import { Chart, registerables } from 'chart.js';
 @Component({
   selector: 'app-club-list',
   templateUrl: './club-list.component.html',

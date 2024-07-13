@@ -24,19 +24,16 @@ import { CovoiturageListComponent } from './back-office/covoiturage-list/covoitu
 import { CreateCovoiturageComponent } from './back-office/create-covoiturage/create-covoiturage.component';
 import { EditCovoiturageComponent } from './back-office/edit-covoiturage/edit-covoiturage.component';
 import { CoiturageFrontComponent } from './front-office/coiturage-front/coiturage-front.component';
-
 import { EvenementListComponent } from './back-office/evenement-list/evenement-list.component';
 import { EvenementUpdateComponent } from './back-office/evenement-update/evenement-update.component';
 import { EvenementFormComponent } from './back-office/evenement-form/evenement-form.component';
 import { EvenementDetailComponent } from './back-office/evenement-detail/evenement-detail.component';
-import { CovoiturageService } from './services/covoiturage.service';
 import { ListCovoiturageFontComponent } from './front-office/list-covoiturage-font/list-covoiturage-font.component';
 import { PlanningEventComponent } from './back-office/planning-event/planning-event.component';
 import { ParticiperEventUserComponent } from './front-office/participer-event-user/participer-event-user.component';
 import { UserEventsComponent } from './front-office/user-events/user-events.component';
 import { EventClubComponent } from './back-office/event-club/event-club.component';
 import { ToastrModule } from 'ngx-toastr';
-// Importez BrowserAnimationsModule depuis @angular/platform-browser/animations
 import { ClubMapComponent } from './club-map/club-map.component';
 import { FormationListComponent } from './back-office/formation-list/formation-list.component';
 import { AddFormationComponent } from './back-office/add-formation/add-formation.component';
@@ -68,6 +65,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReservationEventComponent } from './reservation-event/reservation-event.component';
 import { ResetPasswordConfirmComponent } from './reset-password-confirm/reset-password-confirm.component';
 import { ReclamationsComponent } from './back-office/reclamations/reclamations.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -123,6 +121,7 @@ import { ReclamationsComponent } from './back-office/reclamations/reclamations.c
     ReclamationsComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

@@ -131,21 +131,21 @@ export class ReservationComponent {
         },
         options: {
           responsive: true,
-          // scales: {
-          //   x: {
-          //     title: {
-          //       display: true,
-          //       text: 'Espaces'
-          //     }
-          //   },
-          //   y: {
-          //     beginAtZero: true,
-          //     title: {
-          //       display: true,
-          //       text: 'Nombre de réservations'
-          //     }
-          //   }
-          // }
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Espaces'
+              }
+            },
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Nombre de réservations'
+              }
+            }
+          }
         }
       });
     }

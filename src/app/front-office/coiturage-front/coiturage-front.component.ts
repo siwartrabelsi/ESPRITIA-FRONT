@@ -25,6 +25,7 @@ export class CoiturageFrontComponent implements OnInit {
     this.covoiturageService.getAllCovoiturages().subscribe(
       (data: Covoiturage[]) => {
         this.covoiturages = data;
+        console.log(data);
       },
       (error) => {
         console.error('Error fetching covoiturages', error);
